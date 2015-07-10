@@ -147,7 +147,6 @@
     <Compile Include="Player.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PlayerGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Referee.cs">
@@ -156,6 +155,7 @@
     <Compile Include="RefereePair.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TeamPlayer.cs" />
     <Compile Include="User.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>

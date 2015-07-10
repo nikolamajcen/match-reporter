@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MatchReporter
 {
-    class PlayerGame
+    class TeamPlayer
     {
-        public int PlayerGameId { get; set; }
+        public int TeamPlayerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

@@ -60,8 +60,6 @@
             this.btnWarning = new System.Windows.Forms.Button();
             this.btn7mGoal = new System.Windows.Forms.Button();
             this.btnGoal = new System.Windows.Forms.Button();
-            this.dgvTeamB = new System.Windows.Forms.DataGridView();
-            this.dgvTeamA = new System.Windows.Forms.DataGridView();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblTimeSeconds = new System.Windows.Forms.Label();
             this.lblTimeMinutes = new System.Windows.Forms.Label();
@@ -86,11 +84,11 @@
             this.lblTeamB = new System.Windows.Forms.Label();
             this.lblTeamA = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
+            this.dgvTeamA = new System.Windows.Forms.DataGridView();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).BeginInit();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).BeginInit();
             this.SuspendLayout();
             // 
             // menuMainMenu
@@ -120,25 +118,25 @@
             // novaToolStripMenuItem
             // 
             this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.novaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.novaToolStripMenuItem.Text = "Nova...";
             // 
             // otvoriToolStripMenuItem
             // 
             this.otvoriToolStripMenuItem.Name = "otvoriToolStripMenuItem";
-            this.otvoriToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.otvoriToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.otvoriToolStripMenuItem.Text = "Otvori...";
             // 
             // spremiToolStripMenuItem
             // 
             this.spremiToolStripMenuItem.Name = "spremiToolStripMenuItem";
-            this.spremiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.spremiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.spremiToolStripMenuItem.Text = "Spremi...";
             // 
             // zaključiToolStripMenuItem
             // 
             this.zaključiToolStripMenuItem.Name = "zaključiToolStripMenuItem";
-            this.zaključiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.zaključiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zaključiToolStripMenuItem.Text = "Zaključi...";
             // 
             // podaciToolStripMenuItem
@@ -158,7 +156,7 @@
             this.unosIgračaToolStripMenuItem,
             this.unosSlužbenihOsobaMomčadiToolStripMenuItem});
             this.unosPodatakaToolStripMenuItem.Name = "unosPodatakaToolStripMenuItem";
-            this.unosPodatakaToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.unosPodatakaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unosPodatakaToolStripMenuItem.Text = "Unos...";
             // 
             // unosToolStripMenuItem
@@ -186,7 +184,7 @@
             this.promjenaIgračaToolStripMenuItem,
             this.promjenaSlužbenihOsobaToolStripMenuItem});
             this.promjenaPodatakaToolStripMenuItem.Name = "promjenaPodatakaToolStripMenuItem";
-            this.promjenaPodatakaToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.promjenaPodatakaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.promjenaPodatakaToolStripMenuItem.Text = "Promjena...";
             // 
             // promjenaMomčadiToolStripMenuItem
@@ -214,7 +212,7 @@
             this.brisanjeIgračaToolStripMenuItem,
             this.brisanjeSlužbenihOsobaToolStripMenuItem});
             this.brisanjePodatakaToolStripMenuItem.Name = "brisanjePodatakaToolStripMenuItem";
-            this.brisanjePodatakaToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.brisanjePodatakaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.brisanjePodatakaToolStripMenuItem.Text = "Brisanje...";
             // 
             // brisanjeMomčadiToolStripMenuItem
@@ -277,14 +275,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.AutoScroll = true;
             this.panelMain.AutoSize = true;
+            this.panelMain.Controls.Add(this.dgvTeamA);
             this.panelMain.Controls.Add(this.btnDisqualificationReport);
             this.panelMain.Controls.Add(this.btnDisqualification);
             this.panelMain.Controls.Add(this.btnSuspension);
             this.panelMain.Controls.Add(this.btnWarning);
             this.panelMain.Controls.Add(this.btn7mGoal);
             this.panelMain.Controls.Add(this.btnGoal);
-            this.panelMain.Controls.Add(this.dgvTeamB);
-            this.panelMain.Controls.Add(this.dgvTeamA);
             this.panelMain.Controls.Add(this.panelTop);
             this.panelMain.Location = new System.Drawing.Point(0, 27);
             this.panelMain.Name = "panelMain";
@@ -344,34 +341,6 @@
             this.btnGoal.TabIndex = 23;
             this.btnGoal.Text = "Pogodak";
             this.btnGoal.UseVisualStyleBackColor = true;
-            // 
-            // dgvTeamB
-            // 
-            this.dgvTeamB.AllowUserToAddRows = false;
-            this.dgvTeamB.AllowUserToDeleteRows = false;
-            this.dgvTeamB.AllowUserToResizeColumns = false;
-            this.dgvTeamB.AllowUserToResizeRows = false;
-            this.dgvTeamB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeamB.Location = new System.Drawing.Point(504, 109);
-            this.dgvTeamB.Name = "dgvTeamB";
-            this.dgvTeamB.ReadOnly = true;
-            this.dgvTeamB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTeamB.Size = new System.Drawing.Size(368, 372);
-            this.dgvTeamB.TabIndex = 22;
-            // 
-            // dgvTeamA
-            // 
-            this.dgvTeamA.AllowUserToAddRows = false;
-            this.dgvTeamA.AllowUserToDeleteRows = false;
-            this.dgvTeamA.AllowUserToResizeColumns = false;
-            this.dgvTeamA.AllowUserToResizeRows = false;
-            this.dgvTeamA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeamA.Location = new System.Drawing.Point(12, 109);
-            this.dgvTeamA.Name = "dgvTeamA";
-            this.dgvTeamA.ReadOnly = true;
-            this.dgvTeamA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTeamA.Size = new System.Drawing.Size(368, 372);
-            this.dgvTeamA.TabIndex = 1;
             // 
             // panelTop
             // 
@@ -607,6 +576,14 @@
             this.timerMatch.Interval = 10;
             this.timerMatch.Tick += new System.EventHandler(this.timerMatch_Tick);
             // 
+            // dgvTeamA
+            // 
+            this.dgvTeamA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeamA.Location = new System.Drawing.Point(12, 109);
+            this.dgvTeamA.Name = "dgvTeamA";
+            this.dgvTeamA.Size = new System.Drawing.Size(368, 371);
+            this.dgvTeamA.TabIndex = 29;
+            // 
             // FrmMatchReporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -624,10 +601,9 @@
             this.menuMainMenu.PerformLayout();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -684,26 +660,12 @@
         private System.Windows.Forms.Label lblResultB;
         private System.Windows.Forms.Label lblResultA;
         private System.Windows.Forms.Timer timerMatch;
-        private System.Windows.Forms.DataGridView dgvTeamA;
-        private System.Windows.Forms.DataGridView dgvTeamB;
         private System.Windows.Forms.Button btnDisqualificationReport;
         private System.Windows.Forms.Button btnDisqualification;
         private System.Windows.Forms.Button btnSuspension;
         private System.Windows.Forms.Button btnWarning;
         private System.Windows.Forms.Button btn7mGoal;
         private System.Windows.Forms.Button btnGoal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teamPlayerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clubIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matchIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goalsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goals7mDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn warningDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suspension1stDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suspension2ndDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suspension3rdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disqualificationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disqualificationReportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvTeamA;
     }
 }
