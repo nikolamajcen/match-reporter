@@ -80,11 +80,17 @@
     <Compile Include="Delegate.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMatchReporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMatchReporter.Designer.cs">
+      <DependentUpon>FrmMatchReporter.cs</DependentUpon>
     </Compile>
     <Compile Include="GuestTeam.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
@@ -107,6 +113,11 @@
     <Compile Include="MatchReporterDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>MatchReporterModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MatchReporterDb1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>MatchReporterDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="MatchReporterModel.Context.cs">
@@ -118,6 +129,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchReporterModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchReporterModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Play.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
@@ -133,6 +149,15 @@
     <Compile Include="RefereePair.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>MatchReporterModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMatchReporter.resx">
+      <DependentUpon>FrmMatchReporter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -142,19 +167,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="MatchReporterModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MatchReporterModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="MatchReporterDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MatchReporterDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>MatchReporterDb1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="MatchReporterDb.edmx.diagram">
+      <DependentUpon>MatchReporterDb.edmx</DependentUpon>
+    </None>
     <None Include="MatchReporterModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MatchReporterModel.Context.cs</LastGenOutput>
-      <DependentUpon>MatchReporterDb.edmx</DependentUpon>
+      <DependentUpon>MatchReporterModel.edmx</DependentUpon>
+    </None>
+    <None Include="MatchReporterModel.edmx.diagram">
+      <DependentUpon>MatchReporterModel.edmx</DependentUpon>
     </None>
     <None Include="MatchReporterModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MatchReporterModel.cs</LastGenOutput>
-      <DependentUpon>MatchReporterDb.edmx</DependentUpon>
+      <DependentUpon>MatchReporterModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -174,16 +209,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MatchReporterDb.edmx.sql" />
-    <Content Include="MatchReporterDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MatchReporterDb_log.ldf">
-      <DependentUpon>MatchReporterDb.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -199,6 +224,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MatchReporterDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MatchReporterDatabase_log.ldf">
+      <DependentUpon>MatchReporterDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MatchReporterModel.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

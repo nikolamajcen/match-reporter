@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MatchReporter
+namespace MatchReporter.Forms
 {
-    public partial class Form1 : Form
+    public partial class FrmMatchReporter : Form
     {
-        public Form1()
+        public FrmMatchReporter()
         {
             InitializeComponent();
+        }
+
+        private void FrmMatchReporter_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

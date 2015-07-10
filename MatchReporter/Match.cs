@@ -16,10 +16,10 @@ namespace MatchReporter
     {
         public Match()
         {
-            this.GuestTeam = new HashSet<GuestTeam>();
-            this.HomeTeam = new HashSet<HomeTeam>();
-            this.Play = new HashSet<Play>();
-            this.Manage = new HashSet<Manage>();
+            this.GuestTeams = new HashSet<GuestTeam>();
+            this.HomeTeams = new HashSet<HomeTeam>();
+            this.Manages = new HashSet<Manage>();
+            this.Plays = new HashSet<Play>();
         }
     
         public int MatchId { get; set; }
@@ -32,13 +32,13 @@ namespace MatchReporter
         public int DelegateId { get; set; }
         public int HallId { get; set; }
     
-        public virtual RefereePair RefereePair { get; set; }
-        public virtual League League { get; set; }
-        public virtual Delegate Delegate { get; set; }
-        public virtual Hall Hall { get; set; }
-        public virtual ICollection<GuestTeam> GuestTeam { get; set; }
-        public virtual ICollection<HomeTeam> HomeTeam { get; set; }
-        public virtual ICollection<Play> Play { get; set; }
-        public virtual ICollection<Manage> Manage { get; set; }
+        public virtual Delegate Delegates { get; set; }
+        public virtual ICollection<GuestTeam> GuestTeams { get; set; }
+        public virtual Hall Halls { get; set; }
+        public virtual ICollection<HomeTeam> HomeTeams { get; set; }
+        public virtual League Leagues { get; set; }
+        public virtual ICollection<Manage> Manages { get; set; }
+        public virtual ICollection<Play> Plays { get; set; }
+        public virtual RefereePair RefereePairs { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace MatchReporter
+﻿namespace MatchReporter.Forms
 {
-    partial class Form1
+    partial class FrmMatchReporter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmMatchReporter
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Name = "FrmMatchReporter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FrmMatchReporter";
+            this.Load += new System.EventHandler(this.FrmMatchReporter_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

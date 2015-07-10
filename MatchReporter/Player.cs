@@ -16,7 +16,7 @@ namespace MatchReporter
     {
         public Player()
         {
-            this.Play = new HashSet<Play>();
+            this.Plays = new HashSet<Play>();
         }
     
         public int PlayerId { get; set; }
@@ -24,7 +24,7 @@ namespace MatchReporter
         public string LastName { get; set; }
         public int ClubId { get; set; }
     
-        public virtual Club Club { get; set; }
-        public virtual ICollection<Play> Play { get; set; }
+        public virtual Club Clubs { get; set; }
+        public virtual ICollection<Play> Plays { get; set; }
     }
 }

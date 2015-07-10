@@ -16,10 +16,10 @@ namespace MatchReporter
     {
         public Club()
         {
-            this.ClubOfficial = new HashSet<ClubOfficial>();
-            this.Player = new HashSet<Player>();
-            this.HomeTeam = new HashSet<HomeTeam>();
-            this.GuestTeam = new HashSet<GuestTeam>();
+            this.ClubOfficials = new HashSet<ClubOfficial>();
+            this.GuestTeams = new HashSet<GuestTeam>();
+            this.HomeTeams = new HashSet<HomeTeam>();
+            this.Players = new HashSet<Player>();
         }
     
         public int ClubId { get; set; }
@@ -30,10 +30,10 @@ namespace MatchReporter
         public string JerseyColorGuest { get; set; }
         public int CityId { get; set; }
     
-        public virtual City City { get; set; }
-        public virtual ICollection<ClubOfficial> ClubOfficial { get; set; }
-        public virtual ICollection<Player> Player { get; set; }
-        public virtual ICollection<HomeTeam> HomeTeam { get; set; }
-        public virtual ICollection<GuestTeam> GuestTeam { get; set; }
+        public virtual City Cities { get; set; }
+        public virtual ICollection<ClubOfficial> ClubOfficials { get; set; }
+        public virtual ICollection<GuestTeam> GuestTeams { get; set; }
+        public virtual ICollection<HomeTeam> HomeTeams { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

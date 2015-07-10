@@ -16,13 +16,13 @@ namespace MatchReporter
     {
         public League()
         {
-            this.Match = new HashSet<Match>();
+            this.Matches = new HashSet<Match>();
         }
     
         public int LeagueId { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
     
-        public virtual ICollection<Match> Match { get; set; }
+        public virtual ICollection<Match> Matches { get; set; }
     }
 }

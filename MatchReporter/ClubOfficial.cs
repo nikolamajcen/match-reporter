@@ -16,7 +16,7 @@ namespace MatchReporter
     {
         public ClubOfficial()
         {
-            this.Manage = new HashSet<Manage>();
+            this.Manages = new HashSet<Manage>();
         }
     
         public int ClubOfficialId { get; set; }
@@ -24,7 +24,7 @@ namespace MatchReporter
         public string LastName { get; set; }
         public int ClubId { get; set; }
     
-        public virtual Club Club { get; set; }
-        public virtual ICollection<Manage> Manage { get; set; }
+        public virtual Club Clubs { get; set; }
+        public virtual ICollection<Manage> Manages { get; set; }
     }
 }

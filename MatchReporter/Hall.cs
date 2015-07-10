@@ -16,7 +16,7 @@ namespace MatchReporter
     {
         public Hall()
         {
-            this.Match = new HashSet<Match>();
+            this.Matches = new HashSet<Match>();
         }
     
         public int HallId { get; set; }
@@ -25,7 +25,7 @@ namespace MatchReporter
         public int Capacity { get; set; }
         public int CityId { get; set; }
     
-        public virtual ICollection<Match> Match { get; set; }
-        public virtual City City { get; set; }
+        public virtual City Cities { get; set; }
+        public virtual ICollection<Match> Matches { get; set; }
     }
 }
