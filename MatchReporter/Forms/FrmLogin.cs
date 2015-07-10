@@ -20,38 +20,42 @@ namespace MatchReporter.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblStatus.Text = "";
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            //lblStatus.Text = "";
+            //string username = txtUsername.Text;
+            //string password = txtPassword.Text;
 
-            if (username.Length == 0 || password.Length == 0)
-            {
-                lblStatus.Text = "Unesite pristupne podatke.";
-            }
-            else
-            {
-                lblStatus.Text = "Povezivanje...";
-                using (var db = new MatchReporterEntities())
-                {
-                    User creditials = (User)db.Users
-                        .Where(u => u.Username == username)
-                        .Where(u => u.Password == password)
-                        .FirstOrDefault();
+            //if (username.Length == 0 || password.Length == 0)
+            //{
+            //    lblStatus.Text = "Unesite pristupne podatke.";
+            //}
+            //else
+            //{
+            //    lblStatus.Text = "Povezivanje...";
+            //    using (var db = new MatchReporterEntities())
+            //    {
+            //        User creditials = (User)db.Users
+            //            .Where(u => u.Username == username)
+            //            .Where(u => u.Password == password)
+            //            .FirstOrDefault();
 
-                    if (creditials == null)
-                    {
-                        lblStatus.Text = "Krivo uneseni korisnički podaci.";
-                    }
-                    else
-                    {
-                        lblStatus.Text = "";
-                        this.Hide();
-                        FrmMatchReporter matchReporter = new FrmMatchReporter();
-                        matchReporter.ShowDialog();
-                        this.Close();
-                    }
-                }
-            }
+            //        if (creditials == null)
+            //        {
+            //            lblStatus.Text = "Krivo uneseni korisnički podaci.";
+            //        }
+            //        else
+            //        {
+            //            lblStatus.Text = "";
+            //            this.Hide();
+            //            FrmMatchReporter matchReporter = new FrmMatchReporter();
+            //            matchReporter.ShowDialog();
+            //            this.Close();
+            //        }
+            //    }
+            //}
+            this.Hide();
+            FrmMatchReporter matchReporter = new FrmMatchReporter();
+            matchReporter.ShowDialog();
+            this.Close();
         }
     }
 }
