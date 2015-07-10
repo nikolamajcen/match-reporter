@@ -4,48 +4,1240 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="MatchReporterDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="MatchReporterDbTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="MatchReporterDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MatchReporterDbStoreContainer">
+    <EntitySet Name="Referees" EntityType="MatchReporterDb.Store.Referees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RefereePairs" EntityType="MatchReporterDb.Store.RefereePairs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Delegates" EntityType="MatchReporterDb.Store.Delegates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cities" EntityType="MatchReporterDb.Store.Cities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Halls" EntityType="MatchReporterDb.Store.Halls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clubs" EntityType="MatchReporterDb.Store.Clubs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Players" EntityType="MatchReporterDb.Store.Players" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClubOfficials" EntityType="MatchReporterDb.Store.ClubOfficials" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Leagues" EntityType="MatchReporterDb.Store.Leagues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Matches" EntityType="MatchReporterDb.Store.Matches" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Plays" EntityType="MatchReporterDb.Store.Plays" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Manages" EntityType="MatchReporterDb.Store.Manages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HomeTeams" EntityType="MatchReporterDb.Store.HomeTeams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GuestTeams" EntityType="MatchReporterDb.Store.GuestTeams" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FirstRefereeRefereePair" Association="MatchReporterDb.Store.FirstRefereeRefereePair">
+      <End Role="Referee" EntitySet="Referees" />
+      <End Role="RefereePair" EntitySet="RefereePairs" />
+    </AssociationSet>
+    <AssociationSet Name="SecondRefereeRefereePair" Association="MatchReporterDb.Store.SecondRefereeRefereePair">
+      <End Role="Referee" EntitySet="Referees" />
+      <End Role="RefereePair" EntitySet="RefereePairs" />
+    </AssociationSet>
+    <AssociationSet Name="RefereePairMatch" Association="MatchReporterDb.Store.RefereePairMatch">
+      <End Role="RefereePair" EntitySet="RefereePairs" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="LeagueMatch" Association="MatchReporterDb.Store.LeagueMatch">
+      <End Role="League" EntitySet="Leagues" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="DelegateMatch" Association="MatchReporterDb.Store.DelegateMatch">
+      <End Role="Delegate" EntitySet="Delegates" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="HallMatch" Association="MatchReporterDb.Store.HallMatch">
+      <End Role="Hall" EntitySet="Halls" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="CityReferee" Association="MatchReporterDb.Store.CityReferee">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Referee" EntitySet="Referees" />
+    </AssociationSet>
+    <AssociationSet Name="CityDelegate" Association="MatchReporterDb.Store.CityDelegate">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Delegate" EntitySet="Delegates" />
+    </AssociationSet>
+    <AssociationSet Name="CityHall" Association="MatchReporterDb.Store.CityHall">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Hall" EntitySet="Halls" />
+    </AssociationSet>
+    <AssociationSet Name="CityClub" Association="MatchReporterDb.Store.CityClub">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Club" EntitySet="Clubs" />
+    </AssociationSet>
+    <AssociationSet Name="ClubClubOfficial" Association="MatchReporterDb.Store.ClubClubOfficial">
+      <End Role="Club" EntitySet="Clubs" />
+      <End Role="ClubOfficial" EntitySet="ClubOfficials" />
+    </AssociationSet>
+    <AssociationSet Name="ClubPlayer" Association="MatchReporterDb.Store.ClubPlayer">
+      <End Role="Club" EntitySet="Clubs" />
+      <End Role="Player" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="ClubHomeTeam" Association="MatchReporterDb.Store.ClubHomeTeam">
+      <End Role="Club" EntitySet="Clubs" />
+      <End Role="HomeTeam" EntitySet="HomeTeams" />
+    </AssociationSet>
+    <AssociationSet Name="ClubGuestTeam" Association="MatchReporterDb.Store.ClubGuestTeam">
+      <End Role="Club" EntitySet="Clubs" />
+      <End Role="GuestTeam" EntitySet="GuestTeams" />
+    </AssociationSet>
+    <AssociationSet Name="MatchGuestTeam" Association="MatchReporterDb.Store.MatchGuestTeam">
+      <End Role="Match" EntitySet="Matches" />
+      <End Role="GuestTeam" EntitySet="GuestTeams" />
+    </AssociationSet>
+    <AssociationSet Name="MatchHomeTeam" Association="MatchReporterDb.Store.MatchHomeTeam">
+      <End Role="Match" EntitySet="Matches" />
+      <End Role="HomeTeam" EntitySet="HomeTeams" />
+    </AssociationSet>
+    <AssociationSet Name="MatchPlay" Association="MatchReporterDb.Store.MatchPlay">
+      <End Role="Match" EntitySet="Matches" />
+      <End Role="Play" EntitySet="Plays" />
+    </AssociationSet>
+    <AssociationSet Name="PlayerPlay" Association="MatchReporterDb.Store.PlayerPlay">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Play" EntitySet="Plays" />
+    </AssociationSet>
+    <AssociationSet Name="ClubOfficialManage" Association="MatchReporterDb.Store.ClubOfficialManage">
+      <End Role="ClubOfficial" EntitySet="ClubOfficials" />
+      <End Role="Manage" EntitySet="Manages" />
+    </AssociationSet>
+    <AssociationSet Name="MatchManage" Association="MatchReporterDb.Store.MatchManage">
+      <End Role="Match" EntitySet="Matches" />
+      <End Role="Manage" EntitySet="Manages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Referees">
+    <Key>
+      <PropertyRef Name="RefereeId" />
+    </Key>
+    <Property Name="RefereeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RefereePairs">
+    <Key>
+      <PropertyRef Name="RefereePairId" />
+    </Key>
+    <Property Name="RefereePairId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstRefereeId" Type="int" Nullable="false" />
+    <Property Name="SecondRefereeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Delegates">
+    <Key>
+      <PropertyRef Name="DelegateId" />
+    </Key>
+    <Property Name="DelegateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostalCode" Type="int" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Halls">
+    <Key>
+      <PropertyRef Name="HallId" />
+    </Key>
+    <Property Name="HallId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Capacity" Type="int" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clubs">
+    <Key>
+      <PropertyRef Name="ClubId" />
+    </Key>
+    <Property Name="ClubId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JerseyColorHome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JerseyColorGuest" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClubId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClubOfficials">
+    <Key>
+      <PropertyRef Name="ClubOfficialId" />
+    </Key>
+    <Property Name="ClubOfficialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClubId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Leagues">
+    <Key>
+      <PropertyRef Name="LeagueId" />
+    </Key>
+    <Property Name="LeagueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Matches">
+    <Key>
+      <PropertyRef Name="MatchId" />
+    </Key>
+    <Property Name="MatchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Time" Type="time" Nullable="false" />
+    <Property Name="Round" Type="int" Nullable="false" />
+    <Property Name="Spectators" Type="int" Nullable="false" />
+    <Property Name="RefereePairId" Type="int" Nullable="false" />
+    <Property Name="LeagueId" Type="int" Nullable="false" />
+    <Property Name="DelegateId" Type="int" Nullable="false" />
+    <Property Name="HallId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plays">
+    <Key>
+      <PropertyRef Name="PlayId" />
+    </Key>
+    <Property Name="PlayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Goals" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Goals7m" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SuspensionFirst" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SuspensionSecond" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SuspensionThird" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DisqualificationAdnReport" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PlayerId" Type="int" Nullable="false" />
+    <Property Name="MatchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manages">
+    <Key>
+      <PropertyRef Name="ManageId" />
+    </Key>
+    <Property Name="ManageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Suspension" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DisqualificationAndReport" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClubOfficialId" Type="int" Nullable="false" />
+    <Property Name="MatchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HomeTeams">
+    <Key>
+      <PropertyRef Name="HomeTeamId" />
+    </Key>
+    <Property Name="HomeTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Goals" Type="smallint" Nullable="false" />
+    <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClubId" Type="int" Nullable="false" />
+    <Property Name="MatchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GuestTeams">
+    <Key>
+      <PropertyRef Name="GuestTeamId" />
+    </Key>
+    <Property Name="GuestTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Goals" Type="smallint" Nullable="false" />
+    <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClubId" Type="int" Nullable="false" />
+    <Property Name="MatchId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FirstRefereeRefereePair">
+    <End Role="Referee" Type="MatchReporterDb.Store.Referees" Multiplicity="1" />
+    <End Role="RefereePair" Type="MatchReporterDb.Store.RefereePairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Referee">
+        <PropertyRef Name="RefereeId" />
+      </Principal>
+      <Dependent Role="RefereePair">
+        <PropertyRef Name="FirstRefereeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SecondRefereeRefereePair">
+    <End Role="Referee" Type="MatchReporterDb.Store.Referees" Multiplicity="1" />
+    <End Role="RefereePair" Type="MatchReporterDb.Store.RefereePairs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Referee">
+        <PropertyRef Name="RefereeId" />
+      </Principal>
+      <Dependent Role="RefereePair">
+        <PropertyRef Name="SecondRefereeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefereePairMatch">
+    <End Role="RefereePair" Type="MatchReporterDb.Store.RefereePairs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefereePair">
+        <PropertyRef Name="RefereePairId" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="RefereePairId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LeagueMatch">
+    <End Role="League" Type="MatchReporterDb.Store.Leagues" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="League">
+        <PropertyRef Name="LeagueId" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="LeagueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DelegateMatch">
+    <End Role="Delegate" Type="MatchReporterDb.Store.Delegates" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delegate">
+        <PropertyRef Name="DelegateId" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="DelegateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HallMatch">
+    <End Role="Hall" Type="MatchReporterDb.Store.Halls" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hall">
+        <PropertyRef Name="HallId" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="HallId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityReferee">
+    <End Role="City" Type="MatchReporterDb.Store.Cities" Multiplicity="1" />
+    <End Role="Referee" Type="MatchReporterDb.Store.Referees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Referee">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityDelegate">
+    <End Role="City" Type="MatchReporterDb.Store.Cities" Multiplicity="1" />
+    <End Role="Delegate" Type="MatchReporterDb.Store.Delegates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Delegate">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityHall">
+    <End Role="City" Type="MatchReporterDb.Store.Cities" Multiplicity="1" />
+    <End Role="Hall" Type="MatchReporterDb.Store.Halls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Hall">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityClub">
+    <End Role="City" Type="MatchReporterDb.Store.Cities" Multiplicity="1" />
+    <End Role="Club" Type="MatchReporterDb.Store.Clubs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Club">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClubClubOfficial">
+    <End Role="Club" Type="MatchReporterDb.Store.Clubs" Multiplicity="1" />
+    <End Role="ClubOfficial" Type="MatchReporterDb.Store.ClubOfficials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="ClubId" />
+      </Principal>
+      <Dependent Role="ClubOfficial">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClubPlayer">
+    <End Role="Club" Type="MatchReporterDb.Store.Clubs" Multiplicity="1" />
+    <End Role="Player" Type="MatchReporterDb.Store.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="ClubId" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClubHomeTeam">
+    <End Role="Club" Type="MatchReporterDb.Store.Clubs" Multiplicity="1" />
+    <End Role="HomeTeam" Type="MatchReporterDb.Store.HomeTeams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="ClubId" />
+      </Principal>
+      <Dependent Role="HomeTeam">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClubGuestTeam">
+    <End Role="Club" Type="MatchReporterDb.Store.Clubs" Multiplicity="1" />
+    <End Role="GuestTeam" Type="MatchReporterDb.Store.GuestTeams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="ClubId" />
+      </Principal>
+      <Dependent Role="GuestTeam">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchGuestTeam">
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GuestTeam" Type="MatchReporterDb.Store.GuestTeams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="MatchId" />
+      </Principal>
+      <Dependent Role="GuestTeam">
+        <PropertyRef Name="MatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchHomeTeam">
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HomeTeam" Type="MatchReporterDb.Store.HomeTeams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="MatchId" />
+      </Principal>
+      <Dependent Role="HomeTeam">
+        <PropertyRef Name="MatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchPlay">
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Play" Type="MatchReporterDb.Store.Plays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="MatchId" />
+      </Principal>
+      <Dependent Role="Play">
+        <PropertyRef Name="MatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayerPlay">
+    <End Role="Player" Type="MatchReporterDb.Store.Players" Multiplicity="1" />
+    <End Role="Play" Type="MatchReporterDb.Store.Plays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="Play">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClubOfficialManage">
+    <End Role="ClubOfficial" Type="MatchReporterDb.Store.ClubOfficials" Multiplicity="1" />
+    <End Role="Manage" Type="MatchReporterDb.Store.Manages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClubOfficial">
+        <PropertyRef Name="ClubOfficialId" />
+      </Principal>
+      <Dependent Role="Manage">
+        <PropertyRef Name="ClubOfficialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchManage">
+    <End Role="Match" Type="MatchReporterDb.Store.Matches" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Manage" Type="MatchReporterDb.Store.Manages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="MatchId" />
+      </Principal>
+      <Dependent Role="Manage">
+        <PropertyRef Name="MatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MatchReporterDb" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="MatchReporterDbContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Players" EntityType="MatchReporterDb.Player" />
-          <EntitySet Name="Matches" EntityType="MatchReporterDb.Match" />
+          <EntitySet Name="Referees" EntityType="MatchReporterDb.Referee" />
+          <EntitySet Name="RefereePairs" EntityType="MatchReporterDb.RefereePair" />
+          <EntitySet Name="Delegates" EntityType="MatchReporterDb.Delegate" />
+          <EntitySet Name="Cities" EntityType="MatchReporterDb.City" />
+          <EntitySet Name="Halls" EntityType="MatchReporterDb.Hall" />
           <EntitySet Name="Clubs" EntityType="MatchReporterDb.Club" />
+          <EntitySet Name="Players" EntityType="MatchReporterDb.Player" />
+          <EntitySet Name="ClubOfficials" EntityType="MatchReporterDb.ClubOfficial" />
+          <EntitySet Name="Leagues" EntityType="MatchReporterDb.League" />
+          <EntitySet Name="Matches" EntityType="MatchReporterDb.Match" />
+          <EntitySet Name="Plays" EntityType="MatchReporterDb.Play" />
+          <EntitySet Name="Manages" EntityType="MatchReporterDb.Manage" />
+          <EntitySet Name="HomeTeams" EntityType="MatchReporterDb.HomeTeam" />
+          <EntitySet Name="GuestTeams" EntityType="MatchReporterDb.GuestTeam" />
+          <AssociationSet Name="FirstRefereeRefereePair" Association="MatchReporterDb.FirstRefereeRefereePair">
+            <End Role="Referee" EntitySet="Referees" />
+            <End Role="RefereePair" EntitySet="RefereePairs" />
+          </AssociationSet>
+          <AssociationSet Name="SecondRefereeRefereePair" Association="MatchReporterDb.SecondRefereeRefereePair">
+            <End Role="Referee" EntitySet="Referees" />
+            <End Role="RefereePair" EntitySet="RefereePairs" />
+          </AssociationSet>
+          <AssociationSet Name="RefereePairMatch" Association="MatchReporterDb.RefereePairMatch">
+            <End Role="RefereePair" EntitySet="RefereePairs" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="LeagueMatch" Association="MatchReporterDb.LeagueMatch">
+            <End Role="League" EntitySet="Leagues" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="DelegateMatch" Association="MatchReporterDb.DelegateMatch">
+            <End Role="Delegate" EntitySet="Delegates" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="HallMatch" Association="MatchReporterDb.HallMatch">
+            <End Role="Hall" EntitySet="Halls" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="CityReferee" Association="MatchReporterDb.CityReferee">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Referee" EntitySet="Referees" />
+          </AssociationSet>
+          <AssociationSet Name="CityDelegate" Association="MatchReporterDb.CityDelegate">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Delegate" EntitySet="Delegates" />
+          </AssociationSet>
+          <AssociationSet Name="CityHall" Association="MatchReporterDb.CityHall">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Hall" EntitySet="Halls" />
+          </AssociationSet>
+          <AssociationSet Name="CityClub" Association="MatchReporterDb.CityClub">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Club" EntitySet="Clubs" />
+          </AssociationSet>
+          <AssociationSet Name="ClubClubOfficial" Association="MatchReporterDb.ClubClubOfficial">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="ClubOfficial" EntitySet="ClubOfficials" />
+          </AssociationSet>
+          <AssociationSet Name="ClubPlayer" Association="MatchReporterDb.ClubPlayer">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="Player" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="ClubHomeTeam" Association="MatchReporterDb.ClubHomeTeam">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="HomeTeam" EntitySet="HomeTeams" />
+          </AssociationSet>
+          <AssociationSet Name="ClubGuestTeam" Association="MatchReporterDb.ClubGuestTeam">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="GuestTeam" EntitySet="GuestTeams" />
+          </AssociationSet>
+          <AssociationSet Name="MatchGuestTeam" Association="MatchReporterDb.MatchGuestTeam">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="GuestTeam" EntitySet="GuestTeams" />
+          </AssociationSet>
+          <AssociationSet Name="MatchHomeTeam" Association="MatchReporterDb.MatchHomeTeam">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="HomeTeam" EntitySet="HomeTeams" />
+          </AssociationSet>
+          <AssociationSet Name="MatchPlay" Association="MatchReporterDb.MatchPlay">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="Play" EntitySet="Plays" />
+          </AssociationSet>
+          <AssociationSet Name="PlayerPlay" Association="MatchReporterDb.PlayerPlay">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Play" EntitySet="Plays" />
+          </AssociationSet>
+          <AssociationSet Name="ClubOfficialManage" Association="MatchReporterDb.ClubOfficialManage">
+            <End Role="ClubOfficial" EntitySet="ClubOfficials" />
+            <End Role="Manage" EntitySet="Manages" />
+          </AssociationSet>
+          <AssociationSet Name="MatchManage" Association="MatchReporterDb.MatchManage">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="Manage" EntitySet="Manages" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Player">
+        <EntityType Name="Referee">
           <Key>
-            <PropertyRef Name="PlayerId" />
+            <PropertyRef Name="RefereeId" />
           </Key>
-          <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefereeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="FirstRefereePair" Relationship="MatchReporterDb.FirstRefereeRefereePair" FromRole="Referee" ToRole="RefereePair" />
+          <NavigationProperty Name="SecondRefereePair" Relationship="MatchReporterDb.SecondRefereeRefereePair" FromRole="Referee" ToRole="RefereePair" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="MatchReporterDb.CityReferee" FromRole="Referee" ToRole="City" />
         </EntityType>
-        <EntityType Name="Match">
+        <EntityType Name="RefereePair">
           <Key>
-            <PropertyRef Name="MatchId" />
+            <PropertyRef Name="RefereePairId" />
           </Key>
-          <Property Name="MatchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefereePairId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstRefereeId" Type="Int32" Nullable="false" />
+          <Property Name="SecondRefereeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FirstReferee" Relationship="MatchReporterDb.FirstRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
+          <NavigationProperty Name="SecondReferee" Relationship="MatchReporterDb.SecondRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.RefereePairMatch" FromRole="RefereePair" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Delegate">
+          <Key>
+            <PropertyRef Name="DelegateId" />
+          </Key>
+          <Property Name="DelegateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.DelegateMatch" FromRole="Delegate" ToRole="Match" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="MatchReporterDb.CityDelegate" FromRole="Delegate" ToRole="City" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="String" Nullable="false" />
+          <NavigationProperty Name="Referee" Relationship="MatchReporterDb.CityReferee" FromRole="City" ToRole="Referee" />
+          <NavigationProperty Name="Delegate" Relationship="MatchReporterDb.CityDelegate" FromRole="City" ToRole="Delegate" />
+          <NavigationProperty Name="Hall" Relationship="MatchReporterDb.CityHall" FromRole="City" ToRole="Hall" />
+          <NavigationProperty Name="Club" Relationship="MatchReporterDb.CityClub" FromRole="City" ToRole="Club" />
+        </EntityType>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="HallId" />
+          </Key>
+          <Property Name="HallId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.HallMatch" FromRole="Hall" ToRole="Match" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="MatchReporterDb.CityHall" FromRole="Hall" ToRole="City" />
         </EntityType>
         <EntityType Name="Club">
           <Key>
             <PropertyRef Name="ClubId" />
           </Key>
           <Property Name="ClubId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Telephone" Type="String" Nullable="false" />
+          <Property Name="JerseyColorHome" Type="String" Nullable="false" />
+          <Property Name="JerseyColorGuest" Type="String" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="MatchReporterDb.CityClub" FromRole="Club" ToRole="City" />
+          <NavigationProperty Name="ClubOfficial" Relationship="MatchReporterDb.ClubClubOfficial" FromRole="Club" ToRole="ClubOfficial" />
+          <NavigationProperty Name="Player" Relationship="MatchReporterDb.ClubPlayer" FromRole="Club" ToRole="Player" />
+          <NavigationProperty Name="HomeTeam" Relationship="MatchReporterDb.ClubHomeTeam" FromRole="Club" ToRole="HomeTeam" />
+          <NavigationProperty Name="GuestTeam" Relationship="MatchReporterDb.ClubGuestTeam" FromRole="Club" ToRole="GuestTeam" />
         </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="ClubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="MatchReporterDb.ClubPlayer" FromRole="Player" ToRole="Club" />
+          <NavigationProperty Name="Play" Relationship="MatchReporterDb.PlayerPlay" FromRole="Player" ToRole="Play" />
+        </EntityType>
+        <EntityType Name="ClubOfficial">
+          <Key>
+            <PropertyRef Name="ClubOfficialId" />
+          </Key>
+          <Property Name="ClubOfficialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="ClubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="MatchReporterDb.ClubClubOfficial" FromRole="ClubOfficial" ToRole="Club" />
+          <NavigationProperty Name="Manage" Relationship="MatchReporterDb.ClubOfficialManage" FromRole="ClubOfficial" ToRole="Manage" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="LeagueId" />
+          </Key>
+          <Property Name="LeagueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Sex" Type="String" Nullable="true" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.LeagueMatch" FromRole="League" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="MatchId" />
+          </Key>
+          <Property Name="MatchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Time" Type="Time" Nullable="false" />
+          <Property Name="Round" Type="Int32" Nullable="false" />
+          <Property Name="Spectators" Type="Int32" Nullable="false" />
+          <Property Name="RefereePairId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RefereePair" Relationship="MatchReporterDb.RefereePairMatch" FromRole="Match" ToRole="RefereePair" />
+          <Property Name="LeagueId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="League" Relationship="MatchReporterDb.LeagueMatch" FromRole="Match" ToRole="League" />
+          <Property Name="DelegateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Delegate" Relationship="MatchReporterDb.DelegateMatch" FromRole="Match" ToRole="Delegate" />
+          <Property Name="HallId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hall" Relationship="MatchReporterDb.HallMatch" FromRole="Match" ToRole="Hall" />
+          <NavigationProperty Name="GuestTeam" Relationship="MatchReporterDb.MatchGuestTeam" FromRole="Match" ToRole="GuestTeam" />
+          <NavigationProperty Name="HomeTeam" Relationship="MatchReporterDb.MatchHomeTeam" FromRole="Match" ToRole="HomeTeam" />
+          <NavigationProperty Name="Play" Relationship="MatchReporterDb.MatchPlay" FromRole="Match" ToRole="Play" />
+          <NavigationProperty Name="Manage" Relationship="MatchReporterDb.MatchManage" FromRole="Match" ToRole="Manage" />
+        </EntityType>
+        <EntityType Name="Play">
+          <Key>
+            <PropertyRef Name="PlayId" />
+          </Key>
+          <Property Name="PlayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <Property Name="Goals" Type="String" Nullable="false" />
+          <Property Name="Goals7m" Type="String" Nullable="false" />
+          <Property Name="Warning" Type="String" Nullable="false" />
+          <Property Name="SuspensionFirst" Type="String" Nullable="false" />
+          <Property Name="SuspensionSecond" Type="String" Nullable="false" />
+          <Property Name="SuspensionThird" Type="String" Nullable="false" />
+          <Property Name="Disqualification" Type="String" Nullable="false" />
+          <Property Name="DisqualificationAdnReport" Type="String" Nullable="false" />
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.MatchPlay" FromRole="Play" ToRole="Match" />
+          <NavigationProperty Name="Player" Relationship="MatchReporterDb.PlayerPlay" FromRole="Play" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Manage">
+          <Key>
+            <PropertyRef Name="ManageId" />
+          </Key>
+          <Property Name="ManageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Warning" Type="String" Nullable="false" />
+          <Property Name="Suspension" Type="String" Nullable="false" />
+          <Property Name="Disqualification" Type="String" Nullable="false" />
+          <Property Name="DisqualificationAndReport" Type="String" Nullable="false" />
+          <Property Name="ClubOfficialId" Type="Int32" Nullable="false" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClubOfficial" Relationship="MatchReporterDb.ClubOfficialManage" FromRole="Manage" ToRole="ClubOfficial" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.MatchManage" FromRole="Manage" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="HomeTeam">
+          <Key>
+            <PropertyRef Name="HomeTeamId" />
+          </Key>
+          <Property Name="HomeTeamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Goals" Type="Int16" Nullable="false" />
+          <Property Name="TTO1" Type="String" Nullable="false" />
+          <Property Name="TTO2" Type="String" Nullable="false" />
+          <Property Name="TTO3" Type="String" Nullable="false" />
+          <Property Name="JerseyColor" Type="String" Nullable="false" />
+          <Property Name="ClubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="MatchReporterDb.ClubHomeTeam" FromRole="HomeTeam" ToRole="Club" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.MatchHomeTeam" FromRole="HomeTeam" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="GuestTeam">
+          <Key>
+            <PropertyRef Name="GuestTeamId" />
+          </Key>
+          <Property Name="GuestTeamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Goals" Type="Int16" Nullable="false" />
+          <Property Name="TTO1" Type="String" Nullable="false" />
+          <Property Name="TTO2" Type="String" Nullable="false" />
+          <Property Name="TTO3" Type="String" Nullable="false" />
+          <Property Name="JerseyColor" Type="String" Nullable="false" />
+          <Property Name="ClubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="MatchReporterDb.ClubGuestTeam" FromRole="GuestTeam" ToRole="Club" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="MatchReporterDb.MatchGuestTeam" FromRole="GuestTeam" ToRole="Match" />
+        </EntityType>
+        <Association Name="FirstRefereeRefereePair">
+          <End Type="MatchReporterDb.Referee" Role="Referee" Multiplicity="1" />
+          <End Type="MatchReporterDb.RefereePair" Role="RefereePair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Referee">
+              <PropertyRef Name="RefereeId" />
+            </Principal>
+            <Dependent Role="RefereePair">
+              <PropertyRef Name="FirstRefereeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SecondRefereeRefereePair">
+          <End Type="MatchReporterDb.Referee" Role="Referee" Multiplicity="1" />
+          <End Type="MatchReporterDb.RefereePair" Role="RefereePair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Referee">
+              <PropertyRef Name="RefereeId" />
+            </Principal>
+            <Dependent Role="RefereePair">
+              <PropertyRef Name="SecondRefereeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefereePairMatch">
+          <End Type="MatchReporterDb.RefereePair" Role="RefereePair" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="RefereePair">
+              <PropertyRef Name="RefereePairId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="RefereePairId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LeagueMatch">
+          <End Type="MatchReporterDb.League" Role="League" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="League">
+              <PropertyRef Name="LeagueId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="LeagueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DelegateMatch">
+          <End Type="MatchReporterDb.Delegate" Role="Delegate" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Delegate">
+              <PropertyRef Name="DelegateId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="DelegateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HallMatch">
+          <End Type="MatchReporterDb.Hall" Role="Hall" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Hall">
+              <PropertyRef Name="HallId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="HallId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityReferee">
+          <End Type="MatchReporterDb.City" Role="City" Multiplicity="1" />
+          <End Type="MatchReporterDb.Referee" Role="Referee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Referee">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityDelegate">
+          <End Type="MatchReporterDb.City" Role="City" Multiplicity="1" />
+          <End Type="MatchReporterDb.Delegate" Role="Delegate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Delegate">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityHall">
+          <End Type="MatchReporterDb.City" Role="City" Multiplicity="1" />
+          <End Type="MatchReporterDb.Hall" Role="Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityClub">
+          <End Type="MatchReporterDb.City" Role="City" Multiplicity="1" />
+          <End Type="MatchReporterDb.Club" Role="Club" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Club">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClubClubOfficial">
+          <End Type="MatchReporterDb.Club" Role="Club" Multiplicity="1" />
+          <End Type="MatchReporterDb.ClubOfficial" Role="ClubOfficial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="ClubOfficial">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClubPlayer">
+          <End Type="MatchReporterDb.Club" Role="Club" Multiplicity="1" />
+          <End Type="MatchReporterDb.Player" Role="Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClubHomeTeam">
+          <End Type="MatchReporterDb.Club" Role="Club" Multiplicity="1" />
+          <End Type="MatchReporterDb.HomeTeam" Role="HomeTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="HomeTeam">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClubGuestTeam">
+          <End Type="MatchReporterDb.Club" Role="Club" Multiplicity="1" />
+          <End Type="MatchReporterDb.GuestTeam" Role="GuestTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="GuestTeam">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MatchGuestTeam">
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.GuestTeam" Role="GuestTeam" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="GuestTeam">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MatchHomeTeam">
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.HomeTeam" Role="HomeTeam" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="HomeTeam">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MatchPlay">
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.Play" Role="Play" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="Play">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PlayerPlay">
+          <End Type="MatchReporterDb.Player" Role="Player" Multiplicity="1" />
+          <End Type="MatchReporterDb.Play" Role="Play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="Play">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClubOfficialManage">
+          <End Type="MatchReporterDb.ClubOfficial" Role="ClubOfficial" Multiplicity="1" />
+          <End Type="MatchReporterDb.Manage" Role="Manage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubOfficial">
+              <PropertyRef Name="ClubOfficialId" />
+            </Principal>
+            <Dependent Role="Manage">
+              <PropertyRef Name="ClubOfficialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MatchManage">
+          <End Type="MatchReporterDb.Match" Role="Match" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MatchReporterDb.Manage" Role="Manage" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="Manage">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="MatchReporterDb" />
-        <Alias Key="Target" Value="MatchReporterDb.Store" />
-        <EntityContainerMapping CdmEntityContainer="MatchReporterDbContainer" StorageEntityContainer="MatchReporterDbTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MatchReporterDbStoreContainer" CdmEntityContainer="MatchReporterDbContainer">
+    <EntitySetMapping Name="Referees">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Referee)">
+        <MappingFragment StoreEntitySet="Referees">
+          <ScalarProperty Name="RefereeId" ColumnName="RefereeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefereePairs">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.RefereePair)">
+        <MappingFragment StoreEntitySet="RefereePairs">
+          <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
+          <ScalarProperty Name="FirstRefereeId" ColumnName="FirstRefereeId" />
+          <ScalarProperty Name="SecondRefereeId" ColumnName="SecondRefereeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delegates">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Delegate)">
+        <MappingFragment StoreEntitySet="Delegates">
+          <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.City)">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Halls">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Hall)">
+        <MappingFragment StoreEntitySet="Halls">
+          <ScalarProperty Name="HallId" ColumnName="HallId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Club)">
+        <MappingFragment StoreEntitySet="Clubs">
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="JerseyColorHome" ColumnName="JerseyColorHome" />
+          <ScalarProperty Name="JerseyColorGuest" ColumnName="JerseyColorGuest" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Player)">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubOfficials">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.ClubOfficial)">
+        <MappingFragment StoreEntitySet="ClubOfficials">
+          <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leagues">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.League)">
+        <MappingFragment StoreEntitySet="Leagues">
+          <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Match)">
+        <MappingFragment StoreEntitySet="Matches">
+          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Round" ColumnName="Round" />
+          <ScalarProperty Name="Spectators" ColumnName="Spectators" />
+          <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
+          <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
+          <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
+          <ScalarProperty Name="HallId" ColumnName="HallId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plays">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Play)">
+        <MappingFragment StoreEntitySet="Plays">
+          <ScalarProperty Name="PlayId" ColumnName="PlayId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Goals" ColumnName="Goals" />
+          <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
+          <ScalarProperty Name="Warning" ColumnName="Warning" />
+          <ScalarProperty Name="SuspensionFirst" ColumnName="SuspensionFirst" />
+          <ScalarProperty Name="SuspensionSecond" ColumnName="SuspensionSecond" />
+          <ScalarProperty Name="SuspensionThird" ColumnName="SuspensionThird" />
+          <ScalarProperty Name="Disqualification" ColumnName="Disqualification" />
+          <ScalarProperty Name="DisqualificationAdnReport" ColumnName="DisqualificationAdnReport" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manages">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.Manage)">
+        <MappingFragment StoreEntitySet="Manages">
+          <ScalarProperty Name="ManageId" ColumnName="ManageId" />
+          <ScalarProperty Name="Warning" ColumnName="Warning" />
+          <ScalarProperty Name="Suspension" ColumnName="Suspension" />
+          <ScalarProperty Name="Disqualification" ColumnName="Disqualification" />
+          <ScalarProperty Name="DisqualificationAndReport" ColumnName="DisqualificationAndReport" />
+          <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
+          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HomeTeams">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.HomeTeam)">
+        <MappingFragment StoreEntitySet="HomeTeams">
+          <ScalarProperty Name="HomeTeamId" ColumnName="HomeTeamId" />
+          <ScalarProperty Name="Goals" ColumnName="Goals" />
+          <ScalarProperty Name="TTO1" ColumnName="TTO1" />
+          <ScalarProperty Name="TTO2" ColumnName="TTO2" />
+          <ScalarProperty Name="TTO3" ColumnName="TTO3" />
+          <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuestTeams">
+      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDb.GuestTeam)">
+        <MappingFragment StoreEntitySet="GuestTeams">
+          <ScalarProperty Name="GuestTeamId" ColumnName="GuestTeamId" />
+          <ScalarProperty Name="Goals" ColumnName="Goals" />
+          <ScalarProperty Name="TTO1" ColumnName="TTO1" />
+          <ScalarProperty Name="TTO2" ColumnName="TTO2" />
+          <ScalarProperty Name="TTO3" ColumnName="TTO3" />
+          <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -59,6 +1251,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
