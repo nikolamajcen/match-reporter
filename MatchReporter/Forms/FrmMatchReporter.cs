@@ -51,6 +51,11 @@ namespace MatchReporter.Forms
             {
                 lblTimeSeconds.Text = "0" + this.Seconds.ToString();
             }
+
+            if(this.Minutes == 30 && this.Seconds == 0 || this.Minutes == 60 && this.Seconds == 0)
+            {
+                timerMatch.Stop();
+            }
         }
 
         private void btnTimeStop_Click(object sender, EventArgs e)
@@ -92,6 +97,17 @@ namespace MatchReporter.Forms
             this.Minutes = 0;
             lblTimeSeconds.Text = "00";
             lblTimeMinutes.Text = "00";
+        }
+
+        private void FrmMatchReporter_Load(object sender, EventArgs e)
+        {
+            //dgvTeamA.RowCount = 16;
+            //dgvTeamB.RowCount = 16;
+        }
+
+        private void teamPlayerBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

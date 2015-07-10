@@ -54,6 +54,14 @@
             this.oAplikacijiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAplikcijiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnDisqualificationReport = new System.Windows.Forms.Button();
+            this.btnDisqualification = new System.Windows.Forms.Button();
+            this.btnSuspension = new System.Windows.Forms.Button();
+            this.btnWarning = new System.Windows.Forms.Button();
+            this.btn7mGoal = new System.Windows.Forms.Button();
+            this.btnGoal = new System.Windows.Forms.Button();
+            this.dgvTeamB = new System.Windows.Forms.DataGridView();
+            this.dgvTeamA = new System.Windows.Forms.DataGridView();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblTimeSeconds = new System.Windows.Forms.Label();
             this.lblTimeMinutes = new System.Windows.Forms.Label();
@@ -80,6 +88,8 @@
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +102,7 @@
             this.oAplikacijiToolStripMenuItem});
             this.menuMainMenu.Location = new System.Drawing.Point(0, 0);
             this.menuMainMenu.Name = "menuMainMenu";
-            this.menuMainMenu.Size = new System.Drawing.Size(784, 24);
+            this.menuMainMenu.Size = new System.Drawing.Size(884, 24);
             this.menuMainMenu.TabIndex = 0;
             this.menuMainMenu.Text = "menuStrip1";
             // 
@@ -262,15 +272,113 @@
             // 
             // panelMain
             // 
+            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMain.AutoScroll = true;
+            this.panelMain.AutoSize = true;
+            this.panelMain.Controls.Add(this.btnDisqualificationReport);
+            this.panelMain.Controls.Add(this.btnDisqualification);
+            this.panelMain.Controls.Add(this.btnSuspension);
+            this.panelMain.Controls.Add(this.btnWarning);
+            this.panelMain.Controls.Add(this.btn7mGoal);
+            this.panelMain.Controls.Add(this.btnGoal);
+            this.panelMain.Controls.Add(this.dgvTeamB);
+            this.panelMain.Controls.Add(this.dgvTeamA);
             this.panelMain.Controls.Add(this.panelTop);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 24);
+            this.panelMain.Location = new System.Drawing.Point(0, 27);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(784, 537);
+            this.panelMain.Size = new System.Drawing.Size(886, 10296);
             this.panelMain.TabIndex = 1;
+            // 
+            // btnDisqualificationReport
+            // 
+            this.btnDisqualificationReport.Location = new System.Drawing.Point(386, 409);
+            this.btnDisqualificationReport.Name = "btnDisqualificationReport";
+            this.btnDisqualificationReport.Size = new System.Drawing.Size(112, 40);
+            this.btnDisqualificationReport.TabIndex = 28;
+            this.btnDisqualificationReport.Text = "Diskalifikacija i Prijava";
+            this.btnDisqualificationReport.UseVisualStyleBackColor = true;
+            // 
+            // btnDisqualification
+            // 
+            this.btnDisqualification.Location = new System.Drawing.Point(386, 363);
+            this.btnDisqualification.Name = "btnDisqualification";
+            this.btnDisqualification.Size = new System.Drawing.Size(112, 40);
+            this.btnDisqualification.TabIndex = 27;
+            this.btnDisqualification.Text = "Diskvalifikacija";
+            this.btnDisqualification.UseVisualStyleBackColor = true;
+            // 
+            // btnSuspension
+            // 
+            this.btnSuspension.Location = new System.Drawing.Point(386, 317);
+            this.btnSuspension.Name = "btnSuspension";
+            this.btnSuspension.Size = new System.Drawing.Size(112, 40);
+            this.btnSuspension.TabIndex = 26;
+            this.btnSuspension.Text = "2 minute";
+            this.btnSuspension.UseVisualStyleBackColor = true;
+            // 
+            // btnWarning
+            // 
+            this.btnWarning.Location = new System.Drawing.Point(386, 271);
+            this.btnWarning.Name = "btnWarning";
+            this.btnWarning.Size = new System.Drawing.Size(112, 40);
+            this.btnWarning.TabIndex = 25;
+            this.btnWarning.Text = "Opomena";
+            this.btnWarning.UseVisualStyleBackColor = true;
+            // 
+            // btn7mGoal
+            // 
+            this.btn7mGoal.Location = new System.Drawing.Point(386, 184);
+            this.btn7mGoal.Name = "btn7mGoal";
+            this.btn7mGoal.Size = new System.Drawing.Size(112, 40);
+            this.btn7mGoal.TabIndex = 24;
+            this.btn7mGoal.Text = "7m pogodak";
+            this.btn7mGoal.UseVisualStyleBackColor = true;
+            // 
+            // btnGoal
+            // 
+            this.btnGoal.Location = new System.Drawing.Point(386, 138);
+            this.btnGoal.Name = "btnGoal";
+            this.btnGoal.Size = new System.Drawing.Size(112, 40);
+            this.btnGoal.TabIndex = 23;
+            this.btnGoal.Text = "Pogodak";
+            this.btnGoal.UseVisualStyleBackColor = true;
+            // 
+            // dgvTeamB
+            // 
+            this.dgvTeamB.AllowUserToAddRows = false;
+            this.dgvTeamB.AllowUserToDeleteRows = false;
+            this.dgvTeamB.AllowUserToResizeColumns = false;
+            this.dgvTeamB.AllowUserToResizeRows = false;
+            this.dgvTeamB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeamB.Location = new System.Drawing.Point(504, 109);
+            this.dgvTeamB.Name = "dgvTeamB";
+            this.dgvTeamB.ReadOnly = true;
+            this.dgvTeamB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTeamB.Size = new System.Drawing.Size(368, 372);
+            this.dgvTeamB.TabIndex = 22;
+            // 
+            // dgvTeamA
+            // 
+            this.dgvTeamA.AllowUserToAddRows = false;
+            this.dgvTeamA.AllowUserToDeleteRows = false;
+            this.dgvTeamA.AllowUserToResizeColumns = false;
+            this.dgvTeamA.AllowUserToResizeRows = false;
+            this.dgvTeamA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeamA.Location = new System.Drawing.Point(12, 109);
+            this.dgvTeamA.Name = "dgvTeamA";
+            this.dgvTeamA.ReadOnly = true;
+            this.dgvTeamA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTeamA.Size = new System.Drawing.Size(368, 372);
+            this.dgvTeamA.TabIndex = 1;
             // 
             // panelTop
             // 
+            this.panelTop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTop.AutoSize = true;
             this.panelTop.Controls.Add(this.lblTimeSeconds);
             this.panelTop.Controls.Add(this.lblTimeMinutes);
             this.panelTop.Controls.Add(this.btnTimeReset);
@@ -295,14 +403,14 @@
             this.panelTop.Controls.Add(this.lblTeamA);
             this.panelTop.Location = new System.Drawing.Point(3, 3);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(778, 101);
+            this.panelTop.Size = new System.Drawing.Size(880, 100);
             this.panelTop.TabIndex = 0;
             // 
             // lblTimeSeconds
             // 
             this.lblTimeSeconds.AutoSize = true;
             this.lblTimeSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTimeSeconds.Location = new System.Drawing.Point(394, 56);
+            this.lblTimeSeconds.Location = new System.Drawing.Point(444, 56);
             this.lblTimeSeconds.Name = "lblTimeSeconds";
             this.lblTimeSeconds.Size = new System.Drawing.Size(36, 25);
             this.lblTimeSeconds.TabIndex = 21;
@@ -312,7 +420,7 @@
             // 
             this.lblTimeMinutes.AutoSize = true;
             this.lblTimeMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTimeMinutes.Location = new System.Drawing.Point(348, 56);
+            this.lblTimeMinutes.Location = new System.Drawing.Point(398, 56);
             this.lblTimeMinutes.Name = "lblTimeMinutes";
             this.lblTimeMinutes.Size = new System.Drawing.Size(36, 25);
             this.lblTimeMinutes.TabIndex = 20;
@@ -320,7 +428,7 @@
             // 
             // btnTimeReset
             // 
-            this.btnTimeReset.Location = new System.Drawing.Point(451, 73);
+            this.btnTimeReset.Location = new System.Drawing.Point(501, 73);
             this.btnTimeReset.Name = "btnTimeReset";
             this.btnTimeReset.Size = new System.Drawing.Size(75, 23);
             this.btnTimeReset.TabIndex = 19;
@@ -330,7 +438,7 @@
             // 
             // btnTimeChange
             // 
-            this.btnTimeChange.Location = new System.Drawing.Point(451, 46);
+            this.btnTimeChange.Location = new System.Drawing.Point(501, 46);
             this.btnTimeChange.Name = "btnTimeChange";
             this.btnTimeChange.Size = new System.Drawing.Size(75, 23);
             this.btnTimeChange.TabIndex = 18;
@@ -340,7 +448,7 @@
             // 
             // btnTimeStop
             // 
-            this.btnTimeStop.Location = new System.Drawing.Point(252, 73);
+            this.btnTimeStop.Location = new System.Drawing.Point(302, 73);
             this.btnTimeStop.Name = "btnTimeStop";
             this.btnTimeStop.Size = new System.Drawing.Size(75, 23);
             this.btnTimeStop.TabIndex = 17;
@@ -350,7 +458,7 @@
             // 
             // btnTimeStart
             // 
-            this.btnTimeStart.Location = new System.Drawing.Point(252, 46);
+            this.btnTimeStart.Location = new System.Drawing.Point(302, 46);
             this.btnTimeStart.Name = "btnTimeStart";
             this.btnTimeStart.Size = new System.Drawing.Size(75, 23);
             this.btnTimeStart.TabIndex = 16;
@@ -360,49 +468,49 @@
             // 
             // txtTeamBTTO3
             // 
-            this.txtTeamBTTO3.Location = new System.Drawing.Point(694, 75);
+            this.txtTeamBTTO3.Location = new System.Drawing.Point(744, 75);
             this.txtTeamBTTO3.Name = "txtTeamBTTO3";
             this.txtTeamBTTO3.Size = new System.Drawing.Size(75, 20);
             this.txtTeamBTTO3.TabIndex = 15;
             // 
             // txtTeamBTTO2
             // 
-            this.txtTeamBTTO2.Location = new System.Drawing.Point(613, 75);
+            this.txtTeamBTTO2.Location = new System.Drawing.Point(663, 75);
             this.txtTeamBTTO2.Name = "txtTeamBTTO2";
             this.txtTeamBTTO2.Size = new System.Drawing.Size(75, 20);
             this.txtTeamBTTO2.TabIndex = 14;
             // 
             // txtTeamBTTO1
             // 
-            this.txtTeamBTTO1.Location = new System.Drawing.Point(532, 75);
+            this.txtTeamBTTO1.Location = new System.Drawing.Point(582, 75);
             this.txtTeamBTTO1.Name = "txtTeamBTTO1";
             this.txtTeamBTTO1.Size = new System.Drawing.Size(75, 20);
             this.txtTeamBTTO1.TabIndex = 13;
             // 
             // txtTeamATTO3
             // 
-            this.txtTeamATTO3.Location = new System.Drawing.Point(171, 75);
+            this.txtTeamATTO3.Location = new System.Drawing.Point(221, 75);
             this.txtTeamATTO3.Name = "txtTeamATTO3";
             this.txtTeamATTO3.Size = new System.Drawing.Size(75, 20);
             this.txtTeamATTO3.TabIndex = 12;
             // 
             // txtTeamATTO2
             // 
-            this.txtTeamATTO2.Location = new System.Drawing.Point(90, 75);
+            this.txtTeamATTO2.Location = new System.Drawing.Point(140, 75);
             this.txtTeamATTO2.Name = "txtTeamATTO2";
             this.txtTeamATTO2.Size = new System.Drawing.Size(75, 20);
             this.txtTeamATTO2.TabIndex = 11;
             // 
             // txtTeamATTO1
             // 
-            this.txtTeamATTO1.Location = new System.Drawing.Point(9, 75);
+            this.txtTeamATTO1.Location = new System.Drawing.Point(59, 75);
             this.txtTeamATTO1.Name = "txtTeamATTO1";
             this.txtTeamATTO1.Size = new System.Drawing.Size(75, 20);
             this.txtTeamATTO1.TabIndex = 10;
             // 
             // btnTeamBTTO3
             // 
-            this.btnTeamBTTO3.Location = new System.Drawing.Point(694, 46);
+            this.btnTeamBTTO3.Location = new System.Drawing.Point(744, 46);
             this.btnTeamBTTO3.Name = "btnTeamBTTO3";
             this.btnTeamBTTO3.Size = new System.Drawing.Size(75, 23);
             this.btnTeamBTTO3.TabIndex = 9;
@@ -411,7 +519,7 @@
             // 
             // btnTeamBTTO2
             // 
-            this.btnTeamBTTO2.Location = new System.Drawing.Point(613, 46);
+            this.btnTeamBTTO2.Location = new System.Drawing.Point(663, 46);
             this.btnTeamBTTO2.Name = "btnTeamBTTO2";
             this.btnTeamBTTO2.Size = new System.Drawing.Size(75, 23);
             this.btnTeamBTTO2.TabIndex = 8;
@@ -420,7 +528,7 @@
             // 
             // btnTeamBTTO1
             // 
-            this.btnTeamBTTO1.Location = new System.Drawing.Point(532, 46);
+            this.btnTeamBTTO1.Location = new System.Drawing.Point(582, 46);
             this.btnTeamBTTO1.Name = "btnTeamBTTO1";
             this.btnTeamBTTO1.Size = new System.Drawing.Size(75, 23);
             this.btnTeamBTTO1.TabIndex = 7;
@@ -429,7 +537,7 @@
             // 
             // btnTeamATTO3
             // 
-            this.btnTeamATTO3.Location = new System.Drawing.Point(171, 46);
+            this.btnTeamATTO3.Location = new System.Drawing.Point(221, 46);
             this.btnTeamATTO3.Name = "btnTeamATTO3";
             this.btnTeamATTO3.Size = new System.Drawing.Size(75, 23);
             this.btnTeamATTO3.TabIndex = 6;
@@ -438,7 +546,7 @@
             // 
             // btnTeamATTO2
             // 
-            this.btnTeamATTO2.Location = new System.Drawing.Point(90, 46);
+            this.btnTeamATTO2.Location = new System.Drawing.Point(140, 46);
             this.btnTeamATTO2.Name = "btnTeamATTO2";
             this.btnTeamATTO2.Size = new System.Drawing.Size(75, 23);
             this.btnTeamATTO2.TabIndex = 5;
@@ -447,7 +555,7 @@
             // 
             // btnTeamATTO1
             // 
-            this.btnTeamATTO1.Location = new System.Drawing.Point(9, 46);
+            this.btnTeamATTO1.Location = new System.Drawing.Point(59, 46);
             this.btnTeamATTO1.Name = "btnTeamATTO1";
             this.btnTeamATTO1.Size = new System.Drawing.Size(75, 23);
             this.btnTeamATTO1.TabIndex = 4;
@@ -458,7 +566,7 @@
             // 
             this.lblResultB.AutoSize = true;
             this.lblResultB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblResultB.Location = new System.Drawing.Point(446, 5);
+            this.lblResultB.Location = new System.Drawing.Point(496, 5);
             this.lblResultB.Name = "lblResultB";
             this.lblResultB.Size = new System.Drawing.Size(24, 25);
             this.lblResultB.TabIndex = 3;
@@ -468,7 +576,7 @@
             // 
             this.lblResultA.AutoSize = true;
             this.lblResultA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblResultA.Location = new System.Drawing.Point(303, 5);
+            this.lblResultA.Location = new System.Drawing.Point(353, 5);
             this.lblResultA.Name = "lblResultA";
             this.lblResultA.Size = new System.Drawing.Size(24, 25);
             this.lblResultA.TabIndex = 2;
@@ -478,7 +586,7 @@
             // 
             this.lblTeamB.AutoSize = true;
             this.lblTeamB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTeamB.Location = new System.Drawing.Point(527, 5);
+            this.lblTeamB.Location = new System.Drawing.Point(577, 5);
             this.lblTeamB.Name = "lblTeamB";
             this.lblTeamB.Size = new System.Drawing.Size(86, 25);
             this.lblTeamB.TabIndex = 1;
@@ -488,7 +596,7 @@
             // 
             this.lblTeamA.AutoSize = true;
             this.lblTeamA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTeamA.Location = new System.Drawing.Point(85, 5);
+            this.lblTeamA.Location = new System.Drawing.Point(135, 5);
             this.lblTeamA.Name = "lblTeamA";
             this.lblTeamA.Size = new System.Drawing.Size(86, 25);
             this.lblTeamA.TabIndex = 0;
@@ -496,23 +604,28 @@
             // 
             // timerMatch
             // 
-            this.timerMatch.Interval = 250;
+            this.timerMatch.Interval = 10;
             this.timerMatch.Tick += new System.EventHandler(this.timerMatch_Tick);
             // 
             // FrmMatchReporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuMainMenu);
             this.MainMenuStrip = this.menuMainMenu;
+            this.MinimumSize = new System.Drawing.Size(800, 700);
             this.Name = "FrmMatchReporter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Match Reporter";
+            this.Load += new System.EventHandler(this.FrmMatchReporter_Load);
             this.menuMainMenu.ResumeLayout(false);
             this.menuMainMenu.PerformLayout();
             this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -571,5 +684,26 @@
         private System.Windows.Forms.Label lblResultB;
         private System.Windows.Forms.Label lblResultA;
         private System.Windows.Forms.Timer timerMatch;
+        private System.Windows.Forms.DataGridView dgvTeamA;
+        private System.Windows.Forms.DataGridView dgvTeamB;
+        private System.Windows.Forms.Button btnDisqualificationReport;
+        private System.Windows.Forms.Button btnDisqualification;
+        private System.Windows.Forms.Button btnSuspension;
+        private System.Windows.Forms.Button btnWarning;
+        private System.Windows.Forms.Button btn7mGoal;
+        private System.Windows.Forms.Button btnGoal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teamPlayerIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clubIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matchIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goalsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goals7mDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warningDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suspension1stDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suspension2ndDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suspension3rdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disqualificationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disqualificationReportDataGridViewTextBoxColumn;
     }
 }

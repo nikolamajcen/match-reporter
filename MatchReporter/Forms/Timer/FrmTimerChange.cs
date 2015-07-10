@@ -40,16 +40,16 @@ namespace MatchReporter.Forms.Timer
                 MessageBox.Show("Krivo ste unijeli vrijeme utakmice.\n Uzeti su trenutni podaci.",
                     "Greška");
             }
-            if(minutes <= 60 && seconds <= 60)
+            if(minutes < 60 && seconds < 60)
             {
                 this.matchMinute = minutes;
                 this.matchSeconds = seconds;
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Unijeli ste krive podatke za vrijeme", "Greška");
             }
-            this.Close();
         }
     }
 }
