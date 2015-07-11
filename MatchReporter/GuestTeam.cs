@@ -22,8 +22,10 @@ namespace MatchReporter
         public string JerseyColor { get; set; }
         public int ClubId { get; set; }
         public int MatchId { get; set; }
+        public Nullable<int> Goals7m { get; set; }
+        public Nullable<int> Attempts7m { get; set; }
     
-        public virtual Club Clubs { get; set; }
-        public virtual Match Matches { get; set; }
+        public virtual Club Club { get; set; }
+        public virtual Match Match { get; set; }
     }
 }

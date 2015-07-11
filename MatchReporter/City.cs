@@ -16,10 +16,10 @@ namespace MatchReporter
     {
         public City()
         {
-            this.Clubs = new HashSet<Club>();
-            this.Delegates = new HashSet<Delegate>();
-            this.Halls = new HashSet<Hall>();
-            this.Referees = new HashSet<Referee>();
+            this.Club = new HashSet<Club>();
+            this.Delegate = new HashSet<Delegate>();
+            this.Hall = new HashSet<Hall>();
+            this.Referee = new HashSet<Referee>();
         }
     
         public int CityId { get; set; }
@@ -27,9 +27,9 @@ namespace MatchReporter
         public int PostalCode { get; set; }
         public string Country { get; set; }
     
-        public virtual ICollection<Club> Clubs { get; set; }
-        public virtual ICollection<Delegate> Delegates { get; set; }
-        public virtual ICollection<Hall> Halls { get; set; }
-        public virtual ICollection<Referee> Referees { get; set; }
+        public virtual ICollection<Club> Club { get; set; }
+        public virtual ICollection<Delegate> Delegate { get; set; }
+        public virtual ICollection<Hall> Hall { get; set; }
+        public virtual ICollection<Referee> Referee { get; set; }
     }
 }

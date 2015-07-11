@@ -15,9 +15,8 @@ namespace MatchReporter
     public partial class Play
     {
         public int PlayId { get; set; }
-        public string Number { get; set; }
-        public string Goals { get; set; }
-        public string Goals7m { get; set; }
+        public int Goals { get; set; }
+        public int Goals7m { get; set; }
         public string Warning { get; set; }
         public string SuspensionFirst { get; set; }
         public string SuspensionSecond { get; set; }
@@ -27,7 +26,7 @@ namespace MatchReporter
         public int PlayerId { get; set; }
         public int MatchId { get; set; }
     
-        public virtual Match Matches { get; set; }
-        public virtual Player Players { get; set; }
+        public virtual Match Match { get; set; }
+        public virtual Player Player { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace MatchReporter
         public int ClubOfficialId { get; set; }
         public int MatchId { get; set; }
     
-        public virtual ClubOfficial ClubOfficials { get; set; }
-        public virtual Match Matches { get; set; }
+        public virtual ClubOfficial ClubOfficial { get; set; }
+        public virtual Match Match { get; set; }
     }
 }

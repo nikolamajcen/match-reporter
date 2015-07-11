@@ -11,6 +11,7 @@
     <AssemblyName>MatchReporter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -92,6 +92,12 @@
     <Compile Include="Forms\FrmMatchReporter.Designer.cs">
       <DependentUpon>FrmMatchReporter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Podaci\Unos\FrmAddTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Podaci\Unos\FrmAddTeam.Designer.cs">
+      <DependentUpon>FrmAddTeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Timer\FrmTimerChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,16 +121,6 @@
     </Compile>
     <Compile Include="Match.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MatchReporterDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MatchReporterModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="MatchReporterDb1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MatchReporterDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="MatchReporterModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -155,7 +151,6 @@
     <Compile Include="RefereePair.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TeamPlayer.cs" />
     <Compile Include="User.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
@@ -164,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMatchReporter.resx">
       <DependentUpon>FrmMatchReporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Podaci\Unos\FrmAddTeam.resx">
+      <DependentUpon>FrmAddTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Timer\FrmTimerChange.resx">
       <DependentUpon>FrmTimerChange.cs</DependentUpon>
@@ -181,27 +179,21 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MatchReporterModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="MatchReporterDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MatchReporterDb1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="MatchReporterDb.edmx.diagram">
-      <DependentUpon>MatchReporterDb.edmx</DependentUpon>
-    </None>
     <None Include="MatchReporterModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MatchReporterModel.Context.cs</LastGenOutput>
       <DependentUpon>MatchReporterModel.edmx</DependentUpon>
+      <LastGenOutput>MatchReporterModel.Context.cs</LastGenOutput>
     </None>
     <None Include="MatchReporterModel.edmx.diagram">
       <DependentUpon>MatchReporterModel.edmx</DependentUpon>
     </None>
     <None Include="MatchReporterModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MatchReporterModel.cs</LastGenOutput>
       <DependentUpon>MatchReporterModel.edmx</DependentUpon>
+      <LastGenOutput>MatchReporterModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Club.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -243,9 +235,10 @@
       <DependentUpon>MatchReporterDatabase.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MatchReporterModel.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Utakmica\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

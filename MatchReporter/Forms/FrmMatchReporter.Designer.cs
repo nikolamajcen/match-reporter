@@ -84,11 +84,12 @@
             this.lblTeamB = new System.Windows.Forms.Label();
             this.lblTeamA = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
-            this.dgvTeamA = new System.Windows.Forms.DataGridView();
+            this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvHomeTeam = new System.Windows.Forms.DataGridView();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // menuMainMenu
@@ -110,7 +111,8 @@
             this.novaToolStripMenuItem,
             this.otvoriToolStripMenuItem,
             this.spremiToolStripMenuItem,
-            this.zaključiToolStripMenuItem});
+            this.zaključiToolStripMenuItem,
+            this.zatvoriToolStripMenuItem});
             this.utakmicaToolStripMenuItem.Name = "utakmicaToolStripMenuItem";
             this.utakmicaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.utakmicaToolStripMenuItem.Text = "Utakmica";
@@ -120,6 +122,7 @@
             this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
             this.novaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.novaToolStripMenuItem.Text = "Nova...";
+            this.novaToolStripMenuItem.Click += new System.EventHandler(this.novaToolStripMenuItem_Click);
             // 
             // otvoriToolStripMenuItem
             // 
@@ -164,6 +167,7 @@
             this.unosToolStripMenuItem.Name = "unosToolStripMenuItem";
             this.unosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.unosToolStripMenuItem.Text = "Unos momčadi";
+            this.unosToolStripMenuItem.Click += new System.EventHandler(this.unosToolStripMenuItem_Click);
             // 
             // unosIgračaToolStripMenuItem
             // 
@@ -270,12 +274,9 @@
             // 
             // panelMain
             // 
-            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.AutoScroll = true;
             this.panelMain.AutoSize = true;
-            this.panelMain.Controls.Add(this.dgvTeamA);
+            this.panelMain.Controls.Add(this.dgvHomeTeam);
             this.panelMain.Controls.Add(this.btnDisqualificationReport);
             this.panelMain.Controls.Add(this.btnDisqualification);
             this.panelMain.Controls.Add(this.btnSuspension);
@@ -283,9 +284,10 @@
             this.panelMain.Controls.Add(this.btn7mGoal);
             this.panelMain.Controls.Add(this.btnGoal);
             this.panelMain.Controls.Add(this.panelTop);
-            this.panelMain.Location = new System.Drawing.Point(0, 27);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 24);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(886, 10296);
+            this.panelMain.Size = new System.Drawing.Size(884, 637);
             this.panelMain.TabIndex = 1;
             // 
             // btnDisqualificationReport
@@ -372,7 +374,7 @@
             this.panelTop.Controls.Add(this.lblTeamA);
             this.panelTop.Location = new System.Drawing.Point(3, 3);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(880, 100);
+            this.panelTop.Size = new System.Drawing.Size(878, 99);
             this.panelTop.TabIndex = 0;
             // 
             // lblTimeSeconds
@@ -439,43 +441,55 @@
             // 
             this.txtTeamBTTO3.Location = new System.Drawing.Point(744, 75);
             this.txtTeamBTTO3.Name = "txtTeamBTTO3";
+            this.txtTeamBTTO3.ReadOnly = true;
             this.txtTeamBTTO3.Size = new System.Drawing.Size(75, 20);
             this.txtTeamBTTO3.TabIndex = 15;
+            this.txtTeamBTTO3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTeamBTTO2
             // 
             this.txtTeamBTTO2.Location = new System.Drawing.Point(663, 75);
             this.txtTeamBTTO2.Name = "txtTeamBTTO2";
+            this.txtTeamBTTO2.ReadOnly = true;
             this.txtTeamBTTO2.Size = new System.Drawing.Size(75, 20);
             this.txtTeamBTTO2.TabIndex = 14;
+            this.txtTeamBTTO2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTeamBTTO1
             // 
             this.txtTeamBTTO1.Location = new System.Drawing.Point(582, 75);
             this.txtTeamBTTO1.Name = "txtTeamBTTO1";
+            this.txtTeamBTTO1.ReadOnly = true;
             this.txtTeamBTTO1.Size = new System.Drawing.Size(75, 20);
             this.txtTeamBTTO1.TabIndex = 13;
+            this.txtTeamBTTO1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTeamATTO3
             // 
             this.txtTeamATTO3.Location = new System.Drawing.Point(221, 75);
             this.txtTeamATTO3.Name = "txtTeamATTO3";
+            this.txtTeamATTO3.ReadOnly = true;
             this.txtTeamATTO3.Size = new System.Drawing.Size(75, 20);
             this.txtTeamATTO3.TabIndex = 12;
+            this.txtTeamATTO3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTeamATTO2
             // 
             this.txtTeamATTO2.Location = new System.Drawing.Point(140, 75);
             this.txtTeamATTO2.Name = "txtTeamATTO2";
+            this.txtTeamATTO2.ReadOnly = true;
             this.txtTeamATTO2.Size = new System.Drawing.Size(75, 20);
             this.txtTeamATTO2.TabIndex = 11;
+            this.txtTeamATTO2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTeamATTO1
             // 
             this.txtTeamATTO1.Location = new System.Drawing.Point(59, 75);
             this.txtTeamATTO1.Name = "txtTeamATTO1";
+            this.txtTeamATTO1.ReadOnly = true;
             this.txtTeamATTO1.Size = new System.Drawing.Size(75, 20);
             this.txtTeamATTO1.TabIndex = 10;
+            this.txtTeamATTO1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnTeamBTTO3
             // 
@@ -576,13 +590,23 @@
             this.timerMatch.Interval = 10;
             this.timerMatch.Tick += new System.EventHandler(this.timerMatch_Tick);
             // 
-            // dgvTeamA
+            // zatvoriToolStripMenuItem
             // 
-            this.dgvTeamA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeamA.Location = new System.Drawing.Point(12, 109);
-            this.dgvTeamA.Name = "dgvTeamA";
-            this.dgvTeamA.Size = new System.Drawing.Size(368, 371);
-            this.dgvTeamA.TabIndex = 29;
+            this.zatvoriToolStripMenuItem.Name = "zatvoriToolStripMenuItem";
+            this.zatvoriToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zatvoriToolStripMenuItem.Text = "Zatvori...";
+            this.zatvoriToolStripMenuItem.Click += new System.EventHandler(this.zatvoriToolStripMenuItem_Click);
+            // 
+            // dgvHomeTeam
+            // 
+            this.dgvHomeTeam.AllowUserToAddRows = false;
+            this.dgvHomeTeam.AllowUserToDeleteRows = false;
+            this.dgvHomeTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHomeTeam.Location = new System.Drawing.Point(12, 108);
+            this.dgvHomeTeam.Name = "dgvHomeTeam";
+            this.dgvHomeTeam.ReadOnly = true;
+            this.dgvHomeTeam.Size = new System.Drawing.Size(368, 362);
+            this.dgvHomeTeam.TabIndex = 29;
             // 
             // FrmMatchReporter
             // 
@@ -603,7 +627,7 @@
             this.panelMain.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeamA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,6 +690,7 @@
         private System.Windows.Forms.Button btnWarning;
         private System.Windows.Forms.Button btn7mGoal;
         private System.Windows.Forms.Button btnGoal;
-        private System.Windows.Forms.DataGridView dgvTeamA;
+        private System.Windows.Forms.ToolStripMenuItem zatvoriToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvHomeTeam;
     }
 }

@@ -16,8 +16,8 @@ namespace MatchReporter
     {
         public Referee()
         {
-            this.RefereePairs = new HashSet<RefereePair>();
-            this.RefereePairs1 = new HashSet<RefereePair>();
+            this.RefereePair = new HashSet<RefereePair>();
+            this.RefereePair1 = new HashSet<RefereePair>();
         }
     
         public int RefereeId { get; set; }
@@ -25,8 +25,8 @@ namespace MatchReporter
         public string LastName { get; set; }
         public int CityId { get; set; }
     
-        public virtual City Cities { get; set; }
-        public virtual ICollection<RefereePair> RefereePairs { get; set; }
-        public virtual ICollection<RefereePair> RefereePairs1 { get; set; }
+        public virtual City City { get; set; }
+        public virtual ICollection<RefereePair> RefereePair { get; set; }
+        public virtual ICollection<RefereePair> RefereePair1 { get; set; }
     }
 }

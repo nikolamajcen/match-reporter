@@ -16,7 +16,7 @@ namespace MatchReporter
     {
         public Delegate()
         {
-            this.Matches = new HashSet<Match>();
+            this.Match = new HashSet<Match>();
         }
     
         public int DelegateId { get; set; }
@@ -24,7 +24,7 @@ namespace MatchReporter
         public string LastName { get; set; }
         public int CityId { get; set; }
     
-        public virtual City Cities { get; set; }
-        public virtual ICollection<Match> Matches { get; set; }
+        public virtual City City { get; set; }
+        public virtual ICollection<Match> Match { get; set; }
     }
 }

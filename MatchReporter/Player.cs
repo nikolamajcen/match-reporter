@@ -16,15 +16,16 @@ namespace MatchReporter
     {
         public Player()
         {
-            this.Plays = new HashSet<Play>();
+            this.Play = new HashSet<Play>();
         }
     
         public int PlayerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public Nullable<int> Number { get; set; }
         public int ClubId { get; set; }
     
-        public virtual Club Clubs { get; set; }
-        public virtual ICollection<Play> Plays { get; set; }
+        public virtual Club Club { get; set; }
+        public virtual ICollection<Play> Play { get; set; }
     }
 }

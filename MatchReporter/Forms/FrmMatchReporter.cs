@@ -1,4 +1,5 @@
-﻿using MatchReporter.Forms.Timer;
+﻿using MatchReporter.Forms.Podaci.Unos;
+using MatchReporter.Forms.Timer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,23 @@ namespace MatchReporter.Forms
 {
     public partial class FrmMatchReporter : Form
     {
+        public Match Match;
+
+        public Club HomeTeam;
+        public Club GuestTeam;
+
+        public BindingList<Player> HomePlayers;
+        public BindingList<Player> GuestPlayers;
+
+        public BindingList<Play> HomePlays;
+        public BindingList<Play> GuestPlays;
+
+        public BindingList<ClubOfficial> HomeClubOfficials;
+        public BindingList<ClubOfficial> GuestClubOfficials;
+
+        public BindingList<Manage> HomeManages;
+        public BindingList<Manage> GuestManages;
+
         private int Minutes;
         private int Seconds;
         public FrmMatchReporter()
@@ -20,6 +38,7 @@ namespace MatchReporter.Forms
             InitializeComponent();
             this.Minutes = 0;
             this.Seconds = 0;
+            panelMain.Hide();
         }
 
         private void btnTimeStart_Click(object sender, EventArgs e)
@@ -105,9 +124,52 @@ namespace MatchReporter.Forms
             //dgvTeamB.RowCount = 16;
         }
 
-        private void teamPlayerBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void novaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            panelMain.Show();
 
+            this.Match = new Match();
+
+            this.HomeTeam = new Club();
+            this.HomePlayers = new BindingList<Player>();
+            this.HomePlays = new BindingList<Play>();
+            this.HomeClubOfficials = new BindingList<ClubOfficial>();
+            this.HomeManages = new BindingList<Manage>();
+
+            this.GuestTeam = new Club();
+            this.GuestPlayers = new BindingList<Player>();
+            this.GuestPlays = new BindingList<Play>();
+            this.GuestClubOfficials = new BindingList<ClubOfficial>();
+            this.GuestManages = new BindingList<Manage>();
+        }
+
+        private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelMain.Hide();
+        }
+
+        private void unosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddTeam dataAddTeam = new FrmAddTeam();
+            dataAddTeam.ShowDialog();
+            
+            if(dataAddTeam.TeamsSelected)
+            {
+                this.lblTeamA.Text = dataAddTeam.HomeTeam;
+                this.lblTeamB.Text = dataAddTeam.GuestTeam;
+
+                using (var db = new MatchReporterEntities())
+                {
+                    this.HomeTeam = (Club)(db.Club
+                        .Where(c => c.Name == dataAddTeam.HomeTeam)
+                        .FirstOrDefault<Club>());
+
+                    this.GuestTeam = (Club)(db.Club
+                        .Where(c => c.Name == dataAddTeam.GuestTeam)
+                        .FirstOrDefault<Club>());
+                }
+            }
+            dataAddTeam.Dispose();
         }
     }
 }

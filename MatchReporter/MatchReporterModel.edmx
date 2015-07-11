@@ -4,524 +4,531 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MatchReporterDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="MatchReporterDatabaseModelStoreContainer">
-    <EntitySet Name="Cities" EntityType="MatchReporterDatabaseModel.Store.Cities" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ClubOfficials" EntityType="MatchReporterDatabaseModel.Store.ClubOfficials" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Clubs" EntityType="MatchReporterDatabaseModel.Store.Clubs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Delegates" EntityType="MatchReporterDatabaseModel.Store.Delegates" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GuestTeams" EntityType="MatchReporterDatabaseModel.Store.GuestTeams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Halls" EntityType="MatchReporterDatabaseModel.Store.Halls" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="HomeTeams" EntityType="MatchReporterDatabaseModel.Store.HomeTeams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Leagues" EntityType="MatchReporterDatabaseModel.Store.Leagues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Manages" EntityType="MatchReporterDatabaseModel.Store.Manages" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Matches" EntityType="MatchReporterDatabaseModel.Store.Matches" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Players" EntityType="MatchReporterDatabaseModel.Store.Players" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Plays" EntityType="MatchReporterDatabaseModel.Store.Plays" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RefereePairs" EntityType="MatchReporterDatabaseModel.Store.RefereePairs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Referees" EntityType="MatchReporterDatabaseModel.Store.Referees" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Users" EntityType="MatchReporterDatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_CityClub" Association="MatchReporterDatabaseModel.Store.FK_CityClub">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Clubs" EntitySet="Clubs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CityDelegate" Association="MatchReporterDatabaseModel.Store.FK_CityDelegate">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Delegates" EntitySet="Delegates" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CityHall" Association="MatchReporterDatabaseModel.Store.FK_CityHall">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Halls" EntitySet="Halls" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CityReferee" Association="MatchReporterDatabaseModel.Store.FK_CityReferee">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Referees" EntitySet="Referees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClubClubOfficial" Association="MatchReporterDatabaseModel.Store.FK_ClubClubOfficial">
-      <End Role="Clubs" EntitySet="Clubs" />
-      <End Role="ClubOfficials" EntitySet="ClubOfficials" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClubOfficialManage" Association="MatchReporterDatabaseModel.Store.FK_ClubOfficialManage">
-      <End Role="ClubOfficials" EntitySet="ClubOfficials" />
-      <End Role="Manages" EntitySet="Manages" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClubGuestTeam" Association="MatchReporterDatabaseModel.Store.FK_ClubGuestTeam">
-      <End Role="Clubs" EntitySet="Clubs" />
-      <End Role="GuestTeams" EntitySet="GuestTeams" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClubHomeTeam" Association="MatchReporterDatabaseModel.Store.FK_ClubHomeTeam">
-      <End Role="Clubs" EntitySet="Clubs" />
-      <End Role="HomeTeams" EntitySet="HomeTeams" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClubPlayer" Association="MatchReporterDatabaseModel.Store.FK_ClubPlayer">
-      <End Role="Clubs" EntitySet="Clubs" />
-      <End Role="Players" EntitySet="Players" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DelegateMatch" Association="MatchReporterDatabaseModel.Store.FK_DelegateMatch">
-      <End Role="Delegates" EntitySet="Delegates" />
-      <End Role="Matches" EntitySet="Matches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MatchGuestTeam" Association="MatchReporterDatabaseModel.Store.FK_MatchGuestTeam">
-      <End Role="Matches" EntitySet="Matches" />
-      <End Role="GuestTeams" EntitySet="GuestTeams" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HallMatch" Association="MatchReporterDatabaseModel.Store.FK_HallMatch">
-      <End Role="Halls" EntitySet="Halls" />
-      <End Role="Matches" EntitySet="Matches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MatchHomeTeam" Association="MatchReporterDatabaseModel.Store.FK_MatchHomeTeam">
-      <End Role="Matches" EntitySet="Matches" />
-      <End Role="HomeTeams" EntitySet="HomeTeams" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LeagueMatch" Association="MatchReporterDatabaseModel.Store.FK_LeagueMatch">
-      <End Role="Leagues" EntitySet="Leagues" />
-      <End Role="Matches" EntitySet="Matches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MatchManage" Association="MatchReporterDatabaseModel.Store.FK_MatchManage">
-      <End Role="Matches" EntitySet="Matches" />
-      <End Role="Manages" EntitySet="Manages" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MatchPlay" Association="MatchReporterDatabaseModel.Store.FK_MatchPlay">
-      <End Role="Matches" EntitySet="Matches" />
-      <End Role="Plays" EntitySet="Plays" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RefereePairMatch" Association="MatchReporterDatabaseModel.Store.FK_RefereePairMatch">
-      <End Role="RefereePairs" EntitySet="RefereePairs" />
-      <End Role="Matches" EntitySet="Matches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PlayerPlay" Association="MatchReporterDatabaseModel.Store.FK_PlayerPlay">
-      <End Role="Players" EntitySet="Players" />
-      <End Role="Plays" EntitySet="Plays" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FirstRefereeRefereePair" Association="MatchReporterDatabaseModel.Store.FK_FirstRefereeRefereePair">
-      <End Role="Referees" EntitySet="Referees" />
-      <End Role="RefereePairs" EntitySet="RefereePairs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SecondRefereeRefereePair" Association="MatchReporterDatabaseModel.Store.FK_SecondRefereeRefereePair">
-      <End Role="Referees" EntitySet="Referees" />
-      <End Role="RefereePairs" EntitySet="RefereePairs" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Cities">
-    <Key>
-      <PropertyRef Name="CityId" />
-    </Key>
-    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PostalCode" Type="int" Nullable="false" />
-    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ClubOfficials">
-    <Key>
-      <PropertyRef Name="ClubOfficialId" />
-    </Key>
-    <Property Name="ClubOfficialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ClubId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Clubs">
-    <Key>
-      <PropertyRef Name="ClubId" />
-    </Key>
-    <Property Name="ClubId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="JerseyColorHome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="JerseyColorGuest" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CityId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Delegates">
-    <Key>
-      <PropertyRef Name="DelegateId" />
-    </Key>
-    <Property Name="DelegateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CityId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="GuestTeams">
-    <Key>
-      <PropertyRef Name="GuestTeamId" />
-    </Key>
-    <Property Name="GuestTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Goals" Type="smallint" Nullable="false" />
-    <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ClubId" Type="int" Nullable="false" />
-    <Property Name="MatchId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Halls">
-    <Key>
-      <PropertyRef Name="HallId" />
-    </Key>
-    <Property Name="HallId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Capacity" Type="int" Nullable="false" />
-    <Property Name="CityId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="HomeTeams">
-    <Key>
-      <PropertyRef Name="HomeTeamId" />
-    </Key>
-    <Property Name="HomeTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Goals" Type="smallint" Nullable="false" />
-    <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ClubId" Type="int" Nullable="false" />
-    <Property Name="MatchId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Leagues">
-    <Key>
-      <PropertyRef Name="LeagueId" />
-    </Key>
-    <Property Name="LeagueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Sex" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Manages">
-    <Key>
-      <PropertyRef Name="ManageId" />
-    </Key>
-    <Property Name="ManageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Suspension" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DisqualificationAndReport" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ClubOfficialId" Type="int" Nullable="false" />
-    <Property Name="MatchId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Matches">
-    <Key>
-      <PropertyRef Name="MatchId" />
-    </Key>
-    <Property Name="MatchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Time" Type="time" Nullable="false" Precision="7" />
-    <Property Name="Round" Type="int" Nullable="false" />
-    <Property Name="Spectators" Type="int" Nullable="false" />
-    <Property Name="RefereePairId" Type="int" Nullable="false" />
-    <Property Name="LeagueId" Type="int" Nullable="false" />
-    <Property Name="DelegateId" Type="int" Nullable="false" />
-    <Property Name="HallId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Players">
-    <Key>
-      <PropertyRef Name="PlayerId" />
-    </Key>
-    <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ClubId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Plays">
-    <Key>
-      <PropertyRef Name="PlayId" />
-    </Key>
-    <Property Name="PlayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Goals" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Goals7m" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SuspensionFirst" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SuspensionSecond" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SuspensionThird" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DisqualificationAdnReport" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PlayerId" Type="int" Nullable="false" />
-    <Property Name="MatchId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="RefereePairs">
-    <Key>
-      <PropertyRef Name="RefereePairId" />
-    </Key>
-    <Property Name="RefereePairId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstRefereeId" Type="int" Nullable="false" />
-    <Property Name="SecondRefereeId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Referees">
-    <Key>
-      <PropertyRef Name="RefereeId" />
-    </Key>
-    <Property Name="RefereeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CityId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_CityClub">
-    <End Role="Cities" Type="MatchReporterDatabaseModel.Store.Cities" Multiplicity="1" />
-    <End Role="Clubs" Type="MatchReporterDatabaseModel.Store.Clubs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="CityId" />
-      </Principal>
-      <Dependent Role="Clubs">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CityDelegate">
-    <End Role="Cities" Type="MatchReporterDatabaseModel.Store.Cities" Multiplicity="1" />
-    <End Role="Delegates" Type="MatchReporterDatabaseModel.Store.Delegates" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="CityId" />
-      </Principal>
-      <Dependent Role="Delegates">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CityHall">
-    <End Role="Cities" Type="MatchReporterDatabaseModel.Store.Cities" Multiplicity="1" />
-    <End Role="Halls" Type="MatchReporterDatabaseModel.Store.Halls" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="CityId" />
-      </Principal>
-      <Dependent Role="Halls">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CityReferee">
-    <End Role="Cities" Type="MatchReporterDatabaseModel.Store.Cities" Multiplicity="1" />
-    <End Role="Referees" Type="MatchReporterDatabaseModel.Store.Referees" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="CityId" />
-      </Principal>
-      <Dependent Role="Referees">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClubClubOfficial">
-    <End Role="Clubs" Type="MatchReporterDatabaseModel.Store.Clubs" Multiplicity="1" />
-    <End Role="ClubOfficials" Type="MatchReporterDatabaseModel.Store.ClubOfficials" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clubs">
-        <PropertyRef Name="ClubId" />
-      </Principal>
-      <Dependent Role="ClubOfficials">
-        <PropertyRef Name="ClubId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClubOfficialManage">
-    <End Role="ClubOfficials" Type="MatchReporterDatabaseModel.Store.ClubOfficials" Multiplicity="1" />
-    <End Role="Manages" Type="MatchReporterDatabaseModel.Store.Manages" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ClubOfficials">
-        <PropertyRef Name="ClubOfficialId" />
-      </Principal>
-      <Dependent Role="Manages">
-        <PropertyRef Name="ClubOfficialId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClubGuestTeam">
-    <End Role="Clubs" Type="MatchReporterDatabaseModel.Store.Clubs" Multiplicity="1" />
-    <End Role="GuestTeams" Type="MatchReporterDatabaseModel.Store.GuestTeams" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clubs">
-        <PropertyRef Name="ClubId" />
-      </Principal>
-      <Dependent Role="GuestTeams">
-        <PropertyRef Name="ClubId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClubHomeTeam">
-    <End Role="Clubs" Type="MatchReporterDatabaseModel.Store.Clubs" Multiplicity="1" />
-    <End Role="HomeTeams" Type="MatchReporterDatabaseModel.Store.HomeTeams" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clubs">
-        <PropertyRef Name="ClubId" />
-      </Principal>
-      <Dependent Role="HomeTeams">
-        <PropertyRef Name="ClubId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClubPlayer">
-    <End Role="Clubs" Type="MatchReporterDatabaseModel.Store.Clubs" Multiplicity="1" />
-    <End Role="Players" Type="MatchReporterDatabaseModel.Store.Players" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clubs">
-        <PropertyRef Name="ClubId" />
-      </Principal>
-      <Dependent Role="Players">
-        <PropertyRef Name="ClubId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DelegateMatch">
-    <End Role="Delegates" Type="MatchReporterDatabaseModel.Store.Delegates" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Delegates">
-        <PropertyRef Name="DelegateId" />
-      </Principal>
-      <Dependent Role="Matches">
-        <PropertyRef Name="DelegateId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MatchGuestTeam">
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="GuestTeams" Type="MatchReporterDatabaseModel.Store.GuestTeams" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Matches">
-        <PropertyRef Name="MatchId" />
-      </Principal>
-      <Dependent Role="GuestTeams">
-        <PropertyRef Name="MatchId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HallMatch">
-    <End Role="Halls" Type="MatchReporterDatabaseModel.Store.Halls" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Halls">
-        <PropertyRef Name="HallId" />
-      </Principal>
-      <Dependent Role="Matches">
-        <PropertyRef Name="HallId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MatchHomeTeam">
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="HomeTeams" Type="MatchReporterDatabaseModel.Store.HomeTeams" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Matches">
-        <PropertyRef Name="MatchId" />
-      </Principal>
-      <Dependent Role="HomeTeams">
-        <PropertyRef Name="MatchId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LeagueMatch">
-    <End Role="Leagues" Type="MatchReporterDatabaseModel.Store.Leagues" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Leagues">
-        <PropertyRef Name="LeagueId" />
-      </Principal>
-      <Dependent Role="Matches">
-        <PropertyRef Name="LeagueId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MatchManage">
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Manages" Type="MatchReporterDatabaseModel.Store.Manages" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Matches">
-        <PropertyRef Name="MatchId" />
-      </Principal>
-      <Dependent Role="Manages">
-        <PropertyRef Name="MatchId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MatchPlay">
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Plays" Type="MatchReporterDatabaseModel.Store.Plays" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Matches">
-        <PropertyRef Name="MatchId" />
-      </Principal>
-      <Dependent Role="Plays">
-        <PropertyRef Name="MatchId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RefereePairMatch">
-    <End Role="RefereePairs" Type="MatchReporterDatabaseModel.Store.RefereePairs" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Matches" Type="MatchReporterDatabaseModel.Store.Matches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RefereePairs">
-        <PropertyRef Name="RefereePairId" />
-      </Principal>
-      <Dependent Role="Matches">
-        <PropertyRef Name="RefereePairId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PlayerPlay">
-    <End Role="Players" Type="MatchReporterDatabaseModel.Store.Players" Multiplicity="1" />
-    <End Role="Plays" Type="MatchReporterDatabaseModel.Store.Plays" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Players">
-        <PropertyRef Name="PlayerId" />
-      </Principal>
-      <Dependent Role="Plays">
-        <PropertyRef Name="PlayerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FirstRefereeRefereePair">
-    <End Role="Referees" Type="MatchReporterDatabaseModel.Store.Referees" Multiplicity="1" />
-    <End Role="RefereePairs" Type="MatchReporterDatabaseModel.Store.RefereePairs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Referees">
-        <PropertyRef Name="RefereeId" />
-      </Principal>
-      <Dependent Role="RefereePairs">
-        <PropertyRef Name="FirstRefereeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SecondRefereeRefereePair">
-    <End Role="Referees" Type="MatchReporterDatabaseModel.Store.Referees" Multiplicity="1" />
-    <End Role="RefereePairs" Type="MatchReporterDatabaseModel.Store.RefereePairs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Referees">
-        <PropertyRef Name="RefereeId" />
-      </Principal>
-      <Dependent Role="RefereePairs">
-        <PropertyRef Name="SecondRefereeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+      <Schema Namespace="MatchReporterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubId" />
+          </Key>
+          <Property Name="ClubId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JerseyColorHome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JerseyColorGuest" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClubOfficial">
+          <Key>
+            <PropertyRef Name="ClubOfficialId" />
+          </Key>
+          <Property Name="ClubOfficialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ClubId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Delegate">
+          <Key>
+            <PropertyRef Name="DelegateId" />
+          </Key>
+          <Property Name="DelegateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuestTeam">
+          <Key>
+            <PropertyRef Name="GuestTeamId" />
+          </Key>
+          <Property Name="GuestTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Goals" Type="smallint" Nullable="false" />
+          <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ClubId" Type="int" Nullable="false" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+          <Property Name="Goals7m" Type="int" />
+          <Property Name="Attempts7m" Type="int" />
+        </EntityType>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="HallId" />
+          </Key>
+          <Property Name="HallId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeTeam">
+          <Key>
+            <PropertyRef Name="HomeTeamId" />
+          </Key>
+          <Property Name="HomeTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Goals" Type="smallint" Nullable="false" />
+          <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ClubId" Type="int" Nullable="false" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+          <Property Name="Goals7m" Type="int" />
+          <Property Name="Attempts7m" Type="int" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="LeagueId" />
+          </Key>
+          <Property Name="LeagueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Manage">
+          <Key>
+            <PropertyRef Name="ManageId" />
+          </Key>
+          <Property Name="ManageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Suspension" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisqualificationAndReport" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ClubOfficialId" Type="int" Nullable="false" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="MatchId" />
+          </Key>
+          <Property Name="MatchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Round" Type="int" Nullable="false" />
+          <Property Name="Spectators" Type="int" Nullable="false" />
+          <Property Name="RefereePairId" Type="int" Nullable="false" />
+          <Property Name="LeagueId" Type="int" Nullable="false" />
+          <Property Name="DelegateId" Type="int" Nullable="false" />
+          <Property Name="HallId" Type="int" Nullable="false" />
+          <Property Name="TimeKeeper" Type="nvarchar(max)" />
+          <Property Name="Scorer" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Play">
+          <Key>
+            <PropertyRef Name="PlayId" />
+          </Key>
+          <Property Name="PlayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Goals" Type="int" Nullable="false" />
+          <Property Name="Goals7m" Type="int" Nullable="false" />
+          <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SuspensionFirst" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SuspensionSecond" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SuspensionThird" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisqualificationAdnReport" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="ClubId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Referee">
+          <Key>
+            <PropertyRef Name="RefereeId" />
+          </Key>
+          <Property Name="RefereeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RefereePair">
+          <Key>
+            <PropertyRef Name="RefereePairId" />
+          </Key>
+          <Property Name="RefereePairId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstRefereeId" Type="int" Nullable="false" />
+          <Property Name="SecondRefereeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CityClub">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Club" Type="Self.Club" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Club">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityDelegate">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Delegate" Type="Self.Delegate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Delegate">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityHall">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Hall" Type="Self.Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityReferee">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Referee" Type="Self.Referee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Referee">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubClubOfficial">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="ClubOfficial" Type="Self.ClubOfficial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="ClubOfficial">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubGuestTeam">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="GuestTeam">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubHomeTeam">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="HomeTeam" Type="Self.HomeTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="HomeTeam">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubOfficialManage">
+          <End Role="ClubOfficial" Type="Self.ClubOfficial" Multiplicity="1" />
+          <End Role="Manage" Type="Self.Manage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubOfficial">
+              <PropertyRef Name="ClubOfficialId" />
+            </Principal>
+            <Dependent Role="Manage">
+              <PropertyRef Name="ClubOfficialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubPlayer">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="ClubId" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="ClubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DelegateMatch">
+          <End Role="Delegate" Type="Self.Delegate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delegate">
+              <PropertyRef Name="DelegateId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="DelegateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FirstRefereeRefereePair">
+          <End Role="Referee" Type="Self.Referee" Multiplicity="1" />
+          <End Role="RefereePair" Type="Self.RefereePair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Referee">
+              <PropertyRef Name="RefereeId" />
+            </Principal>
+            <Dependent Role="RefereePair">
+              <PropertyRef Name="FirstRefereeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallMatch">
+          <End Role="Hall" Type="Self.Hall" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hall">
+              <PropertyRef Name="HallId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="HallId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LeagueMatch">
+          <End Role="League" Type="Self.League" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="League">
+              <PropertyRef Name="LeagueId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="LeagueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchGuestTeam">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="GuestTeam">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchHomeTeam">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HomeTeam" Type="Self.HomeTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="HomeTeam">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchManage">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Manage" Type="Self.Manage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="Manage">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchPlay">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Play" Type="Self.Play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="MatchId" />
+            </Principal>
+            <Dependent Role="Play">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerPlay">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Play" Type="Self.Play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="Play">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefereePairMatch">
+          <End Role="RefereePair" Type="Self.RefereePair" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefereePair">
+              <PropertyRef Name="RefereePairId" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="RefereePairId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SecondRefereeRefereePair">
+          <End Role="Referee" Type="Self.Referee" Multiplicity="1" />
+          <End Role="RefereePair" Type="Self.RefereePair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Referee">
+              <PropertyRef Name="RefereeId" />
+            </Principal>
+            <Dependent Role="RefereePair">
+              <PropertyRef Name="SecondRefereeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MatchReporterModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClubOfficial" EntityType="Self.ClubOfficial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delegate" EntityType="Self.Delegate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GuestTeam" EntityType="Self.GuestTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hall" EntityType="Self.Hall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeTeam" EntityType="Self.HomeTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="League" EntityType="Self.League" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manage" EntityType="Self.Manage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Play" EntityType="Self.Play" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referee" EntityType="Self.Referee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefereePair" EntityType="Self.RefereePair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CityClub" Association="Self.FK_CityClub">
+            <End Role="City" EntitySet="City" />
+            <End Role="Club" EntitySet="Club" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityDelegate" Association="Self.FK_CityDelegate">
+            <End Role="City" EntitySet="City" />
+            <End Role="Delegate" EntitySet="Delegate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityHall" Association="Self.FK_CityHall">
+            <End Role="City" EntitySet="City" />
+            <End Role="Hall" EntitySet="Hall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityReferee" Association="Self.FK_CityReferee">
+            <End Role="City" EntitySet="City" />
+            <End Role="Referee" EntitySet="Referee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubClubOfficial" Association="Self.FK_ClubClubOfficial">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="ClubOfficial" EntitySet="ClubOfficial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubGuestTeam" Association="Self.FK_ClubGuestTeam">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="GuestTeam" EntitySet="GuestTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubHomeTeam" Association="Self.FK_ClubHomeTeam">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="HomeTeam" EntitySet="HomeTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubOfficialManage" Association="Self.FK_ClubOfficialManage">
+            <End Role="ClubOfficial" EntitySet="ClubOfficial" />
+            <End Role="Manage" EntitySet="Manage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubPlayer" Association="Self.FK_ClubPlayer">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DelegateMatch" Association="Self.FK_DelegateMatch">
+            <End Role="Delegate" EntitySet="Delegate" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FirstRefereeRefereePair" Association="Self.FK_FirstRefereeRefereePair">
+            <End Role="Referee" EntitySet="Referee" />
+            <End Role="RefereePair" EntitySet="RefereePair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallMatch" Association="Self.FK_HallMatch">
+            <End Role="Hall" EntitySet="Hall" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeagueMatch" Association="Self.FK_LeagueMatch">
+            <End Role="League" EntitySet="League" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchGuestTeam" Association="Self.FK_MatchGuestTeam">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="GuestTeam" EntitySet="GuestTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchHomeTeam" Association="Self.FK_MatchHomeTeam">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="HomeTeam" EntitySet="HomeTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchManage" Association="Self.FK_MatchManage">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="Manage" EntitySet="Manage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchPlay" Association="Self.FK_MatchPlay">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="Play" EntitySet="Play" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerPlay" Association="Self.FK_PlayerPlay">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Play" EntitySet="Play" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefereePairMatch" Association="Self.FK_RefereePairMatch">
+            <End Role="RefereePair" EntitySet="RefereePair" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SecondRefereeRefereePair" Association="Self.FK_SecondRefereeRefereePair">
+            <End Role="Referee" EntitySet="Referee" />
+            <End Role="RefereePair" EntitySet="RefereePair" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MatchReporterDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MatchReporterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityId" />
@@ -530,21 +537,10 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PostalCode" Type="Int32" Nullable="false" />
           <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Clubs" Relationship="Self.FK_CityClub" FromRole="Cities" ToRole="Clubs" />
-          <NavigationProperty Name="Delegates" Relationship="Self.FK_CityDelegate" FromRole="Cities" ToRole="Delegates" />
-          <NavigationProperty Name="Halls" Relationship="Self.FK_CityHall" FromRole="Cities" ToRole="Halls" />
-          <NavigationProperty Name="Referees" Relationship="Self.FK_CityReferee" FromRole="Cities" ToRole="Referees" />
-        </EntityType>
-        <EntityType Name="ClubOfficial">
-          <Key>
-            <PropertyRef Name="ClubOfficialId" />
-          </Key>
-          <Property Name="ClubOfficialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClubId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Clubs" Relationship="Self.FK_ClubClubOfficial" FromRole="ClubOfficials" ToRole="Clubs" />
-          <NavigationProperty Name="Manages" Relationship="Self.FK_ClubOfficialManage" FromRole="ClubOfficials" ToRole="Manages" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_CityClub" FromRole="City" ToRole="Club" />
+          <NavigationProperty Name="Delegate" Relationship="Self.FK_CityDelegate" FromRole="City" ToRole="Delegate" />
+          <NavigationProperty Name="Hall" Relationship="Self.FK_CityHall" FromRole="City" ToRole="Hall" />
+          <NavigationProperty Name="Referee" Relationship="Self.FK_CityReferee" FromRole="City" ToRole="Referee" />
         </EntityType>
         <EntityType Name="Club">
           <Key>
@@ -557,11 +553,22 @@
           <Property Name="JerseyColorHome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="JerseyColorGuest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cities" Relationship="Self.FK_CityClub" FromRole="Clubs" ToRole="Cities" />
-          <NavigationProperty Name="ClubOfficials" Relationship="Self.FK_ClubClubOfficial" FromRole="Clubs" ToRole="ClubOfficials" />
-          <NavigationProperty Name="GuestTeams" Relationship="Self.FK_ClubGuestTeam" FromRole="Clubs" ToRole="GuestTeams" />
-          <NavigationProperty Name="HomeTeams" Relationship="Self.FK_ClubHomeTeam" FromRole="Clubs" ToRole="HomeTeams" />
-          <NavigationProperty Name="Players" Relationship="Self.FK_ClubPlayer" FromRole="Clubs" ToRole="Players" />
+          <NavigationProperty Name="City" Relationship="Self.FK_CityClub" FromRole="Club" ToRole="City" />
+          <NavigationProperty Name="ClubOfficial" Relationship="Self.FK_ClubClubOfficial" FromRole="Club" ToRole="ClubOfficial" />
+          <NavigationProperty Name="GuestTeam" Relationship="Self.FK_ClubGuestTeam" FromRole="Club" ToRole="GuestTeam" />
+          <NavigationProperty Name="HomeTeam" Relationship="Self.FK_ClubHomeTeam" FromRole="Club" ToRole="HomeTeam" />
+          <NavigationProperty Name="Player" Relationship="Self.FK_ClubPlayer" FromRole="Club" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="ClubOfficial">
+          <Key>
+            <PropertyRef Name="ClubOfficialId" />
+          </Key>
+          <Property Name="ClubOfficialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_ClubClubOfficial" FromRole="ClubOfficial" ToRole="Club" />
+          <NavigationProperty Name="Manage" Relationship="Self.FK_ClubOfficialManage" FromRole="ClubOfficial" ToRole="Manage" />
         </EntityType>
         <EntityType Name="Delegate">
           <Key>
@@ -571,8 +578,8 @@
           <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cities" Relationship="Self.FK_CityDelegate" FromRole="Delegates" ToRole="Cities" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_DelegateMatch" FromRole="Delegates" ToRole="Matches" />
+          <NavigationProperty Name="City" Relationship="Self.FK_CityDelegate" FromRole="Delegate" ToRole="City" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_DelegateMatch" FromRole="Delegate" ToRole="Match" />
         </EntityType>
         <EntityType Name="GuestTeam">
           <Key>
@@ -586,8 +593,10 @@
           <Property Name="JerseyColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClubId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Clubs" Relationship="Self.FK_ClubGuestTeam" FromRole="GuestTeams" ToRole="Clubs" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_MatchGuestTeam" FromRole="GuestTeams" ToRole="Matches" />
+          <Property Name="Goals7m" Type="Int32" />
+          <Property Name="Attempts7m" Type="Int32" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_ClubGuestTeam" FromRole="GuestTeam" ToRole="Club" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchGuestTeam" FromRole="GuestTeam" ToRole="Match" />
         </EntityType>
         <EntityType Name="Hall">
           <Key>
@@ -598,8 +607,8 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Capacity" Type="Int32" Nullable="false" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cities" Relationship="Self.FK_CityHall" FromRole="Halls" ToRole="Cities" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_HallMatch" FromRole="Halls" ToRole="Matches" />
+          <NavigationProperty Name="City" Relationship="Self.FK_CityHall" FromRole="Hall" ToRole="City" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_HallMatch" FromRole="Hall" ToRole="Match" />
         </EntityType>
         <EntityType Name="HomeTeam">
           <Key>
@@ -613,8 +622,10 @@
           <Property Name="JerseyColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClubId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Clubs" Relationship="Self.FK_ClubHomeTeam" FromRole="HomeTeams" ToRole="Clubs" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_MatchHomeTeam" FromRole="HomeTeams" ToRole="Matches" />
+          <Property Name="Goals7m" Type="Int32" />
+          <Property Name="Attempts7m" Type="Int32" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_ClubHomeTeam" FromRole="HomeTeam" ToRole="Club" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchHomeTeam" FromRole="HomeTeam" ToRole="Match" />
         </EntityType>
         <EntityType Name="League">
           <Key>
@@ -623,7 +634,7 @@
           <Property Name="LeagueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_LeagueMatch" FromRole="Leagues" ToRole="Matches" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_LeagueMatch" FromRole="League" ToRole="Match" />
         </EntityType>
         <EntityType Name="Manage">
           <Key>
@@ -636,8 +647,8 @@
           <Property Name="DisqualificationAndReport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClubOfficialId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClubOfficials" Relationship="Self.FK_ClubOfficialManage" FromRole="Manages" ToRole="ClubOfficials" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_MatchManage" FromRole="Manages" ToRole="Matches" />
+          <NavigationProperty Name="ClubOfficial" Relationship="Self.FK_ClubOfficialManage" FromRole="Manage" ToRole="ClubOfficial" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchManage" FromRole="Manage" ToRole="Match" />
         </EntityType>
         <EntityType Name="Match">
           <Key>
@@ -652,34 +663,24 @@
           <Property Name="LeagueId" Type="Int32" Nullable="false" />
           <Property Name="DelegateId" Type="Int32" Nullable="false" />
           <Property Name="HallId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Delegates" Relationship="Self.FK_DelegateMatch" FromRole="Matches" ToRole="Delegates" />
-          <NavigationProperty Name="GuestTeams" Relationship="Self.FK_MatchGuestTeam" FromRole="Matches" ToRole="GuestTeams" />
-          <NavigationProperty Name="Halls" Relationship="Self.FK_HallMatch" FromRole="Matches" ToRole="Halls" />
-          <NavigationProperty Name="HomeTeams" Relationship="Self.FK_MatchHomeTeam" FromRole="Matches" ToRole="HomeTeams" />
-          <NavigationProperty Name="Leagues" Relationship="Self.FK_LeagueMatch" FromRole="Matches" ToRole="Leagues" />
-          <NavigationProperty Name="Manages" Relationship="Self.FK_MatchManage" FromRole="Matches" ToRole="Manages" />
-          <NavigationProperty Name="Plays" Relationship="Self.FK_MatchPlay" FromRole="Matches" ToRole="Plays" />
-          <NavigationProperty Name="RefereePairs" Relationship="Self.FK_RefereePairMatch" FromRole="Matches" ToRole="RefereePairs" />
-        </EntityType>
-        <EntityType Name="Player">
-          <Key>
-            <PropertyRef Name="PlayerId" />
-          </Key>
-          <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClubId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Clubs" Relationship="Self.FK_ClubPlayer" FromRole="Players" ToRole="Clubs" />
-          <NavigationProperty Name="Plays" Relationship="Self.FK_PlayerPlay" FromRole="Players" ToRole="Plays" />
+          <Property Name="TimeKeeper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Scorer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Delegate" Relationship="Self.FK_DelegateMatch" FromRole="Match" ToRole="Delegate" />
+          <NavigationProperty Name="GuestTeam" Relationship="Self.FK_MatchGuestTeam" FromRole="Match" ToRole="GuestTeam" />
+          <NavigationProperty Name="Hall" Relationship="Self.FK_HallMatch" FromRole="Match" ToRole="Hall" />
+          <NavigationProperty Name="HomeTeam" Relationship="Self.FK_MatchHomeTeam" FromRole="Match" ToRole="HomeTeam" />
+          <NavigationProperty Name="League" Relationship="Self.FK_LeagueMatch" FromRole="Match" ToRole="League" />
+          <NavigationProperty Name="Manage" Relationship="Self.FK_MatchManage" FromRole="Match" ToRole="Manage" />
+          <NavigationProperty Name="Play" Relationship="Self.FK_MatchPlay" FromRole="Match" ToRole="Play" />
+          <NavigationProperty Name="RefereePair" Relationship="Self.FK_RefereePairMatch" FromRole="Match" ToRole="RefereePair" />
         </EntityType>
         <EntityType Name="Play">
           <Key>
             <PropertyRef Name="PlayId" />
           </Key>
           <Property Name="PlayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Goals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Goals7m" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Goals" Type="Int32" Nullable="false" />
+          <Property Name="Goals7m" Type="Int32" Nullable="false" />
           <Property Name="Warning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SuspensionFirst" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SuspensionSecond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -688,19 +689,20 @@
           <Property Name="DisqualificationAdnReport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PlayerId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_MatchPlay" FromRole="Plays" ToRole="Matches" />
-          <NavigationProperty Name="Players" Relationship="Self.FK_PlayerPlay" FromRole="Plays" ToRole="Players" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchPlay" FromRole="Play" ToRole="Match" />
+          <NavigationProperty Name="Player" Relationship="Self.FK_PlayerPlay" FromRole="Play" ToRole="Player" />
         </EntityType>
-        <EntityType Name="RefereePair">
+        <EntityType Name="Player">
           <Key>
-            <PropertyRef Name="RefereePairId" />
+            <PropertyRef Name="PlayerId" />
           </Key>
-          <Property Name="RefereePairId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstRefereeId" Type="Int32" Nullable="false" />
-          <Property Name="SecondRefereeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Matches" Relationship="Self.FK_RefereePairMatch" FromRole="RefereePairs" ToRole="Matches" />
-          <NavigationProperty Name="Referees" Relationship="Self.FK_FirstRefereeRefereePair" FromRole="RefereePairs" ToRole="Referees" />
-          <NavigationProperty Name="Referees1" Relationship="Self.FK_SecondRefereeRefereePair" FromRole="RefereePairs" ToRole="Referees" />
+          <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="ClubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_ClubPlayer" FromRole="Player" ToRole="Club" />
+          <NavigationProperty Name="Play" Relationship="Self.FK_PlayerPlay" FromRole="Player" ToRole="Play" />
         </EntityType>
         <EntityType Name="Referee">
           <Key>
@@ -710,9 +712,20 @@
           <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cities" Relationship="Self.FK_CityReferee" FromRole="Referees" ToRole="Cities" />
-          <NavigationProperty Name="RefereePairs" Relationship="Self.FK_FirstRefereeRefereePair" FromRole="Referees" ToRole="RefereePairs" />
-          <NavigationProperty Name="RefereePairs1" Relationship="Self.FK_SecondRefereeRefereePair" FromRole="Referees" ToRole="RefereePairs" />
+          <NavigationProperty Name="City" Relationship="Self.FK_CityReferee" FromRole="Referee" ToRole="City" />
+          <NavigationProperty Name="RefereePair" Relationship="Self.FK_FirstRefereeRefereePair" FromRole="Referee" ToRole="RefereePair" />
+          <NavigationProperty Name="RefereePair1" Relationship="Self.FK_SecondRefereeRefereePair" FromRole="Referee" ToRole="RefereePair" />
+        </EntityType>
+        <EntityType Name="RefereePair">
+          <Key>
+            <PropertyRef Name="RefereePairId" />
+          </Key>
+          <Property Name="RefereePairId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstRefereeId" Type="Int32" Nullable="false" />
+          <Property Name="SecondRefereeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_RefereePairMatch" FromRole="RefereePair" ToRole="Match" />
+          <NavigationProperty Name="Referee" Relationship="Self.FK_FirstRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
+          <NavigationProperty Name="Referee1" Relationship="Self.FK_SecondRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -723,541 +736,548 @@
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_CityClub">
-          <End Role="Cities" Type="MatchReporterDatabaseModel.City" Multiplicity="1" />
-          <End Role="Clubs" Type="MatchReporterDatabaseModel.Club" Multiplicity="*" />
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Club" Type="Self.Club" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cities">
+            <Principal Role="City">
               <PropertyRef Name="CityId" />
             </Principal>
-            <Dependent Role="Clubs">
+            <Dependent Role="Club">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CityDelegate">
-          <End Role="Cities" Type="MatchReporterDatabaseModel.City" Multiplicity="1" />
-          <End Role="Delegates" Type="MatchReporterDatabaseModel.Delegate" Multiplicity="*" />
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Delegate" Type="Self.Delegate" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cities">
+            <Principal Role="City">
               <PropertyRef Name="CityId" />
             </Principal>
-            <Dependent Role="Delegates">
+            <Dependent Role="Delegate">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CityHall">
-          <End Role="Cities" Type="MatchReporterDatabaseModel.City" Multiplicity="1" />
-          <End Role="Halls" Type="MatchReporterDatabaseModel.Hall" Multiplicity="*" />
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Hall" Type="Self.Hall" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cities">
+            <Principal Role="City">
               <PropertyRef Name="CityId" />
             </Principal>
-            <Dependent Role="Halls">
+            <Dependent Role="Hall">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CityReferee">
-          <End Role="Cities" Type="MatchReporterDatabaseModel.City" Multiplicity="1" />
-          <End Role="Referees" Type="MatchReporterDatabaseModel.Referee" Multiplicity="*" />
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Referee" Type="Self.Referee" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cities">
+            <Principal Role="City">
               <PropertyRef Name="CityId" />
             </Principal>
-            <Dependent Role="Referees">
+            <Dependent Role="Referee">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClubClubOfficial">
-          <End Role="Clubs" Type="MatchReporterDatabaseModel.Club" Multiplicity="1" />
-          <End Role="ClubOfficials" Type="MatchReporterDatabaseModel.ClubOfficial" Multiplicity="*" />
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="ClubOfficial" Type="Self.ClubOfficial" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Clubs">
+            <Principal Role="Club">
               <PropertyRef Name="ClubId" />
             </Principal>
-            <Dependent Role="ClubOfficials">
+            <Dependent Role="ClubOfficial">
               <PropertyRef Name="ClubId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClubOfficialManage">
-          <End Role="ClubOfficials" Type="MatchReporterDatabaseModel.ClubOfficial" Multiplicity="1" />
-          <End Role="Manages" Type="MatchReporterDatabaseModel.Manage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ClubOfficials">
-              <PropertyRef Name="ClubOfficialId" />
-            </Principal>
-            <Dependent Role="Manages">
-              <PropertyRef Name="ClubOfficialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClubGuestTeam">
-          <End Role="Clubs" Type="MatchReporterDatabaseModel.Club" Multiplicity="1" />
-          <End Role="GuestTeams" Type="MatchReporterDatabaseModel.GuestTeam" Multiplicity="*" />
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Clubs">
+            <Principal Role="Club">
               <PropertyRef Name="ClubId" />
             </Principal>
-            <Dependent Role="GuestTeams">
+            <Dependent Role="GuestTeam">
               <PropertyRef Name="ClubId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClubHomeTeam">
-          <End Role="Clubs" Type="MatchReporterDatabaseModel.Club" Multiplicity="1" />
-          <End Role="HomeTeams" Type="MatchReporterDatabaseModel.HomeTeam" Multiplicity="*" />
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="HomeTeam" Type="Self.HomeTeam" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Clubs">
+            <Principal Role="Club">
               <PropertyRef Name="ClubId" />
             </Principal>
-            <Dependent Role="HomeTeams">
+            <Dependent Role="HomeTeam">
               <PropertyRef Name="ClubId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClubPlayer">
-          <End Role="Clubs" Type="MatchReporterDatabaseModel.Club" Multiplicity="1" />
-          <End Role="Players" Type="MatchReporterDatabaseModel.Player" Multiplicity="*" />
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Clubs">
+            <Principal Role="Club">
               <PropertyRef Name="ClubId" />
             </Principal>
-            <Dependent Role="Players">
+            <Dependent Role="Player">
               <PropertyRef Name="ClubId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ClubOfficialManage">
+          <End Role="ClubOfficial" Type="Self.ClubOfficial" Multiplicity="1" />
+          <End Role="Manage" Type="Self.Manage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubOfficial">
+              <PropertyRef Name="ClubOfficialId" />
+            </Principal>
+            <Dependent Role="Manage">
+              <PropertyRef Name="ClubOfficialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DelegateMatch">
-          <End Role="Delegates" Type="MatchReporterDatabaseModel.Delegate" Multiplicity="1">
+          <End Role="Delegate" Type="Self.Delegate" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="*" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Delegates">
+            <Principal Role="Delegate">
               <PropertyRef Name="DelegateId" />
             </Principal>
-            <Dependent Role="Matches">
+            <Dependent Role="Match">
               <PropertyRef Name="DelegateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MatchGuestTeam">
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="1">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="GuestTeams" Type="MatchReporterDatabaseModel.GuestTeam" Multiplicity="*" />
+          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Matches">
+            <Principal Role="Match">
               <PropertyRef Name="MatchId" />
             </Principal>
-            <Dependent Role="GuestTeams">
+            <Dependent Role="GuestTeam">
               <PropertyRef Name="MatchId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HallMatch">
-          <End Role="Halls" Type="MatchReporterDatabaseModel.Hall" Multiplicity="1">
+          <End Role="Hall" Type="Self.Hall" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="*" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Halls">
+            <Principal Role="Hall">
               <PropertyRef Name="HallId" />
             </Principal>
-            <Dependent Role="Matches">
+            <Dependent Role="Match">
               <PropertyRef Name="HallId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MatchHomeTeam">
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="1">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="HomeTeams" Type="MatchReporterDatabaseModel.HomeTeam" Multiplicity="*" />
+          <End Role="HomeTeam" Type="Self.HomeTeam" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Matches">
+            <Principal Role="Match">
               <PropertyRef Name="MatchId" />
             </Principal>
-            <Dependent Role="HomeTeams">
+            <Dependent Role="HomeTeam">
               <PropertyRef Name="MatchId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LeagueMatch">
-          <End Role="Leagues" Type="MatchReporterDatabaseModel.League" Multiplicity="1">
+          <End Role="League" Type="Self.League" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="*" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Leagues">
+            <Principal Role="League">
               <PropertyRef Name="LeagueId" />
             </Principal>
-            <Dependent Role="Matches">
+            <Dependent Role="Match">
               <PropertyRef Name="LeagueId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MatchManage">
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="1">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Manages" Type="MatchReporterDatabaseModel.Manage" Multiplicity="*" />
+          <End Role="Manage" Type="Self.Manage" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Matches">
+            <Principal Role="Match">
               <PropertyRef Name="MatchId" />
             </Principal>
-            <Dependent Role="Manages">
+            <Dependent Role="Manage">
               <PropertyRef Name="MatchId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MatchPlay">
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="1">
+          <End Role="Match" Type="Self.Match" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Plays" Type="MatchReporterDatabaseModel.Play" Multiplicity="*" />
+          <End Role="Play" Type="Self.Play" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Matches">
+            <Principal Role="Match">
               <PropertyRef Name="MatchId" />
             </Principal>
-            <Dependent Role="Plays">
+            <Dependent Role="Play">
               <PropertyRef Name="MatchId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RefereePairMatch">
-          <End Role="RefereePairs" Type="MatchReporterDatabaseModel.RefereePair" Multiplicity="1">
+          <End Role="RefereePair" Type="Self.RefereePair" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Matches" Type="MatchReporterDatabaseModel.Match" Multiplicity="*" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RefereePairs">
+            <Principal Role="RefereePair">
               <PropertyRef Name="RefereePairId" />
             </Principal>
-            <Dependent Role="Matches">
+            <Dependent Role="Match">
               <PropertyRef Name="RefereePairId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PlayerPlay">
-          <End Role="Players" Type="MatchReporterDatabaseModel.Player" Multiplicity="1" />
-          <End Role="Plays" Type="MatchReporterDatabaseModel.Play" Multiplicity="*" />
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Play" Type="Self.Play" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Players">
+            <Principal Role="Player">
               <PropertyRef Name="PlayerId" />
             </Principal>
-            <Dependent Role="Plays">
+            <Dependent Role="Play">
               <PropertyRef Name="PlayerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FirstRefereeRefereePair">
-          <End Role="Referees" Type="MatchReporterDatabaseModel.Referee" Multiplicity="1" />
-          <End Role="RefereePairs" Type="MatchReporterDatabaseModel.RefereePair" Multiplicity="*" />
+          <End Role="Referee" Type="Self.Referee" Multiplicity="1" />
+          <End Role="RefereePair" Type="Self.RefereePair" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Referees">
+            <Principal Role="Referee">
               <PropertyRef Name="RefereeId" />
             </Principal>
-            <Dependent Role="RefereePairs">
+            <Dependent Role="RefereePair">
               <PropertyRef Name="FirstRefereeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SecondRefereeRefereePair">
-          <End Role="Referees" Type="MatchReporterDatabaseModel.Referee" Multiplicity="1" />
-          <End Role="RefereePairs" Type="MatchReporterDatabaseModel.RefereePair" Multiplicity="*" />
+          <End Role="Referee" Type="Self.Referee" Multiplicity="1" />
+          <End Role="RefereePair" Type="Self.RefereePair" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Referees">
+            <Principal Role="Referee">
               <PropertyRef Name="RefereeId" />
             </Principal>
-            <Dependent Role="RefereePairs">
+            <Dependent Role="RefereePair">
               <PropertyRef Name="SecondRefereeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MatchReporterEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cities" EntityType="MatchReporterDatabaseModel.City" />
-          <EntitySet Name="ClubOfficials" EntityType="MatchReporterDatabaseModel.ClubOfficial" />
-          <EntitySet Name="Clubs" EntityType="MatchReporterDatabaseModel.Club" />
-          <EntitySet Name="Delegates" EntityType="MatchReporterDatabaseModel.Delegate" />
-          <EntitySet Name="GuestTeams" EntityType="MatchReporterDatabaseModel.GuestTeam" />
-          <EntitySet Name="Halls" EntityType="MatchReporterDatabaseModel.Hall" />
-          <EntitySet Name="HomeTeams" EntityType="MatchReporterDatabaseModel.HomeTeam" />
-          <EntitySet Name="Leagues" EntityType="MatchReporterDatabaseModel.League" />
-          <EntitySet Name="Manages" EntityType="MatchReporterDatabaseModel.Manage" />
-          <EntitySet Name="Matches" EntityType="MatchReporterDatabaseModel.Match" />
-          <EntitySet Name="Players" EntityType="MatchReporterDatabaseModel.Player" />
-          <EntitySet Name="Plays" EntityType="MatchReporterDatabaseModel.Play" />
-          <EntitySet Name="RefereePairs" EntityType="MatchReporterDatabaseModel.RefereePair" />
-          <EntitySet Name="Referees" EntityType="MatchReporterDatabaseModel.Referee" />
-          <EntitySet Name="Users" EntityType="MatchReporterDatabaseModel.User" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Club" EntityType="Self.Club" />
+          <EntitySet Name="ClubOfficial" EntityType="Self.ClubOfficial" />
+          <EntitySet Name="Delegate" EntityType="Self.Delegate" />
+          <EntitySet Name="GuestTeam" EntityType="Self.GuestTeam" />
+          <EntitySet Name="Hall" EntityType="Self.Hall" />
+          <EntitySet Name="HomeTeam" EntityType="Self.HomeTeam" />
+          <EntitySet Name="League" EntityType="Self.League" />
+          <EntitySet Name="Manage" EntityType="Self.Manage" />
+          <EntitySet Name="Match" EntityType="Self.Match" />
+          <EntitySet Name="Play" EntityType="Self.Play" />
+          <EntitySet Name="Player" EntityType="Self.Player" />
+          <EntitySet Name="Referee" EntityType="Self.Referee" />
+          <EntitySet Name="RefereePair" EntityType="Self.RefereePair" />
+          <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_CityClub" Association="Self.FK_CityClub">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="City" EntitySet="City" />
+            <End Role="Club" EntitySet="Club" />
           </AssociationSet>
           <AssociationSet Name="FK_CityDelegate" Association="Self.FK_CityDelegate">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Delegates" EntitySet="Delegates" />
+            <End Role="City" EntitySet="City" />
+            <End Role="Delegate" EntitySet="Delegate" />
           </AssociationSet>
           <AssociationSet Name="FK_CityHall" Association="Self.FK_CityHall">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Halls" EntitySet="Halls" />
+            <End Role="City" EntitySet="City" />
+            <End Role="Hall" EntitySet="Hall" />
           </AssociationSet>
           <AssociationSet Name="FK_CityReferee" Association="Self.FK_CityReferee">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Referees" EntitySet="Referees" />
+            <End Role="City" EntitySet="City" />
+            <End Role="Referee" EntitySet="Referee" />
           </AssociationSet>
           <AssociationSet Name="FK_ClubClubOfficial" Association="Self.FK_ClubClubOfficial">
-            <End Role="Clubs" EntitySet="Clubs" />
-            <End Role="ClubOfficials" EntitySet="ClubOfficials" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClubOfficialManage" Association="Self.FK_ClubOfficialManage">
-            <End Role="ClubOfficials" EntitySet="ClubOfficials" />
-            <End Role="Manages" EntitySet="Manages" />
+            <End Role="Club" EntitySet="Club" />
+            <End Role="ClubOfficial" EntitySet="ClubOfficial" />
           </AssociationSet>
           <AssociationSet Name="FK_ClubGuestTeam" Association="Self.FK_ClubGuestTeam">
-            <End Role="Clubs" EntitySet="Clubs" />
-            <End Role="GuestTeams" EntitySet="GuestTeams" />
+            <End Role="Club" EntitySet="Club" />
+            <End Role="GuestTeam" EntitySet="GuestTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_ClubHomeTeam" Association="Self.FK_ClubHomeTeam">
-            <End Role="Clubs" EntitySet="Clubs" />
-            <End Role="HomeTeams" EntitySet="HomeTeams" />
+            <End Role="Club" EntitySet="Club" />
+            <End Role="HomeTeam" EntitySet="HomeTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_ClubPlayer" Association="Self.FK_ClubPlayer">
-            <End Role="Clubs" EntitySet="Clubs" />
-            <End Role="Players" EntitySet="Players" />
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubOfficialManage" Association="Self.FK_ClubOfficialManage">
+            <End Role="ClubOfficial" EntitySet="ClubOfficial" />
+            <End Role="Manage" EntitySet="Manage" />
           </AssociationSet>
           <AssociationSet Name="FK_DelegateMatch" Association="Self.FK_DelegateMatch">
-            <End Role="Delegates" EntitySet="Delegates" />
-            <End Role="Matches" EntitySet="Matches" />
+            <End Role="Delegate" EntitySet="Delegate" />
+            <End Role="Match" EntitySet="Match" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchGuestTeam" Association="Self.FK_MatchGuestTeam">
-            <End Role="Matches" EntitySet="Matches" />
-            <End Role="GuestTeams" EntitySet="GuestTeams" />
+            <End Role="Match" EntitySet="Match" />
+            <End Role="GuestTeam" EntitySet="GuestTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_HallMatch" Association="Self.FK_HallMatch">
-            <End Role="Halls" EntitySet="Halls" />
-            <End Role="Matches" EntitySet="Matches" />
+            <End Role="Hall" EntitySet="Hall" />
+            <End Role="Match" EntitySet="Match" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchHomeTeam" Association="Self.FK_MatchHomeTeam">
-            <End Role="Matches" EntitySet="Matches" />
-            <End Role="HomeTeams" EntitySet="HomeTeams" />
+            <End Role="Match" EntitySet="Match" />
+            <End Role="HomeTeam" EntitySet="HomeTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_LeagueMatch" Association="Self.FK_LeagueMatch">
-            <End Role="Leagues" EntitySet="Leagues" />
-            <End Role="Matches" EntitySet="Matches" />
+            <End Role="League" EntitySet="League" />
+            <End Role="Match" EntitySet="Match" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchManage" Association="Self.FK_MatchManage">
-            <End Role="Matches" EntitySet="Matches" />
-            <End Role="Manages" EntitySet="Manages" />
+            <End Role="Match" EntitySet="Match" />
+            <End Role="Manage" EntitySet="Manage" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchPlay" Association="Self.FK_MatchPlay">
-            <End Role="Matches" EntitySet="Matches" />
-            <End Role="Plays" EntitySet="Plays" />
+            <End Role="Match" EntitySet="Match" />
+            <End Role="Play" EntitySet="Play" />
           </AssociationSet>
           <AssociationSet Name="FK_RefereePairMatch" Association="Self.FK_RefereePairMatch">
-            <End Role="RefereePairs" EntitySet="RefereePairs" />
-            <End Role="Matches" EntitySet="Matches" />
+            <End Role="RefereePair" EntitySet="RefereePair" />
+            <End Role="Match" EntitySet="Match" />
           </AssociationSet>
           <AssociationSet Name="FK_PlayerPlay" Association="Self.FK_PlayerPlay">
-            <End Role="Players" EntitySet="Players" />
-            <End Role="Plays" EntitySet="Plays" />
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Play" EntitySet="Play" />
           </AssociationSet>
           <AssociationSet Name="FK_FirstRefereeRefereePair" Association="Self.FK_FirstRefereeRefereePair">
-            <End Role="Referees" EntitySet="Referees" />
-            <End Role="RefereePairs" EntitySet="RefereePairs" />
+            <End Role="Referee" EntitySet="Referee" />
+            <End Role="RefereePair" EntitySet="RefereePair" />
           </AssociationSet>
           <AssociationSet Name="FK_SecondRefereeRefereePair" Association="Self.FK_SecondRefereeRefereePair">
-            <End Role="Referees" EntitySet="Referees" />
-            <End Role="RefereePairs" EntitySet="RefereePairs" />
+            <End Role="Referee" EntitySet="Referee" />
+            <End Role="RefereePair" EntitySet="RefereePair" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MatchReporterDatabaseModelStoreContainer" CdmEntityContainer="MatchReporterEntities">
-    <EntitySetMapping Name="Cities">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.City)">
-        <MappingFragment StoreEntitySet="Cities">
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ClubOfficials">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.ClubOfficial)">
-        <MappingFragment StoreEntitySet="ClubOfficials">
-          <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Clubs">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Club)">
-        <MappingFragment StoreEntitySet="Clubs">
-          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-          <ScalarProperty Name="JerseyColorHome" ColumnName="JerseyColorHome" />
-          <ScalarProperty Name="JerseyColorGuest" ColumnName="JerseyColorGuest" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Delegates">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Delegate)">
-        <MappingFragment StoreEntitySet="Delegates">
-          <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GuestTeams">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.GuestTeam)">
-        <MappingFragment StoreEntitySet="GuestTeams">
-          <ScalarProperty Name="GuestTeamId" ColumnName="GuestTeamId" />
-          <ScalarProperty Name="Goals" ColumnName="Goals" />
-          <ScalarProperty Name="TTO1" ColumnName="TTO1" />
-          <ScalarProperty Name="TTO2" ColumnName="TTO2" />
-          <ScalarProperty Name="TTO3" ColumnName="TTO3" />
-          <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
-          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
-          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Halls">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Hall)">
-        <MappingFragment StoreEntitySet="Halls">
-          <ScalarProperty Name="HallId" ColumnName="HallId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HomeTeams">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.HomeTeam)">
-        <MappingFragment StoreEntitySet="HomeTeams">
-          <ScalarProperty Name="HomeTeamId" ColumnName="HomeTeamId" />
-          <ScalarProperty Name="Goals" ColumnName="Goals" />
-          <ScalarProperty Name="TTO1" ColumnName="TTO1" />
-          <ScalarProperty Name="TTO2" ColumnName="TTO2" />
-          <ScalarProperty Name="TTO3" ColumnName="TTO3" />
-          <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
-          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
-          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Leagues">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.League)">
-        <MappingFragment StoreEntitySet="Leagues">
-          <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Manages">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Manage)">
-        <MappingFragment StoreEntitySet="Manages">
-          <ScalarProperty Name="ManageId" ColumnName="ManageId" />
-          <ScalarProperty Name="Warning" ColumnName="Warning" />
-          <ScalarProperty Name="Suspension" ColumnName="Suspension" />
-          <ScalarProperty Name="Disqualification" ColumnName="Disqualification" />
-          <ScalarProperty Name="DisqualificationAndReport" ColumnName="DisqualificationAndReport" />
-          <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
-          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Matches">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Match)">
-        <MappingFragment StoreEntitySet="Matches">
-          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
-          <ScalarProperty Name="Round" ColumnName="Round" />
-          <ScalarProperty Name="Spectators" ColumnName="Spectators" />
-          <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
-          <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
-          <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
-          <ScalarProperty Name="HallId" ColumnName="HallId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Players">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Player)">
-        <MappingFragment StoreEntitySet="Players">
-          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Plays">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Play)">
-        <MappingFragment StoreEntitySet="Plays">
-          <ScalarProperty Name="PlayId" ColumnName="PlayId" />
-          <ScalarProperty Name="Number" ColumnName="Number" />
-          <ScalarProperty Name="Goals" ColumnName="Goals" />
-          <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
-          <ScalarProperty Name="Warning" ColumnName="Warning" />
-          <ScalarProperty Name="SuspensionFirst" ColumnName="SuspensionFirst" />
-          <ScalarProperty Name="SuspensionSecond" ColumnName="SuspensionSecond" />
-          <ScalarProperty Name="SuspensionThird" ColumnName="SuspensionThird" />
-          <ScalarProperty Name="Disqualification" ColumnName="Disqualification" />
-          <ScalarProperty Name="DisqualificationAdnReport" ColumnName="DisqualificationAdnReport" />
-          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
-          <ScalarProperty Name="MatchId" ColumnName="MatchId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RefereePairs">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.RefereePair)">
-        <MappingFragment StoreEntitySet="RefereePairs">
-          <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
-          <ScalarProperty Name="FirstRefereeId" ColumnName="FirstRefereeId" />
-          <ScalarProperty Name="SecondRefereeId" ColumnName="SecondRefereeId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Referees">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.Referee)">
-        <MappingFragment StoreEntitySet="Referees">
-          <ScalarProperty Name="RefereeId" ColumnName="RefereeId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="IsTypeOf(MatchReporterDatabaseModel.User)">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MatchReporterModelStoreContainer" CdmEntityContainer="MatchReporterEntities">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="MatchReporterModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Club">
+            <EntityTypeMapping TypeName="MatchReporterModel.Club">
+              <MappingFragment StoreEntitySet="Club">
+                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="JerseyColorHome" ColumnName="JerseyColorHome" />
+                <ScalarProperty Name="JerseyColorGuest" ColumnName="JerseyColorGuest" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClubOfficial">
+            <EntityTypeMapping TypeName="MatchReporterModel.ClubOfficial">
+              <MappingFragment StoreEntitySet="ClubOfficial">
+                <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delegate">
+            <EntityTypeMapping TypeName="MatchReporterModel.Delegate">
+              <MappingFragment StoreEntitySet="Delegate">
+                <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GuestTeam">
+            <EntityTypeMapping TypeName="MatchReporterModel.GuestTeam">
+              <MappingFragment StoreEntitySet="GuestTeam">
+                <ScalarProperty Name="GuestTeamId" ColumnName="GuestTeamId" />
+                <ScalarProperty Name="Goals" ColumnName="Goals" />
+                <ScalarProperty Name="TTO1" ColumnName="TTO1" />
+                <ScalarProperty Name="TTO2" ColumnName="TTO2" />
+                <ScalarProperty Name="TTO3" ColumnName="TTO3" />
+                <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
+                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+                <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
+                <ScalarProperty Name="Attempts7m" ColumnName="Attempts7m" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hall">
+            <EntityTypeMapping TypeName="MatchReporterModel.Hall">
+              <MappingFragment StoreEntitySet="Hall">
+                <ScalarProperty Name="HallId" ColumnName="HallId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeTeam">
+            <EntityTypeMapping TypeName="MatchReporterModel.HomeTeam">
+              <MappingFragment StoreEntitySet="HomeTeam">
+                <ScalarProperty Name="HomeTeamId" ColumnName="HomeTeamId" />
+                <ScalarProperty Name="Goals" ColumnName="Goals" />
+                <ScalarProperty Name="TTO1" ColumnName="TTO1" />
+                <ScalarProperty Name="TTO2" ColumnName="TTO2" />
+                <ScalarProperty Name="TTO3" ColumnName="TTO3" />
+                <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
+                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+                <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
+                <ScalarProperty Name="Attempts7m" ColumnName="Attempts7m" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="League">
+            <EntityTypeMapping TypeName="MatchReporterModel.League">
+              <MappingFragment StoreEntitySet="League">
+                <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manage">
+            <EntityTypeMapping TypeName="MatchReporterModel.Manage">
+              <MappingFragment StoreEntitySet="Manage">
+                <ScalarProperty Name="ManageId" ColumnName="ManageId" />
+                <ScalarProperty Name="Warning" ColumnName="Warning" />
+                <ScalarProperty Name="Suspension" ColumnName="Suspension" />
+                <ScalarProperty Name="Disqualification" ColumnName="Disqualification" />
+                <ScalarProperty Name="DisqualificationAndReport" ColumnName="DisqualificationAndReport" />
+                <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Match">
+            <EntityTypeMapping TypeName="MatchReporterModel.Match">
+              <MappingFragment StoreEntitySet="Match">
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Round" ColumnName="Round" />
+                <ScalarProperty Name="Spectators" ColumnName="Spectators" />
+                <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
+                <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
+                <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
+                <ScalarProperty Name="HallId" ColumnName="HallId" />
+                <ScalarProperty Name="TimeKeeper" ColumnName="TimeKeeper" />
+                <ScalarProperty Name="Scorer" ColumnName="Scorer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Play">
+            <EntityTypeMapping TypeName="MatchReporterModel.Play">
+              <MappingFragment StoreEntitySet="Play">
+                <ScalarProperty Name="PlayId" ColumnName="PlayId" />
+                <ScalarProperty Name="Goals" ColumnName="Goals" />
+                <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
+                <ScalarProperty Name="Warning" ColumnName="Warning" />
+                <ScalarProperty Name="SuspensionFirst" ColumnName="SuspensionFirst" />
+                <ScalarProperty Name="SuspensionSecond" ColumnName="SuspensionSecond" />
+                <ScalarProperty Name="SuspensionThird" ColumnName="SuspensionThird" />
+                <ScalarProperty Name="Disqualification" ColumnName="Disqualification" />
+                <ScalarProperty Name="DisqualificationAdnReport" ColumnName="DisqualificationAdnReport" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Player">
+            <EntityTypeMapping TypeName="MatchReporterModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referee">
+            <EntityTypeMapping TypeName="MatchReporterModel.Referee">
+              <MappingFragment StoreEntitySet="Referee">
+                <ScalarProperty Name="RefereeId" ColumnName="RefereeId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefereePair">
+            <EntityTypeMapping TypeName="MatchReporterModel.RefereePair">
+              <MappingFragment StoreEntitySet="RefereePair">
+                <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
+                <ScalarProperty Name="FirstRefereeId" ColumnName="FirstRefereeId" />
+                <ScalarProperty Name="SecondRefereeId" ColumnName="SecondRefereeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MatchReporterModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1271,7 +1291,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

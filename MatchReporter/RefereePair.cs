@@ -16,15 +16,15 @@ namespace MatchReporter
     {
         public RefereePair()
         {
-            this.Matches = new HashSet<Match>();
+            this.Match = new HashSet<Match>();
         }
     
         public int RefereePairId { get; set; }
         public int FirstRefereeId { get; set; }
         public int SecondRefereeId { get; set; }
     
-        public virtual ICollection<Match> Matches { get; set; }
-        public virtual Referee Referees { get; set; }
-        public virtual Referee Referees1 { get; set; }
+        public virtual ICollection<Match> Match { get; set; }
+        public virtual Referee Referee { get; set; }
+        public virtual Referee Referee1 { get; set; }
     }
 }
