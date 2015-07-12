@@ -51,6 +51,7 @@
             // 
             this.cbxHomeTeam.DataSource = this.clubBindingSource;
             this.cbxHomeTeam.DisplayMember = "Name";
+            this.cbxHomeTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxHomeTeam.FormattingEnabled = true;
             this.cbxHomeTeam.Location = new System.Drawing.Point(121, 46);
             this.cbxHomeTeam.Name = "cbxHomeTeam";
@@ -65,6 +66,7 @@
             // 
             this.cbxGuestTeam.DataSource = this.clubBindingSource;
             this.cbxGuestTeam.DisplayMember = "Name";
+            this.cbxGuestTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxGuestTeam.FormattingEnabled = true;
             this.cbxGuestTeam.Location = new System.Drawing.Point(121, 89);
             this.cbxGuestTeam.Name = "cbxGuestTeam";

@@ -80,6 +80,12 @@
     <Compile Include="Delegate.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Data\Add\FrmAddPlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\Add\FrmAddPlayers.Designer.cs">
+      <DependentUpon>FrmAddPlayers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,10 +98,10 @@
     <Compile Include="Forms\FrmMatchReporter.Designer.cs">
       <DependentUpon>FrmMatchReporter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Podaci\Unos\FrmAddTeam.cs">
+    <Compile Include="Forms\Data\Add\FrmAddTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Podaci\Unos\FrmAddTeam.Designer.cs">
+    <Compile Include="Forms\Data\Add\FrmAddTeam.Designer.cs">
       <DependentUpon>FrmAddTeam.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Timer\FrmTimerChange.cs">
@@ -154,13 +160,16 @@
     <Compile Include="User.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Data\Add\FrmAddPlayers.resx">
+      <DependentUpon>FrmAddPlayers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMatchReporter.resx">
       <DependentUpon>FrmMatchReporter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Podaci\Unos\FrmAddTeam.resx">
+    <EmbeddedResource Include="Forms\Data\Add\FrmAddTeam.resx">
       <DependentUpon>FrmAddTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Timer\FrmTimerChange.resx">
@@ -194,6 +203,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Club.datasource" />
+    <None Include="Properties\DataSources\Player.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -237,7 +247,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Utakmica\" />
+    <Folder Include="Forms\Match\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

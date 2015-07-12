@@ -1,4 +1,5 @@
-﻿using MatchReporter.Forms.Podaci.Unos;
+﻿using MatchReporter.Forms.Data.Add;
+using MatchReporter.Forms.Podaci.Unos;
 using MatchReporter.Forms.Timer;
 using System;
 using System.Collections.Generic;
@@ -145,6 +146,27 @@ namespace MatchReporter.Forms
 
         private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Match = null;
+
+            this.HomeTeam = null;
+            this.HomePlayers = null;
+            this.HomePlays = null;
+            this.HomeClubOfficials = null;
+            this.HomeManages = null;
+
+            this.GuestTeam = null;
+            this.GuestPlayers = null;
+            this.GuestPlays = null;
+            this.GuestClubOfficials = null;
+            this.GuestManages = null;
+
+            lblTeamA.Text = "Team A";
+            lblTeamB.Text = "Team B";
+            lblResultA.Text = "0";
+            lblResultB.Text = "0";
+            lblTimeMinutes.Text = "00";
+            lblTimeSeconds.Text = "00";
+
             panelMain.Hide();
         }
 
@@ -170,6 +192,12 @@ namespace MatchReporter.Forms
                 }
             }
             dataAddTeam.Dispose();
+        }
+
+        private void unosIgračaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeTeam.ClubId, this.GuestTeam.ClubId);
+            dataAddPlayers.ShowDialog();
         }
     }
 }

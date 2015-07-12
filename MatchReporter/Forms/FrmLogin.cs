@@ -33,7 +33,7 @@ namespace MatchReporter.Forms
             //    lblStatus.Text = "Povezivanje...";
             //    using (var db = new MatchReporterEntities())
             //    {
-            //        User creditials = (User)db.Users
+            //        User creditials = (User)db.User
             //            .Where(u => u.Username == username)
             //            .Where(u => u.Password == password)
             //            .FirstOrDefault();

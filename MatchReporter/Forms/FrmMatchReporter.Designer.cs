@@ -35,6 +35,7 @@
             this.otvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spremiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zaključiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.podaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unosPodatakaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,7 @@
             this.oAplikacijiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAplikcijiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.dgvHomeTeam = new System.Windows.Forms.DataGridView();
             this.btnDisqualificationReport = new System.Windows.Forms.Button();
             this.btnDisqualification = new System.Windows.Forms.Button();
             this.btnSuspension = new System.Windows.Forms.Button();
@@ -84,12 +86,19 @@
             this.lblTeamB = new System.Windows.Forms.Label();
             this.lblTeamA = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
-            this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvHomeTeam = new System.Windows.Forms.DataGridView();
+            this.playerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.playDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.playerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
-            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).BeginInit();
+            this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuMainMenu
@@ -120,27 +129,34 @@
             // novaToolStripMenuItem
             // 
             this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.novaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.novaToolStripMenuItem.Text = "Nova...";
             this.novaToolStripMenuItem.Click += new System.EventHandler(this.novaToolStripMenuItem_Click);
             // 
             // otvoriToolStripMenuItem
             // 
             this.otvoriToolStripMenuItem.Name = "otvoriToolStripMenuItem";
-            this.otvoriToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.otvoriToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.otvoriToolStripMenuItem.Text = "Otvori...";
             // 
             // spremiToolStripMenuItem
             // 
             this.spremiToolStripMenuItem.Name = "spremiToolStripMenuItem";
-            this.spremiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.spremiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.spremiToolStripMenuItem.Text = "Spremi...";
             // 
             // zaključiToolStripMenuItem
             // 
             this.zaključiToolStripMenuItem.Name = "zaključiToolStripMenuItem";
-            this.zaključiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zaključiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.zaključiToolStripMenuItem.Text = "Zaključi...";
+            // 
+            // zatvoriToolStripMenuItem
+            // 
+            this.zatvoriToolStripMenuItem.Name = "zatvoriToolStripMenuItem";
+            this.zatvoriToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.zatvoriToolStripMenuItem.Text = "Zatvori...";
+            this.zatvoriToolStripMenuItem.Click += new System.EventHandler(this.zatvoriToolStripMenuItem_Click);
             // 
             // podaciToolStripMenuItem
             // 
@@ -174,6 +190,7 @@
             this.unosIgračaToolStripMenuItem.Name = "unosIgračaToolStripMenuItem";
             this.unosIgračaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.unosIgračaToolStripMenuItem.Text = "Unos igrača";
+            this.unosIgračaToolStripMenuItem.Click += new System.EventHandler(this.unosIgračaToolStripMenuItem_Click);
             // 
             // unosSlužbenihOsobaMomčadiToolStripMenuItem
             // 
@@ -289,6 +306,29 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(884, 637);
             this.panelMain.TabIndex = 1;
+            // 
+            // dgvHomeTeam
+            // 
+            this.dgvHomeTeam.AllowUserToAddRows = false;
+            this.dgvHomeTeam.AllowUserToDeleteRows = false;
+            this.dgvHomeTeam.AutoGenerateColumns = false;
+            this.dgvHomeTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHomeTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.playerIdDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.numberDataGridViewTextBoxColumn,
+            this.clubIdDataGridViewTextBoxColumn,
+            this.clubDataGridViewTextBoxColumn,
+            this.playDataGridViewTextBoxColumn});
+            this.dgvHomeTeam.DataSource = this.playerBindingSource;
+            this.dgvHomeTeam.Location = new System.Drawing.Point(12, 108);
+            this.dgvHomeTeam.MultiSelect = false;
+            this.dgvHomeTeam.Name = "dgvHomeTeam";
+            this.dgvHomeTeam.ReadOnly = true;
+            this.dgvHomeTeam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHomeTeam.Size = new System.Drawing.Size(368, 362);
+            this.dgvHomeTeam.TabIndex = 29;
             // 
             // btnDisqualificationReport
             // 
@@ -590,23 +630,66 @@
             this.timerMatch.Interval = 10;
             this.timerMatch.Tick += new System.EventHandler(this.timerMatch_Tick);
             // 
-            // zatvoriToolStripMenuItem
+            // playerIdDataGridViewTextBoxColumn
             // 
-            this.zatvoriToolStripMenuItem.Name = "zatvoriToolStripMenuItem";
-            this.zatvoriToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.zatvoriToolStripMenuItem.Text = "Zatvori...";
-            this.zatvoriToolStripMenuItem.Click += new System.EventHandler(this.zatvoriToolStripMenuItem_Click);
+            this.playerIdDataGridViewTextBoxColumn.DataPropertyName = "PlayerId";
+            this.playerIdDataGridViewTextBoxColumn.HeaderText = "Matični broj";
+            this.playerIdDataGridViewTextBoxColumn.Name = "playerIdDataGridViewTextBoxColumn";
+            this.playerIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.playerIdDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.playerIdDataGridViewTextBoxColumn.Width = 90;
             // 
-            // dgvHomeTeam
+            // firstNameDataGridViewTextBoxColumn
             // 
-            this.dgvHomeTeam.AllowUserToAddRows = false;
-            this.dgvHomeTeam.AllowUserToDeleteRows = false;
-            this.dgvHomeTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHomeTeam.Location = new System.Drawing.Point(12, 108);
-            this.dgvHomeTeam.Name = "dgvHomeTeam";
-            this.dgvHomeTeam.ReadOnly = true;
-            this.dgvHomeTeam.Size = new System.Drawing.Size(368, 362);
-            this.dgvHomeTeam.TabIndex = 29;
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "Ime";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Prezime";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Broj";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numberDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // clubIdDataGridViewTextBoxColumn
+            // 
+            this.clubIdDataGridViewTextBoxColumn.DataPropertyName = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn.HeaderText = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn.Name = "clubIdDataGridViewTextBoxColumn";
+            this.clubIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clubIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // clubDataGridViewTextBoxColumn
+            // 
+            this.clubDataGridViewTextBoxColumn.DataPropertyName = "Club";
+            this.clubDataGridViewTextBoxColumn.HeaderText = "Club";
+            this.clubDataGridViewTextBoxColumn.Name = "clubDataGridViewTextBoxColumn";
+            this.clubDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clubDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // playDataGridViewTextBoxColumn
+            // 
+            this.playDataGridViewTextBoxColumn.DataPropertyName = "Play";
+            this.playDataGridViewTextBoxColumn.HeaderText = "Play";
+            this.playDataGridViewTextBoxColumn.Name = "playDataGridViewTextBoxColumn";
+            this.playDataGridViewTextBoxColumn.ReadOnly = true;
+            this.playDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // playerBindingSource
+            // 
+            this.playerBindingSource.DataSource = typeof(MatchReporter.Player);
             // 
             // FrmMatchReporter
             // 
@@ -625,9 +708,10 @@
             this.menuMainMenu.PerformLayout();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,5 +776,13 @@
         private System.Windows.Forms.Button btnGoal;
         private System.Windows.Forms.ToolStripMenuItem zatvoriToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvHomeTeam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn playerIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clubIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clubDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn playDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource playerBindingSource;
     }
 }
