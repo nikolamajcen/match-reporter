@@ -17,8 +17,8 @@ namespace MatchReporter
         public Match()
         {
             this.GuestTeam = new HashSet<GuestTeam>();
-            this.HomeTeam = new HashSet<HomeTeam>();
             this.Manage = new HashSet<Manage>();
+            this.Team = new HashSet<Team>();
             this.Play = new HashSet<Play>();
         }
     
@@ -37,9 +37,9 @@ namespace MatchReporter
         public virtual Delegate Delegate { get; set; }
         public virtual ICollection<GuestTeam> GuestTeam { get; set; }
         public virtual Hall Hall { get; set; }
-        public virtual ICollection<HomeTeam> HomeTeam { get; set; }
         public virtual League League { get; set; }
         public virtual ICollection<Manage> Manage { get; set; }
+        public virtual ICollection<Team> Team { get; set; }
         public virtual ICollection<Play> Play { get; set; }
         public virtual RefereePair RefereePair { get; set; }
     }

@@ -31,7 +31,6 @@ namespace MatchReporter
         public virtual DbSet<Delegate> Delegate { get; set; }
         public virtual DbSet<GuestTeam> GuestTeam { get; set; }
         public virtual DbSet<Hall> Hall { get; set; }
-        public virtual DbSet<HomeTeam> HomeTeam { get; set; }
         public virtual DbSet<League> League { get; set; }
         public virtual DbSet<Manage> Manage { get; set; }
         public virtual DbSet<Match> Match { get; set; }
@@ -39,6 +38,7 @@ namespace MatchReporter
         public virtual DbSet<Player> Player { get; set; }
         public virtual DbSet<Referee> Referee { get; set; }
         public virtual DbSet<RefereePair> RefereePair { get; set; }
+        public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

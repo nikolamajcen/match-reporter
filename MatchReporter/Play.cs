@@ -14,7 +14,6 @@ namespace MatchReporter
     
     public partial class Play
     {
-        public int PlayId { get; set; }
         public int Goals { get; set; }
         public int Goals7m { get; set; }
         public string Warning { get; set; }

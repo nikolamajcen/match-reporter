@@ -14,7 +14,6 @@ namespace MatchReporter
     
     public partial class Manage
     {
-        public int ManageId { get; set; }
         public string Warning { get; set; }
         public string Suspension { get; set; }
         public string Disqualification { get; set; }

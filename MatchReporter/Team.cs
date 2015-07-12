@@ -12,9 +12,8 @@ namespace MatchReporter
     using System;
     using System.Collections.Generic;
     
-    public partial class HomeTeam
+    public partial class Team
     {
-        public int HomeTeamId { get; set; }
         public short Goals { get; set; }
         public string TTO1 { get; set; }
         public string TTO2 { get; set; }

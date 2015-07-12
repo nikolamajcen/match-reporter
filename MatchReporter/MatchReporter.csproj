@@ -116,9 +116,6 @@
     <Compile Include="Hall.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="HomeTeam.cs">
-      <DependentUpon>MatchReporterModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="League.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
@@ -155,6 +152,9 @@
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RefereePair.cs">
+      <DependentUpon>MatchReporterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
