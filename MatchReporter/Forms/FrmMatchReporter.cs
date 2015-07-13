@@ -279,5 +279,25 @@ namespace MatchReporter.Forms
             }
             dataAddOfficials.Dispose();
         }
+
+        private void dataAddMatchDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddMatchDetails dataAddMatchDetails = new FrmAddMatchDetails();
+            dataAddMatchDetails.ShowDialog();
+
+            if(dataAddMatchDetails.MatchDetailsAddSuccess)
+            {
+                this.Match.LeagueId = dataAddMatchDetails.LeagueId;
+                this.Match.Date = dataAddMatchDetails.Date;
+                this.Match.Time = dataAddMatchDetails.Time;
+                this.Match.HallId = dataAddMatchDetails.HallId;
+                this.Match.Spectators = dataAddMatchDetails.Spectators;
+                this.Match.RefereePairId = dataAddMatchDetails.RefereePairId;
+                this.Match.DelegateId = dataAddMatchDetails.DelegateId;
+                this.Match.TimeKeeper = dataAddMatchDetails.TimeKeeper;
+                this.Match.Scorer = dataAddMatchDetails.Scorer;
+            }
+            dataAddMatchDetails.Dispose();
+        }
     }
 }

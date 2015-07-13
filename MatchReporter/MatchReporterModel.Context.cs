@@ -37,7 +37,6 @@ namespace MatchReporter
         public virtual DbSet<Player> Player { get; set; }
         public virtual DbSet<Referee> Referee { get; set; }
         public virtual DbSet<RefereePair> RefereePair { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

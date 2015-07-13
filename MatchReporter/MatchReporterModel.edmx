@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MatchReporterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MatchReporterDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityId" />
@@ -67,10 +67,10 @@
             <PropertyRef Name="ClubOfficialId" />
             <PropertyRef Name="MatchId" />
           </Key>
-          <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Suspension" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DisqualificationAndReport" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Warning" Type="int" />
+          <Property Name="Suspension" Type="int" />
+          <Property Name="Disqualification" Type="int" />
+          <Property Name="DisqualificationAndReport" Type="int" />
           <Property Name="ClubOfficialId" Type="int" Nullable="false" />
           <Property Name="MatchId" Type="int" Nullable="false" />
         </EntityType>
@@ -97,12 +97,12 @@
           </Key>
           <Property Name="Goals" Type="int" Nullable="false" />
           <Property Name="Goals7m" Type="int" Nullable="false" />
-          <Property Name="Warning" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SuspensionFirst" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SuspensionSecond" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SuspensionThird" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Disqualification" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DisqualificationAdnReport" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Warning" Type="int" />
+          <Property Name="SuspensionFirst" Type="int" />
+          <Property Name="SuspensionSecond" Type="int" />
+          <Property Name="SuspensionThird" Type="int" />
+          <Property Name="Disqualification" Type="int" />
+          <Property Name="DisqualificationAdnReport" Type="int" />
           <Property Name="PlayerId" Type="int" Nullable="false" />
           <Property Name="MatchId" Type="int" Nullable="false" />
         </EntityType>
@@ -133,25 +133,15 @@
           <Property Name="FirstRefereeId" Type="int" Nullable="false" />
           <Property Name="SecondRefereeId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ClubId" />
             <PropertyRef Name="MatchId" />
           </Key>
           <Property Name="Goals" Type="smallint" Nullable="false" />
-          <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TTO1" Type="nvarchar(max)" />
+          <Property Name="TTO2" Type="nvarchar(max)" />
+          <Property Name="TTO3" Type="nvarchar(max)" />
           <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ClubId" Type="int" Nullable="false" />
           <Property Name="MatchId" Type="int" Nullable="false" />
@@ -396,7 +386,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MatchReporterModelStoreContainer">
+        <EntityContainer Name="MatchReporterDatabaseModelStoreContainer">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClubOfficial" EntityType="Self.ClubOfficial" Schema="dbo" store:Type="Tables" />
@@ -409,7 +399,6 @@
           <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Referee" EntityType="Self.Referee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefereePair" EntityType="Self.RefereePair" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CityClub" Association="Self.FK_CityClub">
@@ -489,7 +478,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MatchReporterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MatchReporterDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityId" />
@@ -567,10 +556,10 @@
             <PropertyRef Name="ClubOfficialId" />
             <PropertyRef Name="MatchId" />
           </Key>
-          <Property Name="Warning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Suspension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Disqualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DisqualificationAndReport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Warning" Type="Int32" />
+          <Property Name="Suspension" Type="Int32" />
+          <Property Name="Disqualification" Type="Int32" />
+          <Property Name="DisqualificationAndReport" Type="Int32" />
           <Property Name="ClubOfficialId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ClubOfficial" Relationship="Self.FK_ClubOfficialManage" FromRole="Manage" ToRole="ClubOfficial" />
@@ -606,12 +595,12 @@
           </Key>
           <Property Name="Goals" Type="Int32" Nullable="false" />
           <Property Name="Goals7m" Type="Int32" Nullable="false" />
-          <Property Name="Warning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SuspensionFirst" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SuspensionSecond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SuspensionThird" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Disqualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DisqualificationAdnReport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Warning" Type="Int32" />
+          <Property Name="SuspensionFirst" Type="Int32" />
+          <Property Name="SuspensionSecond" Type="Int32" />
+          <Property Name="SuspensionThird" Type="Int32" />
+          <Property Name="Disqualification" Type="Int32" />
+          <Property Name="DisqualificationAdnReport" Type="Int32" />
           <Property Name="PlayerId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Match" Relationship="Self.FK_MatchPlay" FromRole="Play" ToRole="Match" />
@@ -652,25 +641,15 @@
           <NavigationProperty Name="Referee" Relationship="Self.FK_FirstRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
           <NavigationProperty Name="Referee1" Relationship="Self.FK_SecondRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ClubId" />
             <PropertyRef Name="MatchId" />
           </Key>
           <Property Name="Goals" Type="Int16" Nullable="false" />
-          <Property Name="TTO1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TTO2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TTO3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TTO1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TTO2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TTO3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="JerseyColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClubId" Type="Int32" Nullable="false" />
           <Property Name="MatchId" Type="Int32" Nullable="false" />
@@ -930,7 +909,6 @@
           <EntitySet Name="Player" EntityType="Self.Player" />
           <EntitySet Name="Referee" EntityType="Self.Referee" />
           <EntitySet Name="RefereePair" EntityType="Self.RefereePair" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_CityClub" Association="Self.FK_CityClub">
@@ -1011,9 +989,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MatchReporterModelStoreContainer" CdmEntityContainer="MatchReporterEntities">
+        <EntityContainerMapping StorageEntityContainer="MatchReporterDatabaseModelStoreContainer" CdmEntityContainer="MatchReporterEntities">
           <EntitySetMapping Name="City">
-            <EntityTypeMapping TypeName="MatchReporterModel.City">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.City">
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1023,7 +1001,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Club">
-            <EntityTypeMapping TypeName="MatchReporterModel.Club">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Club">
               <MappingFragment StoreEntitySet="Club">
                 <ScalarProperty Name="ClubId" ColumnName="ClubId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1036,7 +1014,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClubOfficial">
-            <EntityTypeMapping TypeName="MatchReporterModel.ClubOfficial">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.ClubOfficial">
               <MappingFragment StoreEntitySet="ClubOfficial">
                 <ScalarProperty Name="ClubOfficialId" ColumnName="ClubOfficialId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1046,7 +1024,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Delegate">
-            <EntityTypeMapping TypeName="MatchReporterModel.Delegate">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Delegate">
               <MappingFragment StoreEntitySet="Delegate">
                 <ScalarProperty Name="DelegateId" ColumnName="DelegateId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1056,7 +1034,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hall">
-            <EntityTypeMapping TypeName="MatchReporterModel.Hall">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Hall">
               <MappingFragment StoreEntitySet="Hall">
                 <ScalarProperty Name="HallId" ColumnName="HallId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1067,7 +1045,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="League">
-            <EntityTypeMapping TypeName="MatchReporterModel.League">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.League">
               <MappingFragment StoreEntitySet="League">
                 <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1076,7 +1054,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Manage">
-            <EntityTypeMapping TypeName="MatchReporterModel.Manage">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Manage">
               <MappingFragment StoreEntitySet="Manage">
                 <ScalarProperty Name="Warning" ColumnName="Warning" />
                 <ScalarProperty Name="Suspension" ColumnName="Suspension" />
@@ -1088,7 +1066,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Match">
-            <EntityTypeMapping TypeName="MatchReporterModel.Match">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Match">
               <MappingFragment StoreEntitySet="Match">
                 <ScalarProperty Name="MatchId" ColumnName="MatchId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1105,7 +1083,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Play">
-            <EntityTypeMapping TypeName="MatchReporterModel.Play">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Play">
               <MappingFragment StoreEntitySet="Play">
                 <ScalarProperty Name="Goals" ColumnName="Goals" />
                 <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
@@ -1121,7 +1099,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Player">
-            <EntityTypeMapping TypeName="MatchReporterModel.Player">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Player">
               <MappingFragment StoreEntitySet="Player">
                 <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1132,7 +1110,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Referee">
-            <EntityTypeMapping TypeName="MatchReporterModel.Referee">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Referee">
               <MappingFragment StoreEntitySet="Referee">
                 <ScalarProperty Name="RefereeId" ColumnName="RefereeId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1142,7 +1120,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RefereePair">
-            <EntityTypeMapping TypeName="MatchReporterModel.RefereePair">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.RefereePair">
               <MappingFragment StoreEntitySet="RefereePair">
                 <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
                 <ScalarProperty Name="FirstRefereeId" ColumnName="FirstRefereeId" />
@@ -1150,19 +1128,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MatchReporterModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="MatchReporterModel.Team">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.Team">
               <MappingFragment StoreEntitySet="Team">
                 <ScalarProperty Name="Goals" ColumnName="Goals" />
                 <ScalarProperty Name="TTO1" ColumnName="TTO1" />
@@ -1177,7 +1144,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="MatchReporterModel.User">
+            <EntityTypeMapping TypeName="MatchReporterDatabaseModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

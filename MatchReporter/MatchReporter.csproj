@@ -84,6 +84,12 @@
     <Compile Include="Delegate.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Data\Add\FrmAddMatchDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\Add\FrmAddMatchDetails.Designer.cs">
+      <DependentUpon>FrmAddMatchDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Data\Add\FrmAddOfficials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,15 +167,15 @@
     <Compile Include="RefereePair.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>MatchReporterModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Team.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Data\Add\FrmAddMatchDetails.resx">
+      <DependentUpon>FrmAddMatchDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Data\Add\FrmAddOfficials.resx">
       <DependentUpon>FrmAddOfficials.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,9 +223,13 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Club.datasource" />
     <None Include="Properties\DataSources\ClubOfficial.datasource" />
+    <None Include="Properties\DataSources\Delegate.datasource" />
+    <None Include="Properties\DataSources\Hall.datasource" />
+    <None Include="Properties\DataSources\League.datasource" />
     <None Include="Properties\DataSources\MatchReporter.Classes.TeamOfficial.datasource" />
     <None Include="Properties\DataSources\MatchReporter.Classes.TeamPlayer.datasource" />
     <None Include="Properties\DataSources\Player.datasource" />
+    <None Include="Properties\DataSources\RefereePair.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

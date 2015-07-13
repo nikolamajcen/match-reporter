@@ -125,6 +125,7 @@
             this.lblTeamA = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
             this.playerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataAddMatchDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficials)).BeginInit();
@@ -165,32 +166,32 @@
             // matchNewToolStripMenuItem
             // 
             this.matchNewToolStripMenuItem.Name = "matchNewToolStripMenuItem";
-            this.matchNewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchNewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchNewToolStripMenuItem.Text = "Nova...";
             this.matchNewToolStripMenuItem.Click += new System.EventHandler(this.matchNewToolStripMenuItem_Click);
             // 
             // matchOpenToolStripMenuItem
             // 
             this.matchOpenToolStripMenuItem.Name = "matchOpenToolStripMenuItem";
-            this.matchOpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchOpenToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchOpenToolStripMenuItem.Text = "Otvori...";
             // 
             // matchSaveToolStripMenuItem
             // 
             this.matchSaveToolStripMenuItem.Name = "matchSaveToolStripMenuItem";
-            this.matchSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchSaveToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchSaveToolStripMenuItem.Text = "Spremi...";
             // 
             // matchConcludeToolStripMenuItem
             // 
             this.matchConcludeToolStripMenuItem.Name = "matchConcludeToolStripMenuItem";
-            this.matchConcludeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchConcludeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchConcludeToolStripMenuItem.Text = "Zaključi...";
             // 
             // matchCloseToolStripMenuItem
             // 
             this.matchCloseToolStripMenuItem.Name = "matchCloseToolStripMenuItem";
-            this.matchCloseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchCloseToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchCloseToolStripMenuItem.Text = "Zatvori...";
             this.matchCloseToolStripMenuItem.Click += new System.EventHandler(this.matchCloseToolStripMenuItem_Click);
             // 
@@ -209,7 +210,8 @@
             this.dataAddToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dataAddTeamsToolStripMenuItem,
             this.dataAddPlayersToolStripMenuItem,
-            this.dataAddOfficialsToolStripMenuItem});
+            this.dataAddOfficialsToolStripMenuItem,
+            this.dataAddMatchDetailsToolStripMenuItem});
             this.dataAddToolStripMenuItem.Name = "dataAddToolStripMenuItem";
             this.dataAddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dataAddToolStripMenuItem.Text = "Unos...";
@@ -323,7 +325,7 @@
             // otherAboutToolStripMenuItem
             // 
             this.otherAboutToolStripMenuItem.Name = "otherAboutToolStripMenuItem";
-            this.otherAboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.otherAboutToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.otherAboutToolStripMenuItem.Text = "O aplikaciji";
             // 
             // panelMain
@@ -1021,6 +1023,13 @@
             // 
             this.playerBindingSource.DataSource = typeof(MatchReporter.Player);
             // 
+            // dataAddMatchDetailsToolStripMenuItem
+            // 
+            this.dataAddMatchDetailsToolStripMenuItem.Name = "dataAddMatchDetailsToolStripMenuItem";
+            this.dataAddMatchDetailsToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.dataAddMatchDetailsToolStripMenuItem.Text = "Unos općih podataka";
+            this.dataAddMatchDetailsToolStripMenuItem.Click += new System.EventHandler(this.dataAddMatchDetailsToolStripMenuItem_Click);
+            // 
             // FrmMatchReporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1150,5 +1159,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn warningDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn suspensionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn disqualificationDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.ToolStripMenuItem dataAddMatchDetailsToolStripMenuItem;
     }
 }

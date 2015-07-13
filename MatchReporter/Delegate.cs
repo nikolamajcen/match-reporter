@@ -23,7 +23,15 @@ namespace MatchReporter
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int CityId { get; set; }
-    
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+            set { }
+        }
+
         public virtual City City { get; set; }
         public virtual ICollection<Match> Match { get; set; }
     }
