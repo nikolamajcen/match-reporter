@@ -82,6 +82,16 @@ namespace MatchReporter.Forms.Data.Add
 
                 lblHomeCurrentPlayerNumber.Text = this.HomePlayersAddedCount.ToString() + "/16";
             }
+            else if (this.HomePlayersAddedCount == 16)
+            {
+                MessageBox.Show(this, "Dodali ste maksimalan broj igrača.",
+                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show(this, "Ne postoji više igrača koje možete dodati.",
+                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnHomePlayerRemove_Click(object sender, EventArgs e)
@@ -114,13 +124,23 @@ namespace MatchReporter.Forms.Data.Add
 
                 lblGuestCurrentPlayerNumber.Text = this.GuestPlayersAddedCount.ToString() + "/16";
             }
+            else if (this.HomePlayersAddedCount == 16)
+            {
+                MessageBox.Show(this, "Dodali ste maksimalan broj igrača.",
+                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show(this, "Ne postoji više igrača koje možete dodati.",
+                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGuestPlayerRemove_Click(object sender, EventArgs e)
         {
             if (this.GuestPlayersPlay.Count > 0)
             {
-                Player selectedPlayer = (Player)dgvHomePlayersPlay.CurrentRow.DataBoundItem;
+                Player selectedPlayer = (Player)dgvGuestPlayersPlay.CurrentRow.DataBoundItem;
                 this.GuestPlayersAll.Add(selectedPlayer);
                 this.GuestPlayersPlay.Remove(selectedPlayer);
                 dgvGuestPlayersAll.Refresh();
@@ -136,6 +156,13 @@ namespace MatchReporter.Forms.Data.Add
         {
             if(this.HomePlayersAddedCount >= 7 && this.GuestPlayersAddedCount >= 7)
             {
+                
+                List<Player> homePlayers = this.HomePlayersPlay.ToList();
+                this.HomePlayersPlay = new BindingList<Player>(homePlayers.OrderBy(p => p.Number).ToList());
+
+                List<Player> guestPlayers = this.GuestPlayersPlay.ToList();
+                this.GuestPlayersPlay = new BindingList<Player>(guestPlayers.OrderBy(p => p.Number).ToList());
+                
                 this.PlayersAddSuccess = true;
                 this.Close();
             }

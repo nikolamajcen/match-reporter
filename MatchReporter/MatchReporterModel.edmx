@@ -44,21 +44,6 @@
           <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CityId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="GuestTeam">
-          <Key>
-            <PropertyRef Name="GuestTeamId" />
-          </Key>
-          <Property Name="GuestTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Goals" Type="smallint" Nullable="false" />
-          <Property Name="TTO1" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TTO2" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TTO3" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="JerseyColor" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ClubId" Type="int" Nullable="false" />
-          <Property Name="MatchId" Type="int" Nullable="false" />
-          <Property Name="Goals7m" Type="int" />
-          <Property Name="Attempts7m" Type="int" />
-        </EntityType>
         <EntityType Name="Hall">
           <Key>
             <PropertyRef Name="HallId" />
@@ -148,6 +133,16 @@
           <Property Name="FirstRefereeId" Type="int" Nullable="false" />
           <Property Name="SecondRefereeId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ClubId" />
@@ -227,18 +222,6 @@
               <PropertyRef Name="ClubId" />
             </Principal>
             <Dependent Role="ClubOfficial">
-              <PropertyRef Name="ClubId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClubGuestTeam">
-          <End Role="Club" Type="Self.Club" Multiplicity="1" />
-          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Club">
-              <PropertyRef Name="ClubId" />
-            </Principal>
-            <Dependent Role="GuestTeam">
               <PropertyRef Name="ClubId" />
             </Dependent>
           </ReferentialConstraint>
@@ -333,20 +316,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MatchGuestTeam">
-          <End Role="Match" Type="Self.Match" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Match">
-              <PropertyRef Name="MatchId" />
-            </Principal>
-            <Dependent Role="GuestTeam">
-              <PropertyRef Name="MatchId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MatchHomeTeam">
           <End Role="Match" Type="Self.Match" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -432,7 +401,6 @@
           <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClubOfficial" EntityType="Self.ClubOfficial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Delegate" EntityType="Self.Delegate" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GuestTeam" EntityType="Self.GuestTeam" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hall" EntityType="Self.Hall" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="League" EntityType="Self.League" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manage" EntityType="Self.Manage" Schema="dbo" store:Type="Tables" />
@@ -441,6 +409,7 @@
           <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Referee" EntityType="Self.Referee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefereePair" EntityType="Self.RefereePair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CityClub" Association="Self.FK_CityClub">
@@ -462,10 +431,6 @@
           <AssociationSet Name="FK_ClubClubOfficial" Association="Self.FK_ClubClubOfficial">
             <End Role="Club" EntitySet="Club" />
             <End Role="ClubOfficial" EntitySet="ClubOfficial" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClubGuestTeam" Association="Self.FK_ClubGuestTeam">
-            <End Role="Club" EntitySet="Club" />
-            <End Role="GuestTeam" EntitySet="GuestTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_ClubHomeTeam" Association="Self.FK_ClubHomeTeam">
             <End Role="Club" EntitySet="Club" />
@@ -494,10 +459,6 @@
           <AssociationSet Name="FK_LeagueMatch" Association="Self.FK_LeagueMatch">
             <End Role="League" EntitySet="League" />
             <End Role="Match" EntitySet="Match" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MatchGuestTeam" Association="Self.FK_MatchGuestTeam">
-            <End Role="Match" EntitySet="Match" />
-            <End Role="GuestTeam" EntitySet="GuestTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchHomeTeam" Association="Self.FK_MatchHomeTeam">
             <End Role="Match" EntitySet="Match" />
@@ -555,7 +516,6 @@
           <Property Name="CityId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_CityClub" FromRole="Club" ToRole="City" />
           <NavigationProperty Name="ClubOfficial" Relationship="Self.FK_ClubClubOfficial" FromRole="Club" ToRole="ClubOfficial" />
-          <NavigationProperty Name="GuestTeam" Relationship="Self.FK_ClubGuestTeam" FromRole="Club" ToRole="GuestTeam" />
           <NavigationProperty Name="Team" Relationship="Self.FK_ClubHomeTeam" FromRole="Club" ToRole="Team" />
           <NavigationProperty Name="Player" Relationship="Self.FK_ClubPlayer" FromRole="Club" ToRole="Player" />
         </EntityType>
@@ -580,23 +540,6 @@
           <Property Name="CityId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_CityDelegate" FromRole="Delegate" ToRole="City" />
           <NavigationProperty Name="Match" Relationship="Self.FK_DelegateMatch" FromRole="Delegate" ToRole="Match" />
-        </EntityType>
-        <EntityType Name="GuestTeam">
-          <Key>
-            <PropertyRef Name="GuestTeamId" />
-          </Key>
-          <Property Name="GuestTeamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Goals" Type="Int16" Nullable="false" />
-          <Property Name="TTO1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TTO2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TTO3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="JerseyColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClubId" Type="Int32" Nullable="false" />
-          <Property Name="MatchId" Type="Int32" Nullable="false" />
-          <Property Name="Goals7m" Type="Int32" />
-          <Property Name="Attempts7m" Type="Int32" />
-          <NavigationProperty Name="Club" Relationship="Self.FK_ClubGuestTeam" FromRole="GuestTeam" ToRole="Club" />
-          <NavigationProperty Name="Match" Relationship="Self.FK_MatchGuestTeam" FromRole="GuestTeam" ToRole="Match" />
         </EntityType>
         <EntityType Name="Hall">
           <Key>
@@ -649,7 +592,6 @@
           <Property Name="TimeKeeper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Scorer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Delegate" Relationship="Self.FK_DelegateMatch" FromRole="Match" ToRole="Delegate" />
-          <NavigationProperty Name="GuestTeam" Relationship="Self.FK_MatchGuestTeam" FromRole="Match" ToRole="GuestTeam" />
           <NavigationProperty Name="Hall" Relationship="Self.FK_HallMatch" FromRole="Match" ToRole="Hall" />
           <NavigationProperty Name="League" Relationship="Self.FK_LeagueMatch" FromRole="Match" ToRole="League" />
           <NavigationProperty Name="Manage" Relationship="Self.FK_MatchManage" FromRole="Match" ToRole="Manage" />
@@ -709,6 +651,16 @@
           <NavigationProperty Name="Match" Relationship="Self.FK_RefereePairMatch" FromRole="RefereePair" ToRole="Match" />
           <NavigationProperty Name="Referee" Relationship="Self.FK_FirstRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
           <NavigationProperty Name="Referee1" Relationship="Self.FK_SecondRefereeRefereePair" FromRole="RefereePair" ToRole="Referee" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -795,18 +747,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClubGuestTeam">
-          <End Role="Club" Type="Self.Club" Multiplicity="1" />
-          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Club">
-              <PropertyRef Name="ClubId" />
-            </Principal>
-            <Dependent Role="GuestTeam">
-              <PropertyRef Name="ClubId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ClubHomeTeam">
           <End Role="Club" Type="Self.Club" Multiplicity="1" />
           <End Role="Team" Type="Self.Team" Multiplicity="*" />
@@ -854,20 +794,6 @@
             </Principal>
             <Dependent Role="Match">
               <PropertyRef Name="DelegateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MatchGuestTeam">
-          <End Role="Match" Type="Self.Match" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="GuestTeam" Type="Self.GuestTeam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Match">
-              <PropertyRef Name="MatchId" />
-            </Principal>
-            <Dependent Role="GuestTeam">
-              <PropertyRef Name="MatchId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -996,7 +922,6 @@
           <EntitySet Name="Club" EntityType="Self.Club" />
           <EntitySet Name="ClubOfficial" EntityType="Self.ClubOfficial" />
           <EntitySet Name="Delegate" EntityType="Self.Delegate" />
-          <EntitySet Name="GuestTeam" EntityType="Self.GuestTeam" />
           <EntitySet Name="Hall" EntityType="Self.Hall" />
           <EntitySet Name="League" EntityType="Self.League" />
           <EntitySet Name="Manage" EntityType="Self.Manage" />
@@ -1005,6 +930,7 @@
           <EntitySet Name="Player" EntityType="Self.Player" />
           <EntitySet Name="Referee" EntityType="Self.Referee" />
           <EntitySet Name="RefereePair" EntityType="Self.RefereePair" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_CityClub" Association="Self.FK_CityClub">
@@ -1027,10 +953,6 @@
             <End Role="Club" EntitySet="Club" />
             <End Role="ClubOfficial" EntitySet="ClubOfficial" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClubGuestTeam" Association="Self.FK_ClubGuestTeam">
-            <End Role="Club" EntitySet="Club" />
-            <End Role="GuestTeam" EntitySet="GuestTeam" />
-          </AssociationSet>
           <AssociationSet Name="FK_ClubHomeTeam" Association="Self.FK_ClubHomeTeam">
             <End Role="Club" EntitySet="Club" />
             <End Role="Team" EntitySet="Team" />
@@ -1046,10 +968,6 @@
           <AssociationSet Name="FK_DelegateMatch" Association="Self.FK_DelegateMatch">
             <End Role="Delegate" EntitySet="Delegate" />
             <End Role="Match" EntitySet="Match" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MatchGuestTeam" Association="Self.FK_MatchGuestTeam">
-            <End Role="Match" EntitySet="Match" />
-            <End Role="GuestTeam" EntitySet="GuestTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_HallMatch" Association="Self.FK_HallMatch">
             <End Role="Hall" EntitySet="Hall" />
@@ -1134,22 +1052,6 @@
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GuestTeam">
-            <EntityTypeMapping TypeName="MatchReporterModel.GuestTeam">
-              <MappingFragment StoreEntitySet="GuestTeam">
-                <ScalarProperty Name="GuestTeamId" ColumnName="GuestTeamId" />
-                <ScalarProperty Name="Goals" ColumnName="Goals" />
-                <ScalarProperty Name="TTO1" ColumnName="TTO1" />
-                <ScalarProperty Name="TTO2" ColumnName="TTO2" />
-                <ScalarProperty Name="TTO3" ColumnName="TTO3" />
-                <ScalarProperty Name="JerseyColor" ColumnName="JerseyColor" />
-                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
-                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
-                <ScalarProperty Name="Goals7m" ColumnName="Goals7m" />
-                <ScalarProperty Name="Attempts7m" ColumnName="Attempts7m" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1245,6 +1147,17 @@
                 <ScalarProperty Name="RefereePairId" ColumnName="RefereePairId" />
                 <ScalarProperty Name="FirstRefereeId" ColumnName="FirstRefereeId" />
                 <ScalarProperty Name="SecondRefereeId" ColumnName="SecondRefereeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MatchReporterModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

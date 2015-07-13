@@ -1,4 +1,5 @@
-﻿using MatchReporter.Forms.Data.Add;
+﻿using MatchReporter.Classes;
+using MatchReporter.Forms.Data.Add;
 using MatchReporter.Forms.Podaci.Unos;
 using MatchReporter.Forms.Timer;
 using System;
@@ -17,29 +18,54 @@ namespace MatchReporter.Forms
     {
         public Match Match;
 
-        public Club HomeTeam;
-        public Club GuestTeam;
+        // Club info
+        public Club HomeClub;
+        public Club GuestClub;
 
+        // Team game stats
+        public Team HomeTeam;
+        public Team GuestTeam;
+
+        // Players info
         public BindingList<Player> HomePlayers;
         public BindingList<Player> GuestPlayers;
 
+        // Players game stats in DataGridView
+        public BindingList<TeamPlayer> HomeTeamPlayers;
+        public BindingList<TeamPlayer> GuestTeamPlayers;
+
+        // Players game stats
         public BindingList<Play> HomePlays;
         public BindingList<Play> GuestPlays;
 
+        // Officials info
         public BindingList<ClubOfficial> HomeClubOfficials;
         public BindingList<ClubOfficial> GuestClubOfficials;
 
+        // Officials game stats in DataGridView
+        public BindingList<TeamOfficial> HomeTeamOfficials;
+        public BindingList<TeamOfficial> GuestTeamOfficials;
+
+        // Officials game stats
         public BindingList<Manage> HomeManages;
         public BindingList<Manage> GuestManages;
 
+        // Match info
         private int Minutes;
         private int Seconds;
+
         public FrmMatchReporter()
         {
             InitializeComponent();
             this.Minutes = 0;
             this.Seconds = 0;
             panelMain.Hide();
+
+            HomeTeamPlayers = new BindingList<TeamPlayer>();
+            GuestTeamPlayers = new BindingList<TeamPlayer>();
+
+            HomeTeamOfficials = new BindingList<TeamOfficial>();
+            GuestTeamOfficials = new BindingList<TeamOfficial>();
         }
 
         private void btnTimeStart_Click(object sender, EventArgs e)
@@ -125,36 +151,36 @@ namespace MatchReporter.Forms
             //dgvTeamB.RowCount = 16;
         }
 
-        private void novaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void matchNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelMain.Show();
 
             this.Match = new Match();
 
-            this.HomeTeam = new Club();
+            this.HomeClub = new Club();
             this.HomePlayers = new BindingList<Player>();
             this.HomePlays = new BindingList<Play>();
             this.HomeClubOfficials = new BindingList<ClubOfficial>();
             this.HomeManages = new BindingList<Manage>();
 
-            this.GuestTeam = new Club();
+            this.GuestClub = new Club();
             this.GuestPlayers = new BindingList<Player>();
             this.GuestPlays = new BindingList<Play>();
             this.GuestClubOfficials = new BindingList<ClubOfficial>();
             this.GuestManages = new BindingList<Manage>();
         }
 
-        private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
+        private void matchCloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Match = null;
 
-            this.HomeTeam = null;
+            this.HomeClub = null;
             this.HomePlayers = null;
             this.HomePlays = null;
             this.HomeClubOfficials = null;
             this.HomeManages = null;
 
-            this.GuestTeam = null;
+            this.GuestClub = null;
             this.GuestPlayers = null;
             this.GuestPlays = null;
             this.GuestClubOfficials = null;
@@ -170,7 +196,7 @@ namespace MatchReporter.Forms
             panelMain.Hide();
         }
 
-        private void unosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dataAddTeamsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddTeam dataAddTeam = new FrmAddTeam();
             dataAddTeam.ShowDialog();
@@ -182,11 +208,11 @@ namespace MatchReporter.Forms
 
                 using (var db = new MatchReporterEntities())
                 {
-                    this.HomeTeam = (Club)(db.Club
+                    this.HomeClub = (Club)(db.Club
                         .Where(c => c.Name == dataAddTeam.HomeTeam)
                         .FirstOrDefault<Club>());
 
-                    this.GuestTeam = (Club)(db.Club
+                    this.GuestClub = (Club)(db.Club
                         .Where(c => c.Name == dataAddTeam.GuestTeam)
                         .FirstOrDefault<Club>());
                 }
@@ -194,10 +220,64 @@ namespace MatchReporter.Forms
             dataAddTeam.Dispose();
         }
 
-        private void unosIgračaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dataAddPlayersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeTeam.ClubId, this.GuestTeam.ClubId);
+            FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeClub.ClubId, this.GuestClub.ClubId);
             dataAddPlayers.ShowDialog();
+
+            if(dataAddPlayers.PlayersAddSuccess)
+            {
+                this.HomePlayers = dataAddPlayers.HomePlayersPlay;
+                this.GuestPlayers = dataAddPlayers.GuestPlayersPlay;
+
+                foreach (Player player in this.HomePlayers)
+                {
+                    TeamPlayer teamPlayer = new TeamPlayer(player.PlayerId, player.FirstName, player.LastName, player.Number);
+                    this.HomeTeamPlayers.Add(teamPlayer);
+                }
+
+                foreach (Player player in this.GuestPlayers)
+                {
+                    TeamPlayer teamPlayer = new TeamPlayer(player.PlayerId, player.FirstName, player.LastName, player.Number);
+                    this.GuestTeamPlayers.Add(teamPlayer);
+                }
+
+                dgvHomeTeam.DataSource = this.HomeTeamPlayers;
+                dgvGuestTeam.DataSource = this.GuestTeamPlayers;
+                dgvHomeTeam.Refresh();
+                dgvGuestTeam.Refresh();
+            }
+            dataAddPlayers.Dispose();
+        }
+
+        private void dataAddOfficialsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddOfficials dataAddOfficials = new FrmAddOfficials(this.HomeClub.ClubId, this.GuestClub.ClubId);
+            dataAddOfficials.ShowDialog();
+
+            if(dataAddOfficials.OfficialsAddSuccess)
+            {
+                this.HomeClubOfficials = dataAddOfficials.HomeOfficialsManage;
+                this.GuestClubOfficials = dataAddOfficials.GuestOfficialsManage;
+
+                foreach (ClubOfficial official in this.HomeClubOfficials)
+                {
+                    TeamOfficial teamOfficial = new TeamOfficial(official.ClubOfficialId, official.FirstName, official.LastName);
+                    this.HomeTeamOfficials.Add(teamOfficial);
+                }
+
+                foreach (ClubOfficial official in this.GuestClubOfficials)
+                {
+                    TeamOfficial teamOfficial = new TeamOfficial(official.ClubOfficialId, official.FirstName, official.LastName);
+                    this.GuestTeamOfficials.Add(teamOfficial);
+                }
+
+                dgvHomeOfficials.DataSource = this.HomeTeamOfficials;
+                dgvGuestOfficials.DataSource = this.GuestTeamOfficials;
+                dgvHomeOfficials.Refresh();
+                dgvGuestOfficials.Refresh();
+            }
+            dataAddOfficials.Dispose();
         }
     }
 }

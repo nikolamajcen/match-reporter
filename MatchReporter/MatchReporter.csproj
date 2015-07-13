@@ -71,6 +71,10 @@
     <Compile Include="City.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\TeamOfficial.cs" />
+    <Compile Include="Classes\TeamPlayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Club.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
@@ -79,6 +83,12 @@
     </Compile>
     <Compile Include="Delegate.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Data\Add\FrmAddOfficials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Data\Add\FrmAddOfficials.Designer.cs">
+      <DependentUpon>FrmAddOfficials.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Data\Add\FrmAddPlayers.cs">
       <SubType>Form</SubType>
@@ -109,9 +119,6 @@
     </Compile>
     <Compile Include="Forms\Timer\FrmTimerChange.Designer.cs">
       <DependentUpon>FrmTimerChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GuestTeam.cs">
-      <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Hall.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
@@ -154,12 +161,18 @@
     <Compile Include="RefereePair.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MatchReporterModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Team.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Data\Add\FrmAddOfficials.resx">
+      <DependentUpon>FrmAddOfficials.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Data\Add\FrmAddPlayers.resx">
       <DependentUpon>FrmAddPlayers.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +216,9 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Club.datasource" />
+    <None Include="Properties\DataSources\ClubOfficial.datasource" />
+    <None Include="Properties\DataSources\MatchReporter.Classes.TeamOfficial.datasource" />
+    <None Include="Properties\DataSources\MatchReporter.Classes.TeamPlayer.datasource" />
     <None Include="Properties\DataSources\Player.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

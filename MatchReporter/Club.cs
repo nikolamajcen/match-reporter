@@ -17,7 +17,6 @@ namespace MatchReporter
         public Club()
         {
             this.ClubOfficial = new HashSet<ClubOfficial>();
-            this.GuestTeam = new HashSet<GuestTeam>();
             this.Team = new HashSet<Team>();
             this.Player = new HashSet<Player>();
         }
@@ -32,7 +31,6 @@ namespace MatchReporter
     
         public virtual City City { get; set; }
         public virtual ICollection<ClubOfficial> ClubOfficial { get; set; }
-        public virtual ICollection<GuestTeam> GuestTeam { get; set; }
         public virtual ICollection<Team> Team { get; set; }
         public virtual ICollection<Player> Player { get; set; }
     }
