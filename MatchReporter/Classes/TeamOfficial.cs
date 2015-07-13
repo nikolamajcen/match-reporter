@@ -12,15 +12,15 @@ namespace MatchReporter.Classes
         {
             this.TeamOfficialId = officialId;
             this.Name = firstName.First<char>() + ". " + lastName;
-            this.Warning = 0;
-            this.Suspension = 0;
-            this.Disqualification = 0;
+            this.Warning = null;
+            this.Suspension = null;
+            this.Disqualification = null;
         }
 
         public int TeamOfficialId { get; set; }
         public string Name { get; set; }
-        public int Warning { get; set; }
-        public int Suspension { get; set; }
-        public int Disqualification { get; set; }
+        public int? Warning { get; set; }
+        public int? Suspension { get; set; }
+        public int? Disqualification { get; set; }
     }
 }

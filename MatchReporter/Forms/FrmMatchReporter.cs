@@ -57,6 +57,19 @@ namespace MatchReporter.Forms
         public FrmMatchReporter()
         {
             InitializeComponent();
+
+            this.dataMatchDetailsToolStripMenuItem.Enabled = false;
+            this.dataTeamsToolStripMenuItem.Enabled = false;
+            this.dataPlayersToolStripMenuItem.Enabled = false;
+            this.dataOfficialsToolStripMenuItem.Enabled = false;
+
+            this.matchSaveToolStripMenuItem.Enabled = false;
+            this.matchConcludeToolStripMenuItem.Enabled = false;
+            this.matchCloseToolStripMenuItem.Enabled = false;
+
+            this.reportPrintToolStripMenuItem.Enabled = false;
+            this.reportSendToolStripMenuItem.Enabled = false;
+
             this.Minutes = 0;
             this.Seconds = 0;
             panelMain.Hide();
@@ -155,6 +168,9 @@ namespace MatchReporter.Forms
         {
             panelMain.Show();
 
+            lblTeamA.Text = "";
+            lblTeamB.Text = "";
+
             this.Match = new Match();
 
             this.HomeClub = new Club();
@@ -168,6 +184,18 @@ namespace MatchReporter.Forms
             this.GuestPlays = new BindingList<Play>();
             this.GuestClubOfficials = new BindingList<ClubOfficial>();
             this.GuestManages = new BindingList<Manage>();
+
+            this.dataMatchDetailsToolStripMenuItem.Enabled = true;
+            this.dataTeamsToolStripMenuItem.Enabled = true;
+            this.dataPlayersToolStripMenuItem.Enabled = true;
+            this.dataOfficialsToolStripMenuItem.Enabled = true;
+
+            this.matchSaveToolStripMenuItem.Enabled = true;
+            this.matchConcludeToolStripMenuItem.Enabled = true;
+            this.matchCloseToolStripMenuItem.Enabled = true;
+
+            this.reportPrintToolStripMenuItem.Enabled = true;
+            this.reportSendToolStripMenuItem.Enabled = true;
         }
 
         private void matchCloseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,15 +221,47 @@ namespace MatchReporter.Forms
             lblTimeMinutes.Text = "00";
             lblTimeSeconds.Text = "00";
 
+            this.dataMatchDetailsToolStripMenuItem.Enabled = false;
+            this.dataTeamsToolStripMenuItem.Enabled = false;
+            this.dataPlayersToolStripMenuItem.Enabled = false;
+            this.dataOfficialsToolStripMenuItem.Enabled = false;
+
+            this.matchSaveToolStripMenuItem.Enabled = false;
+            this.matchConcludeToolStripMenuItem.Enabled = false;
+            this.matchCloseToolStripMenuItem.Enabled = false;
+
+            this.reportPrintToolStripMenuItem.Enabled = false;
+            this.reportSendToolStripMenuItem.Enabled = false;
+
             panelMain.Hide();
         }
 
-        private void dataAddTeamsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dataMatchDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddMatchDetails dataAddMatchDetails = new FrmAddMatchDetails();
+            dataAddMatchDetails.ShowDialog();
+
+            if (dataAddMatchDetails.MatchDetailsAddSuccess)
+            {
+                this.Match.LeagueId = dataAddMatchDetails.LeagueId;
+                this.Match.Date = dataAddMatchDetails.Date;
+                this.Match.Time = dataAddMatchDetails.Time;
+                this.Match.HallId = dataAddMatchDetails.HallId;
+                this.Match.Spectators = dataAddMatchDetails.Spectators;
+                this.Match.RefereePairId = dataAddMatchDetails.RefereePairId;
+                this.Match.DelegateId = dataAddMatchDetails.DelegateId;
+                this.Match.TimeKeeper = dataAddMatchDetails.TimeKeeper;
+                this.Match.Scorer = dataAddMatchDetails.Scorer;
+            }
+            dataAddMatchDetails.Dispose();
+        }
+
+        private void dataTeamsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddTeam dataAddTeam = new FrmAddTeam();
             dataAddTeam.ShowDialog();
-            
-            if(dataAddTeam.TeamsSelected)
+
+            if (dataAddTeam.TeamsSelected)
             {
                 this.lblTeamA.Text = dataAddTeam.HomeTeam;
                 this.lblTeamB.Text = dataAddTeam.GuestTeam;
@@ -220,84 +280,82 @@ namespace MatchReporter.Forms
             dataAddTeam.Dispose();
         }
 
-        private void dataAddPlayersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dataPlayersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeClub.ClubId, this.GuestClub.ClubId);
-            dataAddPlayers.ShowDialog();
-
-            if(dataAddPlayers.PlayersAddSuccess)
+            try
             {
-                this.HomePlayers = dataAddPlayers.HomePlayersPlay;
-                this.GuestPlayers = dataAddPlayers.GuestPlayersPlay;
+                FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeClub.ClubId, this.GuestClub.ClubId);
+                dataAddPlayers.ShowDialog();
 
-                foreach (Player player in this.HomePlayers)
+                if (dataAddPlayers.PlayersAddSuccess)
                 {
-                    TeamPlayer teamPlayer = new TeamPlayer(player.PlayerId, player.FirstName, player.LastName, player.Number);
-                    this.HomeTeamPlayers.Add(teamPlayer);
-                }
+                    this.HomePlayers = dataAddPlayers.HomePlayersPlay;
+                    this.GuestPlayers = dataAddPlayers.GuestPlayersPlay;
 
-                foreach (Player player in this.GuestPlayers)
-                {
-                    TeamPlayer teamPlayer = new TeamPlayer(player.PlayerId, player.FirstName, player.LastName, player.Number);
-                    this.GuestTeamPlayers.Add(teamPlayer);
-                }
+                    foreach (Player player in this.HomePlayers)
+                    {
+                        TeamPlayer teamPlayer = new TeamPlayer(player.PlayerId, player.FirstName, player.LastName, player.Number);
+                        this.HomeTeamPlayers.Add(teamPlayer);
+                    }
 
-                dgvHomeTeam.DataSource = this.HomeTeamPlayers;
-                dgvGuestTeam.DataSource = this.GuestTeamPlayers;
-                dgvHomeTeam.Refresh();
-                dgvGuestTeam.Refresh();
+                    foreach (Player player in this.GuestPlayers)
+                    {
+                        TeamPlayer teamPlayer = new TeamPlayer(player.PlayerId, player.FirstName, player.LastName, player.Number);
+                        this.GuestTeamPlayers.Add(teamPlayer);
+                    }
+
+                    dgvHomeTeam.DataSource = this.HomeTeamPlayers;
+                    dgvGuestTeam.DataSource = this.GuestTeamPlayers;
+                    dgvHomeTeam.Refresh();
+                    dgvGuestTeam.Refresh();
+                }
+                dataAddPlayers.Dispose();
             }
-            dataAddPlayers.Dispose();
+            catch
+            {
+                MessageBox.Show(this, "Da biste dodali igrače, prvo je potrebno dodati momčadi.", "Greška", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
-        private void dataAddOfficialsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dataOfficialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddOfficials dataAddOfficials = new FrmAddOfficials(this.HomeClub.ClubId, this.GuestClub.ClubId);
-            dataAddOfficials.ShowDialog();
-
-            if(dataAddOfficials.OfficialsAddSuccess)
+            try
             {
-                this.HomeClubOfficials = dataAddOfficials.HomeOfficialsManage;
-                this.GuestClubOfficials = dataAddOfficials.GuestOfficialsManage;
+                FrmAddOfficials dataAddOfficials = new FrmAddOfficials(this.HomeClub.ClubId, this.GuestClub.ClubId);
+                dataAddOfficials.ShowDialog();
 
-                foreach (ClubOfficial official in this.HomeClubOfficials)
+                if (dataAddOfficials.OfficialsAddSuccess)
                 {
-                    TeamOfficial teamOfficial = new TeamOfficial(official.ClubOfficialId, official.FirstName, official.LastName);
-                    this.HomeTeamOfficials.Add(teamOfficial);
-                }
+                    this.HomeClubOfficials = dataAddOfficials.HomeOfficialsManage;
+                    this.GuestClubOfficials = dataAddOfficials.GuestOfficialsManage;
 
-                foreach (ClubOfficial official in this.GuestClubOfficials)
-                {
-                    TeamOfficial teamOfficial = new TeamOfficial(official.ClubOfficialId, official.FirstName, official.LastName);
-                    this.GuestTeamOfficials.Add(teamOfficial);
-                }
+                    foreach (ClubOfficial official in this.HomeClubOfficials)
+                    {
+                        TeamOfficial teamOfficial = new TeamOfficial(official.ClubOfficialId, official.FirstName, official.LastName);
+                        this.HomeTeamOfficials.Add(teamOfficial);
+                    }
 
-                dgvHomeOfficials.DataSource = this.HomeTeamOfficials;
-                dgvGuestOfficials.DataSource = this.GuestTeamOfficials;
-                dgvHomeOfficials.Refresh();
-                dgvGuestOfficials.Refresh();
+                    foreach (ClubOfficial official in this.GuestClubOfficials)
+                    {
+                        TeamOfficial teamOfficial = new TeamOfficial(official.ClubOfficialId, official.FirstName, official.LastName);
+                        this.GuestTeamOfficials.Add(teamOfficial);
+                    }
+
+                    dgvHomeOfficials.DataSource = this.HomeTeamOfficials;
+                    dgvGuestOfficials.DataSource = this.GuestTeamOfficials;
+                    dgvHomeOfficials.Refresh();
+                    dgvGuestOfficials.Refresh();
+                }
+                dataAddOfficials.Dispose();
             }
-            dataAddOfficials.Dispose();
-        }
-
-        private void dataAddMatchDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAddMatchDetails dataAddMatchDetails = new FrmAddMatchDetails();
-            dataAddMatchDetails.ShowDialog();
-
-            if(dataAddMatchDetails.MatchDetailsAddSuccess)
+            catch
             {
-                this.Match.LeagueId = dataAddMatchDetails.LeagueId;
-                this.Match.Date = dataAddMatchDetails.Date;
-                this.Match.Time = dataAddMatchDetails.Time;
-                this.Match.HallId = dataAddMatchDetails.HallId;
-                this.Match.Spectators = dataAddMatchDetails.Spectators;
-                this.Match.RefereePairId = dataAddMatchDetails.RefereePairId;
-                this.Match.DelegateId = dataAddMatchDetails.DelegateId;
-                this.Match.TimeKeeper = dataAddMatchDetails.TimeKeeper;
-                this.Match.Scorer = dataAddMatchDetails.Scorer;
+                MessageBox.Show(this, "Da biste dodali službene osobe, prvo je potrebno dodati momčadi.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            dataAddMatchDetails.Dispose();
+            
         }
     }
 }

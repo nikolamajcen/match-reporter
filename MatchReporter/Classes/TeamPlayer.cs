@@ -15,12 +15,12 @@ namespace MatchReporter.Classes
             this.Number = number;
             this.Goals = 0;
             this.Goals7m = 0;
-            this.Warning = 0;
-            this.Suspension1st = 0;
-            this.Suspension2nd = 0;
-            this.Suspension3rd = 0;
-            this.Disqualification = 0;
-            this.DisqualificationReport = 0;
+            this.Warning = null;
+            this.Suspension1st = null;
+            this.Suspension2nd = null;
+            this.Suspension3rd = null;
+            this.Disqualification = null;
+            this.DisqualificationReport = null;
         }
 
         public int TeamPlayerId { get; set; }
@@ -28,11 +28,11 @@ namespace MatchReporter.Classes
         public int? Number { get; set; }
         public int Goals { get; set; }
         public int Goals7m { get; set; }
-        public int Warning { get; set; }
-        public int Suspension1st { get; set; }
-        public int Suspension2nd { get; set; }
-        public int Suspension3rd { get; set; }
-        public int Disqualification { get; set; }
-        public int DisqualificationReport { get; set; }
+        public int? Warning { get; set; }
+        public int? Suspension1st { get; set; }
+        public int? Suspension2nd { get; set; }
+        public int? Suspension3rd { get; set; }
+        public int? Disqualification { get; set; }
+        public int? DisqualificationReport { get; set; }
     }
 }

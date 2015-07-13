@@ -84,28 +84,28 @@
     <Compile Include="Delegate.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddMatchDetails.cs">
+    <Compile Include="Forms\Data\FrmAddMatchDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddMatchDetails.Designer.cs">
+    <Compile Include="Forms\Data\FrmAddMatchDetails.Designer.cs">
       <DependentUpon>FrmAddMatchDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddOfficials.cs">
+    <Compile Include="Forms\Data\FrmAddOfficials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddOfficials.Designer.cs">
+    <Compile Include="Forms\Data\FrmAddOfficials.Designer.cs">
       <DependentUpon>FrmAddOfficials.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddPlayers.cs">
+    <Compile Include="Forms\Data\FrmAddPlayers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddPlayers.Designer.cs">
+    <Compile Include="Forms\Data\FrmAddPlayers.Designer.cs">
       <DependentUpon>FrmAddPlayers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmLogin.cs">
+    <Compile Include="Forms\Login\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmLogin.Designer.cs">
+    <Compile Include="Forms\Login\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmMatchReporter.cs">
@@ -114,10 +114,10 @@
     <Compile Include="Forms\FrmMatchReporter.Designer.cs">
       <DependentUpon>FrmMatchReporter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddTeam.cs">
+    <Compile Include="Forms\Data\FrmAddTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Data\Add\FrmAddTeam.Designer.cs">
+    <Compile Include="Forms\Data\FrmAddTeam.Designer.cs">
       <DependentUpon>FrmAddTeam.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Timer\FrmTimerChange.cs">
@@ -173,22 +173,22 @@
     <Compile Include="User.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Data\Add\FrmAddMatchDetails.resx">
+    <EmbeddedResource Include="Forms\Data\FrmAddMatchDetails.resx">
       <DependentUpon>FrmAddMatchDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Data\Add\FrmAddOfficials.resx">
+    <EmbeddedResource Include="Forms\Data\FrmAddOfficials.resx">
       <DependentUpon>FrmAddOfficials.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Data\Add\FrmAddPlayers.resx">
+    <EmbeddedResource Include="Forms\Data\FrmAddPlayers.resx">
       <DependentUpon>FrmAddPlayers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmLogin.resx">
+    <EmbeddedResource Include="Forms\Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMatchReporter.resx">
       <DependentUpon>FrmMatchReporter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Data\Add\FrmAddTeam.resx">
+    <EmbeddedResource Include="Forms\Data\FrmAddTeam.resx">
       <DependentUpon>FrmAddTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Timer\FrmTimerChange.resx">
@@ -272,9 +272,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Match\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

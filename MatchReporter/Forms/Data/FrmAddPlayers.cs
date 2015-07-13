@@ -154,7 +154,7 @@ namespace MatchReporter.Forms.Data.Add
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if(this.HomePlayersAddedCount >= 7 && this.GuestPlayersAddedCount >= 7)
+            if(this.HomePlayersAddedCount >= 5 && this.GuestPlayersAddedCount >= 5)
             {
                 
                 List<Player> homePlayers = this.HomePlayersPlay.ToList();
@@ -169,7 +169,7 @@ namespace MatchReporter.Forms.Data.Add
             else
             {
                 this.PlayersAddSuccess = false;
-                MessageBox.Show(this, "Za svaku momčad je potrebno odabrati minimalno 7 igrača.",
+                MessageBox.Show(this, "Za svaku momčad je potrebno odabrati minimalno 5 igrača.",
                     "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

@@ -37,18 +37,10 @@
             this.matchConcludeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataAddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataAddTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataAddPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataAddOfficialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataChangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataChangeTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataChangePlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataChangeOfficialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataDeleteTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataDeletePlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataDeleteOfficialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataMatchDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataOfficialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportPrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportSendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,7 +117,6 @@
             this.lblTeamA = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
             this.playerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataAddMatchDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficials)).BeginInit();
@@ -198,100 +189,41 @@
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dataAddToolStripMenuItem,
-            this.dataChangeToolStripMenuItem,
-            this.dataDeleteToolStripMenuItem});
+            this.dataMatchDetailsToolStripMenuItem,
+            this.dataTeamsToolStripMenuItem,
+            this.dataPlayersToolStripMenuItem,
+            this.dataOfficialsToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.dataToolStripMenuItem.Text = "Podaci";
             // 
-            // dataAddToolStripMenuItem
+            // dataMatchDetailsToolStripMenuItem
             // 
-            this.dataAddToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dataAddTeamsToolStripMenuItem,
-            this.dataAddPlayersToolStripMenuItem,
-            this.dataAddOfficialsToolStripMenuItem,
-            this.dataAddMatchDetailsToolStripMenuItem});
-            this.dataAddToolStripMenuItem.Name = "dataAddToolStripMenuItem";
-            this.dataAddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dataAddToolStripMenuItem.Text = "Unos...";
+            this.dataMatchDetailsToolStripMenuItem.Name = "dataMatchDetailsToolStripMenuItem";
+            this.dataMatchDetailsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.dataMatchDetailsToolStripMenuItem.Text = "Opći podaci";
+            this.dataMatchDetailsToolStripMenuItem.Click += new System.EventHandler(this.dataMatchDetailsToolStripMenuItem_Click);
             // 
-            // dataAddTeamsToolStripMenuItem
+            // dataTeamsToolStripMenuItem
             // 
-            this.dataAddTeamsToolStripMenuItem.Name = "dataAddTeamsToolStripMenuItem";
-            this.dataAddTeamsToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.dataAddTeamsToolStripMenuItem.Text = "Unos momčadi";
-            this.dataAddTeamsToolStripMenuItem.Click += new System.EventHandler(this.dataAddTeamsToolStripMenuItem_Click);
+            this.dataTeamsToolStripMenuItem.Name = "dataTeamsToolStripMenuItem";
+            this.dataTeamsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.dataTeamsToolStripMenuItem.Text = "Momčadi";
+            this.dataTeamsToolStripMenuItem.Click += new System.EventHandler(this.dataTeamsToolStripMenuItem_Click);
             // 
-            // dataAddPlayersToolStripMenuItem
+            // dataPlayersToolStripMenuItem
             // 
-            this.dataAddPlayersToolStripMenuItem.Name = "dataAddPlayersToolStripMenuItem";
-            this.dataAddPlayersToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.dataAddPlayersToolStripMenuItem.Text = "Unos igrača";
-            this.dataAddPlayersToolStripMenuItem.Click += new System.EventHandler(this.dataAddPlayersToolStripMenuItem_Click);
+            this.dataPlayersToolStripMenuItem.Name = "dataPlayersToolStripMenuItem";
+            this.dataPlayersToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.dataPlayersToolStripMenuItem.Text = "Igrači";
+            this.dataPlayersToolStripMenuItem.Click += new System.EventHandler(this.dataPlayersToolStripMenuItem_Click);
             // 
-            // dataAddOfficialsToolStripMenuItem
+            // dataOfficialsToolStripMenuItem
             // 
-            this.dataAddOfficialsToolStripMenuItem.Name = "dataAddOfficialsToolStripMenuItem";
-            this.dataAddOfficialsToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.dataAddOfficialsToolStripMenuItem.Text = "Unos službenih osoba";
-            this.dataAddOfficialsToolStripMenuItem.Click += new System.EventHandler(this.dataAddOfficialsToolStripMenuItem_Click);
-            // 
-            // dataChangeToolStripMenuItem
-            // 
-            this.dataChangeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dataChangeTeamsToolStripMenuItem,
-            this.dataChangePlayersToolStripMenuItem,
-            this.dataChangeOfficialsToolStripMenuItem});
-            this.dataChangeToolStripMenuItem.Name = "dataChangeToolStripMenuItem";
-            this.dataChangeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dataChangeToolStripMenuItem.Text = "Promjena...";
-            // 
-            // dataChangeTeamsToolStripMenuItem
-            // 
-            this.dataChangeTeamsToolStripMenuItem.Name = "dataChangeTeamsToolStripMenuItem";
-            this.dataChangeTeamsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.dataChangeTeamsToolStripMenuItem.Text = "Promjena momčadi";
-            // 
-            // dataChangePlayersToolStripMenuItem
-            // 
-            this.dataChangePlayersToolStripMenuItem.Name = "dataChangePlayersToolStripMenuItem";
-            this.dataChangePlayersToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.dataChangePlayersToolStripMenuItem.Text = "Promjena igrača";
-            // 
-            // dataChangeOfficialsToolStripMenuItem
-            // 
-            this.dataChangeOfficialsToolStripMenuItem.Name = "dataChangeOfficialsToolStripMenuItem";
-            this.dataChangeOfficialsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.dataChangeOfficialsToolStripMenuItem.Text = "Promjena službenih osoba";
-            // 
-            // dataDeleteToolStripMenuItem
-            // 
-            this.dataDeleteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dataDeleteTeamsToolStripMenuItem,
-            this.dataDeletePlayersToolStripMenuItem,
-            this.dataDeleteOfficialsToolStripMenuItem});
-            this.dataDeleteToolStripMenuItem.Name = "dataDeleteToolStripMenuItem";
-            this.dataDeleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dataDeleteToolStripMenuItem.Text = "Brisanje...";
-            // 
-            // dataDeleteTeamsToolStripMenuItem
-            // 
-            this.dataDeleteTeamsToolStripMenuItem.Name = "dataDeleteTeamsToolStripMenuItem";
-            this.dataDeleteTeamsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.dataDeleteTeamsToolStripMenuItem.Text = "Brisanje momčadi";
-            // 
-            // dataDeletePlayersToolStripMenuItem
-            // 
-            this.dataDeletePlayersToolStripMenuItem.Name = "dataDeletePlayersToolStripMenuItem";
-            this.dataDeletePlayersToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.dataDeletePlayersToolStripMenuItem.Text = "Brisanje igrača";
-            // 
-            // dataDeleteOfficialsToolStripMenuItem
-            // 
-            this.dataDeleteOfficialsToolStripMenuItem.Name = "dataDeleteOfficialsToolStripMenuItem";
-            this.dataDeleteOfficialsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.dataDeleteOfficialsToolStripMenuItem.Text = "Brisanje službenih osoba";
+            this.dataOfficialsToolStripMenuItem.Name = "dataOfficialsToolStripMenuItem";
+            this.dataOfficialsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.dataOfficialsToolStripMenuItem.Text = "Službene osobe";
+            this.dataOfficialsToolStripMenuItem.Click += new System.EventHandler(this.dataOfficialsToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
@@ -1023,13 +955,6 @@
             // 
             this.playerBindingSource.DataSource = typeof(MatchReporter.Player);
             // 
-            // dataAddMatchDetailsToolStripMenuItem
-            // 
-            this.dataAddMatchDetailsToolStripMenuItem.Name = "dataAddMatchDetailsToolStripMenuItem";
-            this.dataAddMatchDetailsToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.dataAddMatchDetailsToolStripMenuItem.Text = "Unos općih podataka";
-            this.dataAddMatchDetailsToolStripMenuItem.Click += new System.EventHandler(this.dataAddMatchDetailsToolStripMenuItem_Click);
-            // 
             // FrmMatchReporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1072,18 +997,6 @@
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataAddToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataAddTeamsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataAddPlayersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataAddOfficialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataChangeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataChangeTeamsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataChangePlayersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataChangeOfficialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataDeleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataDeleteTeamsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataDeletePlayersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dataDeleteOfficialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportPrintToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportSendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otherAboutToolStripMenuItem;
@@ -1159,6 +1072,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn warningDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn suspensionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn disqualificationDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.ToolStripMenuItem dataAddMatchDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataMatchDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataTeamsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataPlayersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataOfficialsToolStripMenuItem;
     }
 }
