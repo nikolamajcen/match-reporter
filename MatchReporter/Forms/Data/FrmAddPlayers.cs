@@ -26,15 +26,12 @@ namespace MatchReporter.Forms.Data.Add
 
         public bool PlayersAddSuccess;
 
-        public FrmAddPlayers(int homeTeamId, int guestTeamId)
+        public FrmAddPlayers(int homeTeamId, int guestTeamId, BindingList<Player> homePlayers, BindingList<Player> guestPlayers)
         {
             InitializeComponent();
 
             this.HomeTeamId = homeTeamId;
             this.GuestTeamId = guestTeamId;
-
-            this.HomePlayersAddedCount = 0;
-            this.GuestPlayersAddedCount = 0;
 
             string homeTeamName;
             string guestTeamName;
@@ -43,9 +40,9 @@ namespace MatchReporter.Forms.Data.Add
 
             using (var db = new MatchReporterEntities())
             {
-                HomePlayersAll = new BindingList<Player>(db.Player
+                this.HomePlayersAll = new BindingList<Player>(db.Player
                     .Where(p => p.ClubId == homeTeamId).ToList<Player>());
-                GuestPlayersAll = new BindingList<Player>(db.Player
+                this.GuestPlayersAll = new BindingList<Player>(db.Player
                     .Where(p => p.ClubId == guestTeamId).ToList<Player>());
 
                 homeTeamName = (db.Club
@@ -58,14 +55,47 @@ namespace MatchReporter.Forms.Data.Add
             lblHomeTeamName.Text = homeTeamName;
             lblGuestTeamName.Text = guestTeamName;
 
-            HomePlayersPlay = new BindingList<Player>();
-            GuestPlayersPlay = new BindingList<Player>();
+            this.HomePlayersPlay = homePlayers;
+            this.GuestPlayersPlay = guestPlayers;
 
-            dgvHomePlayersAll.DataSource = HomePlayersAll;
-            dgvHomePlayersPlay.DataSource = HomePlayersPlay;
+            this.HomePlayersAddedCount = HomePlayersPlay.Count;
+            this.GuestPlayersAddedCount = GuestPlayersPlay.Count;
+            lblHomeCurrentPlayerNumber.Text = this.HomePlayersAddedCount.ToString() + "/16";
+            lblGuestCurrentPlayerNumber.Text = this.GuestPlayersAddedCount.ToString() + "/16";
 
-            dgvGuestPlayersAll.DataSource = GuestPlayersAll;
-            dgvGuestPlayersPlay.DataSource = GuestPlayersPlay;
+            for (int i = 0; i < HomePlayersAll.Count; i++ )
+            {
+                Player player = HomePlayersAll[i];
+                for(int j = 0; j < HomePlayersPlay.Count; j++)
+                {
+                    if(player.PlayerId == HomePlayersPlay[j].PlayerId)
+                    {
+                        HomePlayersAll.Remove(player);
+                        i--;
+                        break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < GuestPlayersAll.Count; i++)
+            {
+                Player player = this.GuestPlayersAll[i];
+                for (int j = 0; j < this.GuestPlayersPlay.Count; j++)
+                {
+                    if (player.PlayerId == this.GuestPlayersPlay[j].PlayerId)
+                    {
+                        this.GuestPlayersAll.Remove(player);
+                        i--;
+                        break;
+                    }
+                }
+            }
+
+            dgvHomePlayersAll.DataSource = this.HomePlayersAll;
+            dgvHomePlayersPlay.DataSource = this.HomePlayersPlay;
+
+            dgvGuestPlayersAll.DataSource = this.GuestPlayersAll;
+            dgvGuestPlayersPlay.DataSource = this.GuestPlayersPlay;
         }
 
         private void btnHomePlayerAdd_Click(object sender, EventArgs e)

@@ -26,15 +26,18 @@ namespace MatchReporter.Forms.Data.Add
 
         public bool OfficialsAddSuccess;
 
-        public FrmAddOfficials(int homeTeamId, int guestTeamId)
+        public FrmAddOfficials(int homeTeamId, int guestTeamId, BindingList<ClubOfficial> homeOfficials, BindingList<ClubOfficial> guestOfficials)
         {
             InitializeComponent();
 
             this.HomeTeamId = homeTeamId;
             this.GuestTeamId = guestTeamId;
 
-            this.HomeOfficialsAddedCount = 0;
-            this.GuestOfficialsAddedCount = 0;
+            this.HomeOfficialsAddedCount = homeOfficials.Count;
+            this.GuestOfficialsAddedCount = guestOfficials.Count;
+
+            lblHomeOfficialsCount.Text = this.HomeOfficialsAddedCount.ToString() + "/4";
+            lblGuestOfficialsCount.Text = this.GuestOfficialsAddedCount.ToString() + "/4";
 
             string homeTeamName;
             string guestTeamName;
@@ -43,9 +46,9 @@ namespace MatchReporter.Forms.Data.Add
 
             using (var db = new MatchReporterEntities())
             {
-                HomeOfficialsAll = new BindingList<ClubOfficial>(db.ClubOfficial
+                this.HomeOfficialsAll = new BindingList<ClubOfficial>(db.ClubOfficial
                     .Where(p => p.ClubId == homeTeamId).ToList<ClubOfficial>());
-                GuestOfficialsAll = new BindingList<ClubOfficial>(db.ClubOfficial
+                this.GuestOfficialsAll = new BindingList<ClubOfficial>(db.ClubOfficial
                     .Where(p => p.ClubId == guestTeamId).ToList<ClubOfficial>());
 
                 homeTeamName = (db.Club
@@ -58,14 +61,42 @@ namespace MatchReporter.Forms.Data.Add
             lblHomeTeamName.Text = homeTeamName;
             lblGuestTeamName.Text = guestTeamName;
 
-            HomeOfficialsManage = new BindingList<ClubOfficial>();
-            GuestOfficialsManage = new BindingList<ClubOfficial>();
+            this.HomeOfficialsManage = homeOfficials;
+            this.GuestOfficialsManage = guestOfficials;
 
-            dgvHomeOfficialsAll.DataSource = HomeOfficialsAll;
-            dgvHomeOfficialsManage.DataSource = HomeOfficialsManage;
+            for (int i = 0; i < this.HomeOfficialsAll.Count; i++)
+            {
+                ClubOfficial official = this.HomeOfficialsAll[i];
+                for (int j = 0; j < this.HomeOfficialsManage.Count; j++)
+                {
+                    if (official.ClubOfficialId == this.HomeOfficialsManage[j].ClubOfficialId)
+                    {
+                        this.HomeOfficialsAll.Remove(official);
+                        i--;
+                        break;
+                    }
+                }
+            }
 
-            dgvGuestOfficialsAll.DataSource = GuestOfficialsAll;
-            dgvGuestOfficialsManage.DataSource = GuestOfficialsManage;
+            for (int i = 0; i < this.GuestOfficialsAll.Count; i++)
+            {
+                ClubOfficial official = this.GuestOfficialsAll[i];
+                for (int j = 0; j < this.GuestOfficialsManage.Count; j++)
+                {
+                    if (official.ClubOfficialId == this.GuestOfficialsManage[j].ClubOfficialId)
+                    {
+                        this.GuestOfficialsAll.Remove(official);
+                        i--;
+                        break;
+                    }
+                }
+            }
+
+            dgvHomeOfficialsAll.DataSource = this.HomeOfficialsAll;
+            dgvHomeOfficialsManage.DataSource = this.HomeOfficialsManage;
+
+            dgvGuestOfficialsAll.DataSource = this.GuestOfficialsAll;
+            dgvGuestOfficialsManage.DataSource = this.GuestOfficialsManage;
         }
 
         private void btnHomeOfficialsAdd_Click(object sender, EventArgs e)

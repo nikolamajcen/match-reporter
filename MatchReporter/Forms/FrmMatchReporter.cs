@@ -74,6 +74,9 @@ namespace MatchReporter.Forms
             this.Seconds = 0;
             panelMain.Hide();
 
+            this.HomePlayers = new BindingList<Player>();
+            this.GuestPlayers = new BindingList<Player>();
+
             HomeTeamPlayers = new BindingList<TeamPlayer>();
             GuestTeamPlayers = new BindingList<TeamPlayer>();
 
@@ -258,23 +261,46 @@ namespace MatchReporter.Forms
 
         private void dataTeamsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddTeam dataAddTeam = new FrmAddTeam();
+            FrmAddTeam dataAddTeam = new FrmAddTeam(this.HomeClub.ClubId, this.GuestClub.ClubId);
             dataAddTeam.ShowDialog();
 
             if (dataAddTeam.TeamsSelected)
             {
-                this.lblTeamA.Text = dataAddTeam.HomeTeam;
-                this.lblTeamB.Text = dataAddTeam.GuestTeam;
+                this.HomeClub = dataAddTeam.HomeTeam;
+                this.GuestClub = dataAddTeam.GuestTeam;
 
-                using (var db = new MatchReporterEntities())
+                this.lblTeamA.Text = HomeClub.Name;
+                this.lblTeamB.Text = GuestClub.Name;
+
+                if(dataAddTeam.TeamSelectionChanged)
                 {
-                    this.HomeClub = (Club)(db.Club
-                        .Where(c => c.Name == dataAddTeam.HomeTeam)
-                        .FirstOrDefault<Club>());
+                    this.HomePlayers = new BindingList<Player>();
+                    this.GuestPlayers = new BindingList<Player>();
 
-                    this.GuestClub = (Club)(db.Club
-                        .Where(c => c.Name == dataAddTeam.GuestTeam)
-                        .FirstOrDefault<Club>());
+                    this.HomeTeamPlayers = new BindingList<TeamPlayer>();
+                    this.GuestTeamPlayers = new BindingList<TeamPlayer>();
+
+                    dgvHomeTeam.DataSource = HomeTeamPlayers;
+                    dgvHomeTeam.Refresh();
+                    dgvGuestTeam.DataSource = GuestTeamPlayers;
+                    dgvGuestTeam.Refresh();
+
+                    this.HomePlays = new BindingList<Play>();
+                    this.GuestPlays = new BindingList<Play>();
+
+                    this.HomeClubOfficials = new BindingList<ClubOfficial>();
+                    this.GuestClubOfficials = new BindingList<ClubOfficial>();
+
+                    this.HomeTeamOfficials = new BindingList<TeamOfficial>();
+                    this.GuestTeamOfficials = new BindingList<TeamOfficial>();
+
+                    dgvHomeOfficials.DataSource = this.HomeTeamOfficials;
+                    dgvHomeOfficials.Refresh();
+                    dgvGuestOfficials.DataSource = this.GuestTeamOfficials;
+                    dgvGuestOfficials.Refresh();
+
+                    this.HomeManages = new BindingList<Manage>();
+                    this.GuestManages = new BindingList<Manage>();
                 }
             }
             dataAddTeam.Dispose();
@@ -284,13 +310,16 @@ namespace MatchReporter.Forms
         {
             try
             {
-                FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeClub.ClubId, this.GuestClub.ClubId);
+                FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeClub.ClubId, this.GuestClub.ClubId, this.HomePlayers, this.GuestPlayers);
                 dataAddPlayers.ShowDialog();
 
                 if (dataAddPlayers.PlayersAddSuccess)
                 {
                     this.HomePlayers = dataAddPlayers.HomePlayersPlay;
                     this.GuestPlayers = dataAddPlayers.GuestPlayersPlay;
+
+                    this.HomeTeamPlayers.Clear();
+                    this.GuestTeamPlayers.Clear();
 
                     foreach (Player player in this.HomePlayers)
                     {
@@ -323,13 +352,16 @@ namespace MatchReporter.Forms
         {
             try
             {
-                FrmAddOfficials dataAddOfficials = new FrmAddOfficials(this.HomeClub.ClubId, this.GuestClub.ClubId);
+                FrmAddOfficials dataAddOfficials = new FrmAddOfficials(this.HomeClub.ClubId, this.GuestClub.ClubId, this.HomeClubOfficials, this.GuestClubOfficials);
                 dataAddOfficials.ShowDialog();
 
                 if (dataAddOfficials.OfficialsAddSuccess)
                 {
                     this.HomeClubOfficials = dataAddOfficials.HomeOfficialsManage;
                     this.GuestClubOfficials = dataAddOfficials.GuestOfficialsManage;
+
+                    this.HomeTeamOfficials.Clear();
+                    this.GuestTeamOfficials.Clear();
 
                     foreach (ClubOfficial official in this.HomeClubOfficials)
                     {

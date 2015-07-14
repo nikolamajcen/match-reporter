@@ -12,15 +12,23 @@ namespace MatchReporter.Forms.Podaci.Unos
 {
     public partial class FrmAddTeam : Form
     {
-        public string HomeTeam;
-        public string GuestTeam;
+        public Club HomeTeam;
+        public Club GuestTeam;
         public bool TeamsSelected;
+        public bool TeamSelectionChanged;
 
-        public FrmAddTeam()
+        public int? LastHomeTeamId;
+        public int? LastGuestTeamId;
+
+        public FrmAddTeam(int? homeTeamId, int? guestTeamId)
         {
             InitializeComponent();
 
-            TeamsSelected = false;
+            this.TeamsSelected = false;
+            this.TeamSelectionChanged = false;
+
+            this.LastHomeTeamId = homeTeamId;
+            this.LastGuestTeamId = guestTeamId;
 
             BindingList<Club> homeTeams;
             BindingList<Club> guestTeams;
@@ -49,9 +57,13 @@ namespace MatchReporter.Forms.Podaci.Unos
             }
             else
             {
-                HomeTeam = cbxHomeTeam.Text;
-                GuestTeam = cbxGuestTeam.Text;
+                this.HomeTeam = (Club)cbxHomeTeam.SelectedItem;
+                this.GuestTeam = (Club)cbxGuestTeam.SelectedItem;
                 TeamsSelected = true;
+                if (this.HomeTeam.ClubId != this.LastHomeTeamId || this.GuestTeam.ClubId != this.LastGuestTeamId)
+                {
+                    this.TeamSelectionChanged = true;
+                }
                 this.Close();
             }
         }
