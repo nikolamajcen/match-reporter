@@ -14,12 +14,23 @@ namespace MatchReporter
     
     public partial class Manage
     {
-        public int ClubOfficialId { get; set; }
-        public int MatchId { get; set; }
+        public Manage()
+        {
+
+        }
+
+        public Manage(int matchId, int clubOfficialId)
+        {
+            this.MatchId = matchId;
+            this.ClubOfficialId = clubOfficialId;
+        }
+
         public Nullable<int> Warning { get; set; }
         public Nullable<int> Suspension { get; set; }
         public Nullable<int> Disqualification { get; set; }
         public Nullable<int> DisqualificationAndReport { get; set; }
+        public int ClubOfficialId { get; set; }
+        public int MatchId { get; set; }
     
         public virtual ClubOfficial ClubOfficial { get; set; }
         public virtual Match Match { get; set; }

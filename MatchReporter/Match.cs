@@ -32,6 +32,7 @@ namespace MatchReporter
         public int HallId { get; set; }
         public string TimeKeeper { get; set; }
         public string Scorer { get; set; }
+        public Nullable<int> Concluded { get; set; }
     
         public virtual Delegate Delegate { get; set; }
         public virtual Hall Hall { get; set; }

@@ -59,6 +59,7 @@ namespace MatchReporter.Forms.Data.Add
         {
             bool dateTimeStatus = false;
             bool scorerAndTimeKeeperStatus = false;
+            bool spectatorsNumberStatus = false;
 
             this.LeagueId = ((League)(cbxLeague.SelectedItem)).LeagueId;
             this.HallId = ((Hall)(cbxHall.SelectedItem)).HallId;
@@ -75,18 +76,25 @@ namespace MatchReporter.Forms.Data.Add
             }
             
             // Spectators
-            this.Spectators = (int)txtSpectators.Value;
+            if((int)txtSpectators.Value <= ((Hall)cbxHall.SelectedItem).Capacity)
+            {
+                this.Spectators = (int)txtSpectators.Value;
+                spectatorsNumberStatus = true;
+            }
 
             // TimeKeeper (Provjera)
             // Scorer (Provjera)
             if(txtTimeKeeper.Text.Length > 0 && txtScorer.Text.Length > 0)
             {
+                this.TimeKeeper = txtTimeKeeper.Text;
+                this.Scorer = txtScorer.Text;
                 scorerAndTimeKeeperStatus = true;
             }
 
-            if (dateTimeStatus == false && scorerAndTimeKeeperStatus == false)
+            if (dateTimeStatus == false && scorerAndTimeKeeperStatus == false && spectatorsNumberStatus == false)
             {
                 MessageBox.Show(this, "Odabrali ste krivi datum/vrijeme. " +
+                    "\nMaksimalni kapacitet ove dvorane je " + ((Hall)cbxHall.SelectedItem).Capacity.ToString() + "." + 
                     "\nNiste unijeli zapisničara i/ili mjeritelja vremena.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (dateTimeStatus == false)
@@ -97,6 +105,11 @@ namespace MatchReporter.Forms.Data.Add
             else if (scorerAndTimeKeeperStatus == false)
             {
                 MessageBox.Show(this, "Niste unijeli zapisničara i/ili mjeritelja vremena", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (spectatorsNumberStatus == false)
+            {
+                MessageBox.Show(this, "Maksimalni kapacitet ove dvorane je " + ((Hall)cbxHall.SelectedItem).Capacity.ToString() + ".", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else

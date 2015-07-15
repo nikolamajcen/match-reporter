@@ -89,6 +89,7 @@
           <Property Name="HallId" Type="int" Nullable="false" />
           <Property Name="TimeKeeper" Type="nvarchar(max)" />
           <Property Name="Scorer" Type="nvarchar(max)" />
+          <Property Name="Concluded" Type="int" />
         </EntityType>
         <EntityType Name="Play">
           <Key>
@@ -580,6 +581,7 @@
           <Property Name="HallId" Type="Int32" Nullable="false" />
           <Property Name="TimeKeeper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Scorer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Concluded" Type="Int32" />
           <NavigationProperty Name="Delegate" Relationship="Self.FK_DelegateMatch" FromRole="Match" ToRole="Delegate" />
           <NavigationProperty Name="Hall" Relationship="Self.FK_HallMatch" FromRole="Match" ToRole="Hall" />
           <NavigationProperty Name="League" Relationship="Self.FK_LeagueMatch" FromRole="Match" ToRole="League" />
@@ -1079,6 +1081,7 @@
                 <ScalarProperty Name="HallId" ColumnName="HallId" />
                 <ScalarProperty Name="TimeKeeper" ColumnName="TimeKeeper" />
                 <ScalarProperty Name="Scorer" ColumnName="Scorer" />
+                <ScalarProperty Name="Concluded" ColumnName="Concluded" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

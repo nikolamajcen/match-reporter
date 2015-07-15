@@ -14,8 +14,19 @@ namespace MatchReporter
     
     public partial class Play
     {
-        public int PlayerId { get; set; }
-        public int MatchId { get; set; }
+        public Play()
+        {
+
+        }
+
+        public Play(int matchId, int playerId)
+        {
+            this.MatchId = matchId;
+            this.PlayerId = playerId;
+            this.Goals = 0;
+            this.Goals7m = 0;
+        }
+
         public int Goals { get; set; }
         public int Goals7m { get; set; }
         public Nullable<int> Warning { get; set; }
@@ -24,6 +35,8 @@ namespace MatchReporter
         public Nullable<int> SuspensionThird { get; set; }
         public Nullable<int> Disqualification { get; set; }
         public Nullable<int> DisqualificationAdnReport { get; set; }
+        public int PlayerId { get; set; }
+        public int MatchId { get; set; }
     
         public virtual Match Match { get; set; }
         public virtual Player Player { get; set; }

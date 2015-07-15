@@ -14,6 +14,16 @@ namespace MatchReporter
     
     public partial class Team
     {
+        public Team()
+        {
+
+        }
+        public Team(int matchId, int clubId)
+        {
+            this.MatchId = matchId;
+            this.ClubId = clubId;
+        }
+
         public short Goals { get; set; }
         public string TTO1 { get; set; }
         public string TTO2 { get; set; }

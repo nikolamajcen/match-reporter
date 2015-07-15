@@ -24,7 +24,7 @@ namespace MatchReporter
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int CityId { get; set; }
-    
+
         public virtual City City { get; set; }
         public virtual ICollection<RefereePair> RefereePair { get; set; }
         public virtual ICollection<RefereePair> RefereePair1 { get; set; }
