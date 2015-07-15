@@ -130,6 +130,8 @@
             this.disqualificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disqualificationReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnHomeOfficialUndo = new System.Windows.Forms.Button();
+            this.btnGuestOfficialUndo = new System.Windows.Forms.Button();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficials)).BeginInit();
@@ -277,6 +279,8 @@
             // 
             this.panelMain.AutoScroll = true;
             this.panelMain.AutoSize = true;
+            this.panelMain.Controls.Add(this.btnGuestOfficialUndo);
+            this.panelMain.Controls.Add(this.btnHomeOfficialUndo);
             this.panelMain.Controls.Add(this.btnGuestOfficialDisqualification);
             this.panelMain.Controls.Add(this.btnGuestOfficialSuspension);
             this.panelMain.Controls.Add(this.btnGuestOfficialWarning);
@@ -310,57 +314,63 @@
             // 
             // btnGuestOfficialDisqualification
             // 
-            this.btnGuestOfficialDisqualification.Location = new System.Drawing.Point(447, 574);
+            this.btnGuestOfficialDisqualification.Location = new System.Drawing.Point(447, 560);
             this.btnGuestOfficialDisqualification.Name = "btnGuestOfficialDisqualification";
-            this.btnGuestOfficialDisqualification.Size = new System.Drawing.Size(53, 26);
+            this.btnGuestOfficialDisqualification.Size = new System.Drawing.Size(53, 23);
             this.btnGuestOfficialDisqualification.TabIndex = 46;
             this.btnGuestOfficialDisqualification.Text = "D";
             this.btnGuestOfficialDisqualification.UseVisualStyleBackColor = true;
+            this.btnGuestOfficialDisqualification.Click += new System.EventHandler(this.btnGuestOfficialDisqualification_Click);
             // 
             // btnGuestOfficialSuspension
             // 
-            this.btnGuestOfficialSuspension.Location = new System.Drawing.Point(447, 542);
+            this.btnGuestOfficialSuspension.Location = new System.Drawing.Point(447, 531);
             this.btnGuestOfficialSuspension.Name = "btnGuestOfficialSuspension";
-            this.btnGuestOfficialSuspension.Size = new System.Drawing.Size(53, 26);
+            this.btnGuestOfficialSuspension.Size = new System.Drawing.Size(53, 23);
             this.btnGuestOfficialSuspension.TabIndex = 45;
             this.btnGuestOfficialSuspension.Text = "2\'";
             this.btnGuestOfficialSuspension.UseVisualStyleBackColor = true;
+            this.btnGuestOfficialSuspension.Click += new System.EventHandler(this.btnGuestOfficialSuspension_Click);
             // 
             // btnGuestOfficialWarning
             // 
-            this.btnGuestOfficialWarning.Location = new System.Drawing.Point(447, 510);
+            this.btnGuestOfficialWarning.Location = new System.Drawing.Point(447, 502);
             this.btnGuestOfficialWarning.Name = "btnGuestOfficialWarning";
-            this.btnGuestOfficialWarning.Size = new System.Drawing.Size(53, 26);
+            this.btnGuestOfficialWarning.Size = new System.Drawing.Size(53, 23);
             this.btnGuestOfficialWarning.TabIndex = 44;
             this.btnGuestOfficialWarning.Text = "O";
             this.btnGuestOfficialWarning.UseVisualStyleBackColor = true;
+            this.btnGuestOfficialWarning.Click += new System.EventHandler(this.btnGuestOfficialWarning_Click);
             // 
             // btnHomeOfficialDisqualification
             // 
-            this.btnHomeOfficialDisqualification.Location = new System.Drawing.Point(384, 574);
+            this.btnHomeOfficialDisqualification.Location = new System.Drawing.Point(384, 560);
             this.btnHomeOfficialDisqualification.Name = "btnHomeOfficialDisqualification";
-            this.btnHomeOfficialDisqualification.Size = new System.Drawing.Size(53, 26);
+            this.btnHomeOfficialDisqualification.Size = new System.Drawing.Size(53, 23);
             this.btnHomeOfficialDisqualification.TabIndex = 43;
             this.btnHomeOfficialDisqualification.Text = "D";
             this.btnHomeOfficialDisqualification.UseVisualStyleBackColor = true;
+            this.btnHomeOfficialDisqualification.Click += new System.EventHandler(this.btnHomeOfficialDisqualification_Click);
             // 
             // btnHomeOfficialSuspension
             // 
-            this.btnHomeOfficialSuspension.Location = new System.Drawing.Point(384, 542);
+            this.btnHomeOfficialSuspension.Location = new System.Drawing.Point(384, 531);
             this.btnHomeOfficialSuspension.Name = "btnHomeOfficialSuspension";
-            this.btnHomeOfficialSuspension.Size = new System.Drawing.Size(53, 26);
+            this.btnHomeOfficialSuspension.Size = new System.Drawing.Size(53, 23);
             this.btnHomeOfficialSuspension.TabIndex = 42;
             this.btnHomeOfficialSuspension.Text = "2\'";
             this.btnHomeOfficialSuspension.UseVisualStyleBackColor = true;
+            this.btnHomeOfficialSuspension.Click += new System.EventHandler(this.btnHomeOfficialSuspension_Click);
             // 
             // btnHomeOfficialWarning
             // 
-            this.btnHomeOfficialWarning.Location = new System.Drawing.Point(384, 510);
+            this.btnHomeOfficialWarning.Location = new System.Drawing.Point(384, 502);
             this.btnHomeOfficialWarning.Name = "btnHomeOfficialWarning";
-            this.btnHomeOfficialWarning.Size = new System.Drawing.Size(53, 26);
+            this.btnHomeOfficialWarning.Size = new System.Drawing.Size(53, 23);
             this.btnHomeOfficialWarning.TabIndex = 41;
             this.btnHomeOfficialWarning.Text = "O";
             this.btnHomeOfficialWarning.UseVisualStyleBackColor = true;
+            this.btnHomeOfficialWarning.Click += new System.EventHandler(this.btnHomeOfficialWarning_Click);
             // 
             // btnGuestUndo
             // 
@@ -370,6 +380,7 @@
             this.btnGuestUndo.TabIndex = 40;
             this.btnGuestUndo.Text = "Poništi";
             this.btnGuestUndo.UseVisualStyleBackColor = true;
+            this.btnGuestUndo.Click += new System.EventHandler(this.btnGuestUndo_Click);
             // 
             // btnGuestDisqualificationReport
             // 
@@ -379,6 +390,7 @@
             this.btnGuestDisqualificationReport.TabIndex = 39;
             this.btnGuestDisqualificationReport.Text = "DP";
             this.btnGuestDisqualificationReport.UseVisualStyleBackColor = true;
+            this.btnGuestDisqualificationReport.Click += new System.EventHandler(this.btnGuestDisqualificationReport_Click);
             // 
             // btnGuestDisqualification
             // 
@@ -388,6 +400,7 @@
             this.btnGuestDisqualification.TabIndex = 38;
             this.btnGuestDisqualification.Text = "D";
             this.btnGuestDisqualification.UseVisualStyleBackColor = true;
+            this.btnGuestDisqualification.Click += new System.EventHandler(this.btnGuestDisqualification_Click);
             // 
             // btnGuestSuspension
             // 
@@ -397,6 +410,7 @@
             this.btnGuestSuspension.TabIndex = 37;
             this.btnGuestSuspension.Text = "2\'";
             this.btnGuestSuspension.UseVisualStyleBackColor = true;
+            this.btnGuestSuspension.Click += new System.EventHandler(this.btnGuestSuspension_Click);
             // 
             // btnGuestWarning
             // 
@@ -406,6 +420,7 @@
             this.btnGuestWarning.TabIndex = 36;
             this.btnGuestWarning.Text = "O";
             this.btnGuestWarning.UseVisualStyleBackColor = true;
+            this.btnGuestWarning.Click += new System.EventHandler(this.btnGuestWarning_Click);
             // 
             // btnGuest7m
             // 
@@ -415,6 +430,7 @@
             this.btnGuest7m.TabIndex = 35;
             this.btnGuest7m.Text = "7m";
             this.btnGuest7m.UseVisualStyleBackColor = true;
+            this.btnGuest7m.Click += new System.EventHandler(this.btnGuest7m_Click);
             // 
             // btnGuestGoal
             // 
@@ -424,6 +440,7 @@
             this.btnGuestGoal.TabIndex = 34;
             this.btnGuestGoal.Text = "G";
             this.btnGuestGoal.UseVisualStyleBackColor = true;
+            this.btnGuestGoal.Click += new System.EventHandler(this.btnGuestGoal_Click);
             // 
             // dgvGuestOfficials
             // 
@@ -438,7 +455,7 @@
             this.suspensionDataGridViewTextBoxColumn1,
             this.disqualificationDataGridViewTextBoxColumn3});
             this.dgvGuestOfficials.DataSource = this.teamOfficialBindingSource;
-            this.dgvGuestOfficials.Location = new System.Drawing.Point(506, 489);
+            this.dgvGuestOfficials.Location = new System.Drawing.Point(506, 501);
             this.dgvGuestOfficials.MultiSelect = false;
             this.dgvGuestOfficials.Name = "dgvGuestOfficials";
             this.dgvGuestOfficials.ReadOnly = true;
@@ -460,7 +477,7 @@
             this.suspensionDataGridViewTextBoxColumn,
             this.disqualificationDataGridViewTextBoxColumn2});
             this.dgvHomeOfficials.DataSource = this.teamOfficialBindingSource;
-            this.dgvHomeOfficials.Location = new System.Drawing.Point(12, 489);
+            this.dgvHomeOfficials.Location = new System.Drawing.Point(12, 501);
             this.dgvHomeOfficials.MultiSelect = false;
             this.dgvHomeOfficials.Name = "dgvHomeOfficials";
             this.dgvHomeOfficials.ReadOnly = true;
@@ -505,6 +522,7 @@
             this.btnHomeUndo.TabIndex = 30;
             this.btnHomeUndo.Text = "Poništi";
             this.btnHomeUndo.UseVisualStyleBackColor = true;
+            this.btnHomeUndo.Click += new System.EventHandler(this.btnHomeUndo_Click);
             // 
             // dgvHomeTeam
             // 
@@ -542,6 +560,7 @@
             this.btnHomeDisqualificationReport.TabIndex = 28;
             this.btnHomeDisqualificationReport.Text = "DP";
             this.btnHomeDisqualificationReport.UseVisualStyleBackColor = true;
+            this.btnHomeDisqualificationReport.Click += new System.EventHandler(this.btnHomeDisqualificationReport_Click);
             // 
             // btnHomeDisqualification
             // 
@@ -551,6 +570,7 @@
             this.btnHomeDisqualification.TabIndex = 27;
             this.btnHomeDisqualification.Text = "D";
             this.btnHomeDisqualification.UseVisualStyleBackColor = true;
+            this.btnHomeDisqualification.Click += new System.EventHandler(this.btnHomeDisqualification_Click);
             // 
             // btnHomeSuspension
             // 
@@ -560,6 +580,7 @@
             this.btnHomeSuspension.TabIndex = 26;
             this.btnHomeSuspension.Text = "2\'";
             this.btnHomeSuspension.UseVisualStyleBackColor = true;
+            this.btnHomeSuspension.Click += new System.EventHandler(this.btnHomeSuspension_Click);
             // 
             // btnHomeWarning
             // 
@@ -569,6 +590,7 @@
             this.btnHomeWarning.TabIndex = 25;
             this.btnHomeWarning.Text = "O";
             this.btnHomeWarning.UseVisualStyleBackColor = true;
+            this.btnHomeWarning.Click += new System.EventHandler(this.btnHomeWarning_Click);
             // 
             // btnHome7m
             // 
@@ -578,6 +600,7 @@
             this.btnHome7m.TabIndex = 24;
             this.btnHome7m.Text = "7m";
             this.btnHome7m.UseVisualStyleBackColor = true;
+            this.btnHome7m.Click += new System.EventHandler(this.btnHome7m_Click);
             // 
             // btnHomeGoal
             // 
@@ -587,6 +610,7 @@
             this.btnHomeGoal.TabIndex = 23;
             this.btnHomeGoal.Text = "G";
             this.btnHomeGoal.UseVisualStyleBackColor = true;
+            this.btnHomeGoal.Click += new System.EventHandler(this.btnHomeGoal_Click);
             // 
             // panelTop
             // 
@@ -1104,6 +1128,26 @@
             // 
             this.playerBindingSource.DataSource = typeof(MatchReporter.Player);
             // 
+            // btnHomeOfficialUndo
+            // 
+            this.btnHomeOfficialUndo.Location = new System.Drawing.Point(384, 589);
+            this.btnHomeOfficialUndo.Name = "btnHomeOfficialUndo";
+            this.btnHomeOfficialUndo.Size = new System.Drawing.Size(53, 23);
+            this.btnHomeOfficialUndo.TabIndex = 47;
+            this.btnHomeOfficialUndo.Text = "Poništi";
+            this.btnHomeOfficialUndo.UseVisualStyleBackColor = true;
+            this.btnHomeOfficialUndo.Click += new System.EventHandler(this.btnHomeOfficialUndo_Click);
+            // 
+            // btnGuestOfficialUndo
+            // 
+            this.btnGuestOfficialUndo.Location = new System.Drawing.Point(447, 589);
+            this.btnGuestOfficialUndo.Name = "btnGuestOfficialUndo";
+            this.btnGuestOfficialUndo.Size = new System.Drawing.Size(53, 23);
+            this.btnGuestOfficialUndo.TabIndex = 48;
+            this.btnGuestOfficialUndo.Text = "Poništi";
+            this.btnGuestOfficialUndo.UseVisualStyleBackColor = true;
+            this.btnGuestOfficialUndo.Click += new System.EventHandler(this.btnGuestOfficialUndo_Click);
+            // 
             // FrmMatchReporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1238,5 +1282,7 @@
         private System.Windows.Forms.Button btnHomeOfficialDisqualification;
         private System.Windows.Forms.Button btnHomeOfficialSuspension;
         private System.Windows.Forms.Button btnHomeOfficialWarning;
+        private System.Windows.Forms.Button btnGuestOfficialUndo;
+        private System.Windows.Forms.Button btnHomeOfficialUndo;
     }
 }

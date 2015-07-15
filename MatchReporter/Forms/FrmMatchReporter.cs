@@ -1,6 +1,7 @@
 ﻿using MatchReporter.Classes;
 using MatchReporter.Forms.Data;
 using MatchReporter.Forms.Data.Add;
+using MatchReporter.Forms.MatchStats;
 using MatchReporter.Forms.Podaci.Unos;
 using MatchReporter.Forms.Timer;
 using System;
@@ -11,8 +12,6 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MatchReporter.Forms
@@ -57,8 +56,6 @@ namespace MatchReporter.Forms
         private int Minutes;
         private int Seconds;
 
-        public static Thread loadingThread;
-
         public FrmMatchReporter()
         {
             InitializeComponent();
@@ -82,11 +79,11 @@ namespace MatchReporter.Forms
             this.HomePlayers = new BindingList<Player>();
             this.GuestPlayers = new BindingList<Player>();
 
-            HomeTeamPlayers = new BindingList<TeamPlayer>();
-            GuestTeamPlayers = new BindingList<TeamPlayer>();
+            this.HomeTeamPlayers = new BindingList<TeamPlayer>();
+            this.GuestTeamPlayers = new BindingList<TeamPlayer>();
 
-            HomeTeamOfficials = new BindingList<TeamOfficial>();
-            GuestTeamOfficials = new BindingList<TeamOfficial>();
+            this.HomeTeamOfficials = new BindingList<TeamOfficial>();
+            this.GuestTeamOfficials = new BindingList<TeamOfficial>();
         }
 
         private void btnTimeStart_Click(object sender, EventArgs e)
@@ -264,7 +261,7 @@ namespace MatchReporter.Forms
                     db.SaveChanges();
                 }
             }
-            dataAddMatchDetails.Dispose();
+            //dataAddMatchDetails.Dispose();
         }
 
         private void dataTeamsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -334,7 +331,7 @@ namespace MatchReporter.Forms
                         db.SaveChanges();
                     }
                 }
-                dataAddTeam.Dispose();
+                //dataAddTeam.Dispose();
             }
             catch
             {
@@ -409,7 +406,7 @@ namespace MatchReporter.Forms
                     dgvHomeTeam.Refresh();
                     dgvGuestTeam.Refresh();
                 }
-                dataAddPlayers.Dispose();
+                //dataAddPlayers.Dispose();
             }
             catch
             {
@@ -483,7 +480,7 @@ namespace MatchReporter.Forms
                     dgvHomeOfficials.Refresh();
                     dgvGuestOfficials.Refresh();
                 }
-                dataAddOfficials.Dispose();
+                //dataAddOfficials.Dispose();
             }
             catch
             {
@@ -713,6 +710,358 @@ namespace MatchReporter.Forms
                 MessageBox.Show(this, "Potrebno je unijeti podatke o utakmici.", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnHomeGoal_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            teamPlayer.Goals += 1;
+            dgvHomeTeam.Refresh();
+
+            // Dodati da se u Play dodaju informacije
+
+            this.HomeTeam.Goals += 1;
+            lblResultA.Text = this.HomeTeam.Goals.ToString();
+        }
+
+        private void btnGuestGoal_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            teamPlayer.Goals += 1;
+            dgvGuestTeam.Refresh();
+
+            // Dodati da se u Play dodaju informacije
+
+            this.GuestTeam.Goals += 1;
+            lblResultB.Text = this.GuestTeam.Goals.ToString();
+        }
+
+        private void btnHome7m_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            FrmMatch7m goal7m = new FrmMatch7m(teamPlayer, this.HomeTeam);
+            goal7m.ShowDialog();
+
+            dgvHomeTeam.Refresh();
+            lblResultA.Text = this.HomeTeam.Goals.ToString();
+
+            // Dodati da se u Play i Team dodaju informacije
+        }
+
+        private void btnGuest7m_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            FrmMatch7m goal7m = new FrmMatch7m(teamPlayer, this.GuestTeam);
+            goal7m.ShowDialog();
+
+            dgvGuestTeam.Refresh();
+            lblResultB.Text = this.GuestTeam.Goals.ToString();
+
+            // Dodati da se u Play i Team dodaju informacije
+        }
+
+        private void btnHomeWarning_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            if(teamPlayer.Warning == null)
+            {
+                teamPlayer.Warning = this.Minutes + 1;
+                dgvHomeTeam.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač već ima opomenu.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnGuestWarning_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.Warning == null)
+            {
+                teamPlayer.Warning = this.Minutes + 1;
+                dgvGuestTeam.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač već ima opomenu.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnHomeSuspension_Click(object sender, EventArgs e)
+        {
+            this.timerMatch.Stop();
+
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.Suspension1st == null)
+            {
+                teamPlayer.Suspension1st = this.Minutes + 1;
+            }
+            else if (teamPlayer.Suspension2nd == null)
+            {
+                teamPlayer.Suspension2nd = this.Minutes + 1;
+            }
+            else if (teamPlayer.Suspension3rd == null)
+            {
+                teamPlayer.Suspension3rd = this.Minutes + 1;
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač već ima tri isključenja.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            dgvHomeTeam.Refresh();
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnGuestSuspension_Click(object sender, EventArgs e)
+        {
+            this.timerMatch.Stop();
+
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.Suspension1st == null)
+            {
+                teamPlayer.Suspension1st = this.Minutes + 1;
+            }
+            else if (teamPlayer.Suspension2nd == null)
+            {
+                teamPlayer.Suspension2nd = this.Minutes + 1;
+            }
+            else if (teamPlayer.Suspension3rd == null)
+            {
+                teamPlayer.Suspension3rd = this.Minutes + 1;
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač već ima tri isključenja.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            dgvGuestTeam.Refresh();
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnHomeDisqualification_Click(object sender, EventArgs e)
+        {
+            this.timerMatch.Stop();
+
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.Disqualification == null)
+            {
+                teamPlayer.Disqualification = this.Minutes + 1;
+                dgvHomeTeam.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač je već diskvalificiran.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnGuestDisqualification_Click(object sender, EventArgs e)
+        {
+            this.timerMatch.Stop();
+
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.Disqualification == null)
+            {
+                teamPlayer.Disqualification = this.Minutes + 1;
+                dgvGuestTeam.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač je već diskvalificiran.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnHomeDisqualificationReport_Click(object sender, EventArgs e)
+        {
+            this.timerMatch.Stop();
+
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.DisqualificationReport == null)
+            {
+                teamPlayer.DisqualificationReport = this.Minutes + 1;
+                dgvHomeTeam.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač je već diskvalificiran.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnGuestDisqualificationReport_Click(object sender, EventArgs e)
+        {
+            this.timerMatch.Stop();
+
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            if (teamPlayer.DisqualificationReport == null)
+            {
+                teamPlayer.DisqualificationReport = this.Minutes + 1;
+                dgvGuestTeam.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Igrač je već diskvalificiran.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Play dodaju informacije
+        }
+
+        private void btnHomeUndo_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvHomeTeam.CurrentRow.DataBoundItem);
+            FrmPlayersUndo playerUndo = new FrmPlayersUndo(teamPlayer, this.HomeTeam);
+            playerUndo.ShowDialog();
+
+            dgvHomeTeam.Refresh();
+            lblResultA.Text = this.HomeTeam.Goals.ToString();
+        }
+
+        private void btnGuestUndo_Click(object sender, EventArgs e)
+        {
+            TeamPlayer teamPlayer = (TeamPlayer)(dgvGuestTeam.CurrentRow.DataBoundItem);
+            FrmPlayersUndo playerUndo = new FrmPlayersUndo(teamPlayer, this.GuestTeam);
+            playerUndo.ShowDialog();
+
+            dgvGuestTeam.Refresh();
+            lblResultB.Text = this.GuestTeam.Goals.ToString();
+        }
+
+        private void btnHomeOfficialWarning_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvHomeOfficials.CurrentRow.DataBoundItem);
+            if (teamOfficial.Warning == null)
+            {
+                teamOfficial.Warning = this.Minutes + 1;
+                dgvHomeOfficials.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Službena osoba već ima opomenu.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Manage dodaju informacije
+        }
+
+        private void btnGuestOfficialWarning_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvGuestOfficials.CurrentRow.DataBoundItem);
+            if (teamOfficial.Warning == null)
+            {
+                teamOfficial.Warning = this.Minutes + 1;
+                dgvGuestOfficials.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Službena osoba već ima opomenu.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Manage dodaju informacije
+        }
+
+        private void btnHomeOfficialSuspension_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvHomeOfficials.CurrentRow.DataBoundItem);
+            if (teamOfficial.Suspension == null)
+            {
+                teamOfficial.Suspension = this.Minutes + 1;
+                dgvHomeOfficials.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Službena osoba već ima isključenje.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Manage dodaju informacije
+        }
+
+        private void btnGuestOfficialSuspension_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvGuestOfficials.CurrentRow.DataBoundItem);
+            if (teamOfficial.Suspension == null)
+            {
+                teamOfficial.Suspension = this.Minutes + 1;
+                dgvGuestOfficials.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Službena osoba već ima isključenje.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Manage dodaju informacije
+        }
+
+        private void btnHomeOfficialDisqualification_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvHomeOfficials.CurrentRow.DataBoundItem);
+            if (teamOfficial.Disqualification == null)
+            {
+                teamOfficial.Disqualification = this.Minutes + 1;
+                dgvHomeOfficials.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Službena osoba je već diskvalificirana.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Manage dodaju informacije
+        }
+
+        private void btnGuestOfficialDisqualification_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvGuestOfficials.CurrentRow.DataBoundItem);
+            if (teamOfficial.Disqualification == null)
+            {
+                teamOfficial.Disqualification = this.Minutes + 1;
+                dgvGuestOfficials.Refresh();
+            }
+            else
+            {
+                MessageBox.Show(this, "Službena osoba je već diskvalificirana.", "Greška",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Dodati da se u Manage dodaju informacije
+        }
+
+        private void btnHomeOfficialUndo_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvHomeOfficials.CurrentRow.DataBoundItem);
+            FrmOfficialsUndo officialUndo = new FrmOfficialsUndo(teamOfficial);
+            officialUndo.ShowDialog();
+
+            dgvHomeOfficials.Refresh();
+        }
+
+        private void btnGuestOfficialUndo_Click(object sender, EventArgs e)
+        {
+            TeamOfficial teamOfficial = (TeamOfficial)(dgvGuestOfficials.CurrentRow.DataBoundItem);
+            FrmOfficialsUndo officialUndo = new FrmOfficialsUndo(teamOfficial);
+            officialUndo.ShowDialog();
+
+            dgvGuestOfficials.Refresh();
         }
     }
 }

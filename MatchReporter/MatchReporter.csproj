@@ -102,12 +102,6 @@
     <Compile Include="Forms\Data\FrmAddPlayers.Designer.cs">
       <DependentUpon>FrmAddPlayers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Data\FrmSavingDataLoading.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Data\FrmSavingDataLoading.Designer.cs">
-      <DependentUpon>FrmSavingDataLoading.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Login\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +119,24 @@
     </Compile>
     <Compile Include="Forms\Data\FrmAddTeam.Designer.cs">
       <DependentUpon>FrmAddTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MatchStats\FrmMatch7m.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MatchStats\FrmMatch7m.Designer.cs">
+      <DependentUpon>FrmMatch7m.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MatchStats\FrmOfficialsUndo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MatchStats\FrmOfficialsUndo.Designer.cs">
+      <DependentUpon>FrmOfficialsUndo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MatchStats\FrmPlayersUndo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MatchStats\FrmPlayersUndo.Designer.cs">
+      <DependentUpon>FrmPlayersUndo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Timer\FrmTimerChange.cs">
       <SubType>Form</SubType>
@@ -188,9 +200,6 @@
     <EmbeddedResource Include="Forms\Data\FrmAddPlayers.resx">
       <DependentUpon>FrmAddPlayers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Data\FrmSavingDataLoading.resx">
-      <DependentUpon>FrmSavingDataLoading.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +208,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Data\FrmAddTeam.resx">
       <DependentUpon>FrmAddTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MatchStats\FrmMatch7m.resx">
+      <DependentUpon>FrmMatch7m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MatchStats\FrmOfficialsUndo.resx">
+      <DependentUpon>FrmOfficialsUndo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MatchStats\FrmPlayersUndo.resx">
+      <DependentUpon>FrmPlayersUndo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Timer\FrmTimerChange.resx">
       <DependentUpon>FrmTimerChange.cs</DependentUpon>
