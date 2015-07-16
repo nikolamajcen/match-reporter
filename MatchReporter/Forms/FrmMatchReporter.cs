@@ -3,6 +3,7 @@ using MatchReporter.Forms.Data;
 using MatchReporter.Forms.Data.Add;
 using MatchReporter.Forms.MatchStats;
 using MatchReporter.Forms.Podaci.Unos;
+using MatchReporter.Forms.Reports;
 using MatchReporter.Forms.Timer;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,11 @@ namespace MatchReporter.Forms
         // Match info
         private int Minutes;
         private int Seconds;
+
+        // Saving status
+        public bool SavedTeams;
+        public bool SavedPlays;
+        public bool SavedManages;
 
         public FrmMatchReporter()
         {
@@ -172,9 +178,20 @@ namespace MatchReporter.Forms
         private void matchNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelMain.Show();
+            panelMain.Enabled = true;
 
             lblTeamA.Text = "";
             lblTeamB.Text = "";
+
+            lblResultA.Text = "";
+            lblResultB.Text = "";
+
+            txtTeamATTO1.Text = "";
+            txtTeamATTO2.Text = "";
+            txtTeamATTO3.Text = "";
+            txtTeamBTTO1.Text = "";
+            txtTeamBTTO2.Text = "";
+            txtTeamBTTO3.Text = "";
 
             this.Match = new Match();
 
@@ -198,6 +215,163 @@ namespace MatchReporter.Forms
 
             this.reportPrintToolStripMenuItem.Enabled = true;
             this.reportSendToolStripMenuItem.Enabled = true;
+
+            this.SavedTeams = false;
+            this.SavedPlays = false;
+            this.SavedManages = false;
+
+            dgvHomeTeam.DataSource = null;
+            dgvGuestTeam.DataSource = null;
+            dgvHomeTeam.Refresh();
+            dgvGuestTeam.Refresh();
+
+            dgvHomeOfficials.DataSource = null;
+            dgvGuestOfficials.DataSource = null;
+            dgvHomeOfficials.Refresh();
+            dgvGuestOfficials.Refresh();
+        }
+
+        private void matchSaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // HomeTeamPlayers > HomePlays, GuestTeamPlayers > GuestPlays
+
+                foreach(TeamPlayer teamPlayer in HomeTeamPlayers)
+                {
+                    Play play = HomePlays
+                        .Where(p => p.MatchId == this.Match.MatchId)
+                        .Where(p => p.PlayerId == teamPlayer.TeamPlayerId)
+                        .FirstOrDefault();
+
+                    if(play != null)
+                    {
+                        play.Goals = teamPlayer.Goals;
+                        play.Goals7m = teamPlayer.Goals7m;
+                        play.Warning = teamPlayer.Warning;
+                        play.SuspensionFirst = teamPlayer.Suspension1st;
+                        play.SuspensionSecond = teamPlayer.Suspension2nd;
+                        play.SuspensionThird = teamPlayer.Suspension3rd;
+                        play.Disqualification = teamPlayer.Disqualification;
+                        play.DisqualificationAdnReport = teamPlayer.DisqualificationReport;
+                    }
+                }
+
+                foreach (TeamPlayer teamPlayer in GuestTeamPlayers)
+                {
+                    Play play = GuestPlays
+                        .Where(p => p.MatchId == this.Match.MatchId)
+                        .Where(p => p.PlayerId == teamPlayer.TeamPlayerId)
+                        .FirstOrDefault();
+
+                    if (play != null)
+                    {
+                        play.Goals = teamPlayer.Goals;
+                        play.Goals7m = teamPlayer.Goals7m;
+                        play.Warning = teamPlayer.Warning;
+                        play.SuspensionFirst = teamPlayer.Suspension1st;
+                        play.SuspensionSecond = teamPlayer.Suspension2nd;
+                        play.SuspensionThird = teamPlayer.Suspension3rd;
+                        play.Disqualification = teamPlayer.Disqualification;
+                        play.DisqualificationAdnReport = teamPlayer.DisqualificationReport;
+                    }
+                }
+
+                // HomeTeamOfficials > HomeManages, GuestTeamOfficials > GuestManages
+                foreach(TeamOfficial teamOfficial in HomeTeamOfficials)
+                {
+                    Manage manage = HomeManages
+                        .Where(m => m.MatchId == this.Match.MatchId)
+                        .Where(m => m.ClubOfficialId == teamOfficial.TeamOfficialId)
+                        .FirstOrDefault();
+
+                    if(manage != null)
+                    {
+                        manage.Warning = teamOfficial.Warning;
+                        manage.Suspension = teamOfficial.Suspension;
+                        manage.Disqualification = teamOfficial.Disqualification;
+                    }
+                }
+
+                foreach (TeamOfficial teamOfficial in GuestTeamOfficials)
+                {
+                    Manage manage = GuestManages
+                        .Where(m => m.MatchId == this.Match.MatchId)
+                        .Where(m => m.ClubOfficialId == teamOfficial.TeamOfficialId)
+                        .FirstOrDefault();
+
+                    if (manage != null)
+                    {
+                        manage.Warning = teamOfficial.Warning;
+                        manage.Suspension = teamOfficial.Suspension;
+                        manage.Disqualification = teamOfficial.Disqualification;
+                    }
+                }
+
+                // Saving data
+                using (var db = new MatchReporterEntities())
+                {
+                    db.Entry(this.Match).State = this.Match.MatchId == 0 ? EntityState.Added : EntityState.Modified;
+
+                    db.Entry(this.HomeTeam).State = this.SavedTeams == false ? EntityState.Added : EntityState.Modified;
+                    db.Entry(this.GuestTeam).State = this.SavedTeams == false ? EntityState.Added : EntityState.Modified;
+                    this.SavedTeams = true;
+
+                    foreach (Play play in HomePlays)
+                    {
+                        db.Entry(play).State = this.SavedPlays == false ? EntityState.Added : EntityState.Modified;
+                    }
+                    foreach (Play play in GuestPlays)
+                    {
+                        db.Entry(play).State = this.SavedPlays == false ? EntityState.Added : EntityState.Modified;
+                    }
+                    this.SavedPlays = true;
+
+
+                    foreach (Manage manage in HomeManages)
+                    {
+                        db.Entry(manage).State = this.SavedManages == false ? EntityState.Added : EntityState.Modified;
+                    }
+                    foreach (Manage manage in GuestManages)
+                    {
+                        db.Entry(manage).State = this.SavedManages == false ? EntityState.Added : EntityState.Modified;
+                    }
+                    this.SavedManages = true;
+
+                    db.SaveChanges();
+                }
+                MessageBox.Show(this, "Podaci su uspješno spremljeni.", "Spremanje podataka",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show(this, "Došlo je do pogreške.\nPodaci nisu spremljeni.", "Spremanje podataka",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void matchConcludeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Match.Concluded = 1;
+            
+            // Probni dio :)
+            panelMain.Enabled = false;
+
+            this.dataMatchDetailsToolStripMenuItem.Enabled = false;
+            this.dataTeamsToolStripMenuItem.Enabled = false;
+            this.dataPlayersToolStripMenuItem.Enabled = false;
+            this.dataOfficialsToolStripMenuItem.Enabled = false;
+
+            this.matchSaveToolStripMenuItem.Enabled = false;
+            this.matchConcludeToolStripMenuItem.Enabled = false;
+
+            // Spremiti u bazu podataka
+
+            using (var db = new MatchReporterEntities())
+            {
+                db.Entry(this.Match).State = this.Match.MatchId == 0 ? EntityState.Added : EntityState.Modified;
+                db.SaveChanges();
+            }
         }
 
         private void matchCloseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -216,8 +390,8 @@ namespace MatchReporter.Forms
             this.GuestClubOfficials = null;
             this.GuestManages = null;
 
-            lblTeamA.Text = "Team A";
-            lblTeamB.Text = "Team B";
+            lblTeamA.Text = "";
+            lblTeamB.Text = "";
             lblResultA.Text = "0";
             lblResultB.Text = "0";
             lblTimeMinutes.Text = "00";
@@ -246,6 +420,7 @@ namespace MatchReporter.Forms
             if (dataAddMatchDetails.MatchDetailsAddSuccess)
             {
                 this.Match.LeagueId = dataAddMatchDetails.LeagueId;
+                this.Match.Round = dataAddMatchDetails.Round;
                 this.Match.Date = dataAddMatchDetails.Date;
                 this.Match.Time = dataAddMatchDetails.Time;
                 this.Match.HallId = dataAddMatchDetails.HallId;
@@ -259,7 +434,7 @@ namespace MatchReporter.Forms
                 {
                     db.Entry(this.Match).State = this.Match.MatchId == 0 ? EntityState.Added : EntityState.Modified;
                     db.SaveChanges();
-                }
+                } 
             }
             //dataAddMatchDetails.Dispose();
         }
@@ -329,6 +504,8 @@ namespace MatchReporter.Forms
                         db.Entry(this.HomeTeam).State = dataAddTeam.TeamSelectionChanged == true ? EntityState.Added : EntityState.Modified;
                         db.Entry(this.GuestTeam).State = dataAddTeam.TeamSelectionChanged == true ? EntityState.Added : EntityState.Modified;
                         db.SaveChanges();
+
+                        this.SavedTeams = true;
                     }
                 }
                 //dataAddTeam.Dispose();
@@ -399,6 +576,8 @@ namespace MatchReporter.Forms
                             db.Play.Add(play);
                         }
                         db.SaveChanges();
+
+                        this.SavedPlays = true;
                     }
 
                     dgvHomeTeam.DataSource = this.HomeTeamPlayers;
@@ -473,6 +652,8 @@ namespace MatchReporter.Forms
                             db.Manage.Add(manage);
                         }
                         db.SaveChanges();
+
+                        this.SavedManages = true;
                     }
 
                     dgvHomeOfficials.DataSource = this.HomeTeamOfficials;
@@ -487,7 +668,6 @@ namespace MatchReporter.Forms
                 MessageBox.Show(this, "Da biste dodali službene osobe, prvo je potrebno dodati momčadi.", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
         }
 
         private void btnTeamATTO1_Click(object sender, EventArgs e)
@@ -1062,6 +1242,20 @@ namespace MatchReporter.Forms
             officialUndo.ShowDialog();
 
             dgvGuestOfficials.Refresh();
+        }
+
+        private void reportSendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if(this.Match.Concluded == 1)
+            //{
+                FrmReportEmailSend reportEmailSend = new FrmReportEmailSend(this.Match, this.HomeClub, this.HomeTeam, this.GuestClub, this.GuestTeam);
+                reportEmailSend.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show(this, "Da biste poslali rezultat potrebno je\nprethodno zaključiti utakmicu.", "Slanje e-maila",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
     }
 }

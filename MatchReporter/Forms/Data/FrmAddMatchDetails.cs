@@ -17,6 +17,7 @@ namespace MatchReporter.Forms.Data.Add
         public bool MatchDetailsAddSuccess;
 
         public int LeagueId;
+        public int Round;
         public DateTime Date;
         public TimeSpan Time;
         public int HallId;
@@ -65,6 +66,8 @@ namespace MatchReporter.Forms.Data.Add
             this.HallId = ((Hall)(cbxHall.SelectedItem)).HallId;
             this.RefereePairId = ((RefereePair)(cbxRefereePair.SelectedItem)).RefereePairId;
             this.DelegateId = ((Delegate)(cbxDelegate.SelectedItem)).DelegateId;
+
+            this.Round = (int)txtRound.Value;
 
             // Date (Provjera)
             // Time 

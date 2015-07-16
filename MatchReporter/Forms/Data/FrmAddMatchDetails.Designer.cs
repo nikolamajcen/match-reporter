@@ -51,16 +51,19 @@
             this.txtScorer = new System.Windows.Forms.TextBox();
             this.txtTimeKeeper = new System.Windows.Forms.TextBox();
             this.txtSpectators = new System.Windows.Forms.NumericUpDown();
+            this.lblRound = new System.Windows.Forms.Label();
+            this.txtRound = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.leagueBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hallBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refereePairBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delegateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSpectators)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRound)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(357, 198);
+            this.btnCancel.Location = new System.Drawing.Point(357, 238);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -70,7 +73,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(438, 198);
+            this.btnOK.Location = new System.Drawing.Point(438, 238);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 1;
@@ -90,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(272, 32);
+            this.label2.Location = new System.Drawing.Point(272, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 3;
@@ -99,7 +102,7 @@
             // lblHall
             // 
             this.lblHall.AutoSize = true;
-            this.lblHall.Location = new System.Drawing.Point(33, 72);
+            this.lblHall.Location = new System.Drawing.Point(33, 112);
             this.lblHall.Name = "lblHall";
             this.lblHall.Size = new System.Drawing.Size(51, 13);
             this.lblHall.TabIndex = 4;
@@ -108,7 +111,7 @@
             // lblRefereePair
             // 
             this.lblRefereePair.AutoSize = true;
-            this.lblRefereePair.Location = new System.Drawing.Point(17, 111);
+            this.lblRefereePair.Location = new System.Drawing.Point(17, 151);
             this.lblRefereePair.Name = "lblRefereePair";
             this.lblRefereePair.Size = new System.Drawing.Size(67, 13);
             this.lblRefereePair.TabIndex = 5;
@@ -117,7 +120,7 @@
             // lblScorer
             // 
             this.lblScorer.AutoSize = true;
-            this.lblScorer.Location = new System.Drawing.Point(27, 151);
+            this.lblScorer.Location = new System.Drawing.Point(27, 191);
             this.lblScorer.Name = "lblScorer";
             this.lblScorer.Size = new System.Drawing.Size(56, 13);
             this.lblScorer.TabIndex = 6;
@@ -126,7 +129,7 @@
             // lblSpectators
             // 
             this.lblSpectators.AutoSize = true;
-            this.lblSpectators.Location = new System.Drawing.Point(278, 72);
+            this.lblSpectators.Location = new System.Drawing.Point(278, 112);
             this.lblSpectators.Name = "lblSpectators";
             this.lblSpectators.Size = new System.Drawing.Size(76, 13);
             this.lblSpectators.TabIndex = 9;
@@ -135,7 +138,7 @@
             // lblDelegate
             // 
             this.lblDelegate.AutoSize = true;
-            this.lblDelegate.Location = new System.Drawing.Point(296, 112);
+            this.lblDelegate.Location = new System.Drawing.Point(296, 152);
             this.lblDelegate.Name = "lblDelegate";
             this.lblDelegate.Size = new System.Drawing.Size(58, 13);
             this.lblDelegate.TabIndex = 10;
@@ -144,7 +147,7 @@
             // lblTimeKeeper
             // 
             this.lblTimeKeeper.AutoSize = true;
-            this.lblTimeKeeper.Location = new System.Drawing.Point(265, 151);
+            this.lblTimeKeeper.Location = new System.Drawing.Point(265, 191);
             this.lblTimeKeeper.Name = "lblTimeKeeper";
             this.lblTimeKeeper.Size = new System.Drawing.Size(89, 13);
             this.lblTimeKeeper.TabIndex = 11;
@@ -174,7 +177,7 @@
             this.cbxHall.DisplayMember = "Name";
             this.cbxHall.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxHall.FormattingEnabled = true;
-            this.cbxHall.Location = new System.Drawing.Point(89, 68);
+            this.cbxHall.Location = new System.Drawing.Point(89, 108);
             this.cbxHall.Name = "cbxHall";
             this.cbxHall.Size = new System.Drawing.Size(154, 21);
             this.cbxHall.TabIndex = 13;
@@ -191,7 +194,7 @@
             this.cbxRefereePair.DisplayMember = "RefereePairName";
             this.cbxRefereePair.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRefereePair.FormattingEnabled = true;
-            this.cbxRefereePair.Location = new System.Drawing.Point(89, 108);
+            this.cbxRefereePair.Location = new System.Drawing.Point(89, 148);
             this.cbxRefereePair.Name = "cbxRefereePair";
             this.cbxRefereePair.Size = new System.Drawing.Size(153, 21);
             this.cbxRefereePair.TabIndex = 14;
@@ -208,7 +211,7 @@
             this.cbxDelegate.DisplayMember = "FullName";
             this.cbxDelegate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDelegate.FormattingEnabled = true;
-            this.cbxDelegate.Location = new System.Drawing.Point(360, 109);
+            this.cbxDelegate.Location = new System.Drawing.Point(360, 149);
             this.cbxDelegate.Name = "cbxDelegate";
             this.cbxDelegate.Size = new System.Drawing.Size(153, 21);
             this.cbxDelegate.TabIndex = 15;
@@ -222,28 +225,28 @@
             // 
             this.dtpDateTime.CustomFormat = "dd.MM.yyyy., HH:mm";
             this.dtpDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateTime.Location = new System.Drawing.Point(360, 29);
+            this.dtpDateTime.Location = new System.Drawing.Point(360, 68);
             this.dtpDateTime.Name = "dtpDateTime";
             this.dtpDateTime.Size = new System.Drawing.Size(153, 20);
             this.dtpDateTime.TabIndex = 16;
             // 
             // txtScorer
             // 
-            this.txtScorer.Location = new System.Drawing.Point(89, 148);
+            this.txtScorer.Location = new System.Drawing.Point(89, 188);
             this.txtScorer.Name = "txtScorer";
             this.txtScorer.Size = new System.Drawing.Size(154, 20);
             this.txtScorer.TabIndex = 17;
             // 
             // txtTimeKeeper
             // 
-            this.txtTimeKeeper.Location = new System.Drawing.Point(360, 148);
+            this.txtTimeKeeper.Location = new System.Drawing.Point(360, 188);
             this.txtTimeKeeper.Name = "txtTimeKeeper";
             this.txtTimeKeeper.Size = new System.Drawing.Size(153, 20);
             this.txtTimeKeeper.TabIndex = 18;
             // 
             // txtSpectators
             // 
-            this.txtSpectators.Location = new System.Drawing.Point(360, 69);
+            this.txtSpectators.Location = new System.Drawing.Point(360, 109);
             this.txtSpectators.Maximum = new decimal(new int[] {
             20000,
             0,
@@ -253,11 +256,39 @@
             this.txtSpectators.Size = new System.Drawing.Size(153, 20);
             this.txtSpectators.TabIndex = 19;
             // 
+            // lblRound
+            // 
+            this.lblRound.AutoSize = true;
+            this.lblRound.Location = new System.Drawing.Point(52, 70);
+            this.lblRound.Name = "lblRound";
+            this.lblRound.Size = new System.Drawing.Size(31, 13);
+            this.lblRound.TabIndex = 20;
+            this.lblRound.Text = "Kolo:";
+            // 
+            // txtRound
+            // 
+            this.txtRound.Location = new System.Drawing.Point(89, 68);
+            this.txtRound.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtRound.Name = "txtRound";
+            this.txtRound.Size = new System.Drawing.Size(153, 20);
+            this.txtRound.TabIndex = 21;
+            this.txtRound.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // FrmAddMatchDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 244);
+            this.ClientSize = new System.Drawing.Size(545, 273);
+            this.Controls.Add(this.txtRound);
+            this.Controls.Add(this.lblRound);
             this.Controls.Add(this.txtSpectators);
             this.Controls.Add(this.txtTimeKeeper);
             this.Controls.Add(this.txtScorer);
@@ -286,6 +317,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.refereePairBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delegateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSpectators)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRound)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +347,7 @@
         private System.Windows.Forms.BindingSource hallBindingSource;
         private System.Windows.Forms.BindingSource delegateBindingSource;
         private System.Windows.Forms.BindingSource refereePairBindingSource;
+        private System.Windows.Forms.Label lblRound;
+        private System.Windows.Forms.NumericUpDown txtRound;
     }
 }
