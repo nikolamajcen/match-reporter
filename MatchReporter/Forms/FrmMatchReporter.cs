@@ -212,6 +212,38 @@ namespace MatchReporter.Forms
             txtTeamBTTO2.Text = "";
             txtTeamBTTO3.Text = "";
 
+            btnTeamATTO1.Enabled = false;
+            btnTeamATTO2.Enabled = false;
+            btnTeamATTO3.Enabled = false;
+
+            btnTeamBTTO1.Enabled = false;
+            btnTeamBTTO2.Enabled = false;
+            btnTeamBTTO3.Enabled = false;
+
+            btnHomeGoal.Enabled = false;
+            btnGuestGoal.Enabled = false;
+            btnHome7m.Enabled = false;
+            btnGuest7m.Enabled = false;
+            btnHomeWarning.Enabled = false;
+            btnGuestWarning.Enabled = false;
+            btnHomeSuspension.Enabled = false;
+            btnGuestSuspension.Enabled = false;
+            btnHomeDisqualification.Enabled = false;
+            btnGuestDisqualification.Enabled = false;
+            btnHomeDisqualificationReport.Enabled = false;
+            btnGuestDisqualificationReport.Enabled = false;
+            btnHomeUndo.Enabled = false;
+            btnGuestUndo.Enabled = false;
+
+            btnHomeOfficialWarning.Enabled = false;
+            btnGuestOfficialWarning.Enabled = false;
+            btnHomeOfficialSuspension.Enabled = false;
+            btnGuestOfficialSuspension.Enabled = false;
+            btnHomeOfficialDisqualification.Enabled = false;
+            btnGuestOfficialDisqualification.Enabled = false;
+            btnHomeOfficialUndo.Enabled = false;
+            btnGuestOfficialUndo.Enabled = false;
+
             this.Match = new Match();
 
             this.HomeClub = new Club();
@@ -252,11 +284,11 @@ namespace MatchReporter.Forms
 
         private void matchSaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Thread savingDataThread = new Thread(new ThreadStart(showSavingForm));
+            savingDataThread.Start();
+
             try
             {
-                Thread savingDataThread = new Thread(new ThreadStart(showSavingForm));
-                savingDataThread.Start();
-
                 // HomeTeamPlayers > HomePlays, GuestTeamPlayers > GuestPlays
 
                 foreach(TeamPlayer teamPlayer in HomeTeamPlayers)
@@ -369,6 +401,7 @@ namespace MatchReporter.Forms
             }
             catch
             {
+                savingDataThread.Abort();
                 MessageBox.Show(this, "Došlo je do pogreške.\nPodaci nisu spremljeni.", "Spremanje podataka",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -557,6 +590,15 @@ namespace MatchReporter.Forms
 
                         this.SavedTeams = true;
                     }
+
+                    btnTeamATTO1.Enabled = true;
+                    btnTeamATTO2.Enabled = true;
+                    btnTeamATTO3.Enabled = true;
+
+                    btnTeamBTTO1.Enabled = true;
+                    btnTeamBTTO2.Enabled = true;
+                    btnTeamBTTO3.Enabled = true;
+
                     loadingThread.Abort();
                 }
                 //dataAddTeam.Dispose();
@@ -637,6 +679,21 @@ namespace MatchReporter.Forms
                     dgvGuestTeam.DataSource = this.GuestTeamPlayers;
                     dgvHomeTeam.Refresh();
                     dgvGuestTeam.Refresh();
+
+                    btnHomeGoal.Enabled = true;
+                    btnGuestGoal.Enabled = true;
+                    btnHome7m.Enabled = true;
+                    btnGuest7m.Enabled = true;
+                    btnHomeWarning.Enabled = true;
+                    btnGuestWarning.Enabled = true;
+                    btnHomeSuspension.Enabled = true;
+                    btnGuestSuspension.Enabled = true;
+                    btnHomeDisqualification.Enabled = true;
+                    btnGuestDisqualification.Enabled = true;
+                    btnHomeDisqualificationReport.Enabled = true;
+                    btnGuestDisqualificationReport.Enabled = true;
+                    btnHomeUndo.Enabled = true;
+                    btnGuestUndo.Enabled = true;
 
                     loadingThread.Abort();
                 }
@@ -719,6 +776,15 @@ namespace MatchReporter.Forms
                     dgvHomeOfficials.Refresh();
                     dgvGuestOfficials.Refresh();
 
+                    btnHomeOfficialWarning.Enabled = true;
+                    btnGuestOfficialWarning.Enabled = true;
+                    btnHomeOfficialSuspension.Enabled = true;
+                    btnGuestOfficialSuspension.Enabled = true;
+                    btnHomeOfficialDisqualification.Enabled = true;
+                    btnGuestOfficialDisqualification.Enabled = true;
+                    btnHomeOfficialUndo.Enabled = true;
+                    btnGuestOfficialUndo.Enabled = true;
+
                     loadingThread.Abort();
                 }
                 //dataAddOfficials.Dispose();
@@ -793,7 +859,7 @@ namespace MatchReporter.Forms
                 }
                 else
                 {
-                    MessageBox.Show(this, "Već ste iskoristili TTO1.", "Greška",
+                    MessageBox.Show(this, "Već ste iskoristili TTO2.", "Greška",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -830,7 +896,7 @@ namespace MatchReporter.Forms
                 }
                 else
                 {
-                    MessageBox.Show(this, "Već ste iskoristili TTO2.", "Greška",
+                    MessageBox.Show(this, "Već ste iskoristili TTO3.", "Greška",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -867,7 +933,7 @@ namespace MatchReporter.Forms
                 }
                 else
                 {
-                    MessageBox.Show(this, "Već ste iskoristili TTO3.", "Greška",
+                    MessageBox.Show(this, "Već ste iskoristili TTO1.", "Greška",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -1320,10 +1386,18 @@ namespace MatchReporter.Forms
 
         private void reportPrintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmMatchReport fullMatchReport = new FrmMatchReport(this.Match, this.HomeClub, this.GuestClub,
+            if(this.Match.MatchId != 0 && (this.HomeClub.ClubId != 0 && this.GuestClub.ClubId != 0))
+            {
+                FrmMatchReport fullMatchReport = new FrmMatchReport(this.Match, this.HomeClub, this.GuestClub,
                 this.HomeTeam, this.GuestTeam, this.HomeTeamPlayers, this.GuestTeamPlayers,
                 this.HomeTeamOfficials, this.GuestTeamOfficials, this.RefereePairName);
-            fullMatchReport.ShowDialog();
+                fullMatchReport.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(this, "Za ispis izvještaja je minimalno potrebno unijeti \npodatke o utakmici i momčadima.", "Izvještaj utakmice",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void otherAboutToolStripMenuItem_Click(object sender, EventArgs e)

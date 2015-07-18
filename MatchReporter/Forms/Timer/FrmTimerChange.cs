@@ -20,6 +20,9 @@ namespace MatchReporter.Forms.Timer
             InitializeComponent();
             this.matchMinute = matchMinute;
             this.matchSeconds = matchSeconds;
+
+            txtMinutes.Text = this.matchMinute.ToString();
+            txtSeconds.Text = this.matchSeconds.ToString();
         }
 
         private void btnChangeTime_Click(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace MatchReporter.Forms.Timer
                 MessageBox.Show("Krivo ste unijeli vrijeme utakmice.\n Uzeti su trenutni podaci.",
                     "Greška");
             }
-            if(minutes < 60 && seconds < 60)
+            if((minutes < 60 && seconds < 60) || (minutes == 60 && seconds == 0))
             {
                 this.matchMinute = minutes;
                 this.matchSeconds = seconds;

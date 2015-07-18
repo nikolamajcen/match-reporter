@@ -62,44 +62,10 @@
             this.btnGuest7m = new System.Windows.Forms.Button();
             this.btnGuestGoal = new System.Windows.Forms.Button();
             this.dgvGuestOfficials = new System.Windows.Forms.DataGridView();
-            this.teamOfficialIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warningDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspensionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disqualificationDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamOfficialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvHomeOfficials = new System.Windows.Forms.DataGridView();
-            this.teamOfficialIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warningDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspensionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disqualificationDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvGuestTeam = new System.Windows.Forms.DataGridView();
-            this.teamPlayerIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goalsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goals7mDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warningDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspension1stDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspension2ndDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspension3rdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disqualificationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disqualificationReportDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnHomeUndo = new System.Windows.Forms.Button();
             this.dgvHomeTeam = new System.Windows.Forms.DataGridView();
-            this.teamPlayerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goalsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goals7mDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warningDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspension1stDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspension2ndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suspension3rdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disqualificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disqualificationReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnHomeDisqualificationReport = new System.Windows.Forms.Button();
             this.btnHomeDisqualification = new System.Windows.Forms.Button();
             this.btnHomeSuspension = new System.Windows.Forms.Button();
@@ -130,16 +96,51 @@
             this.lblTeamB = new System.Windows.Forms.Label();
             this.lblTeamA = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
+            this.teamOfficialIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warningDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspensionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disqualificationDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamOfficialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamOfficialIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warningDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspensionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disqualificationDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamPlayerIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goalsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goals7mDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warningDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspension1stDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspension2ndDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspension3rdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disqualificationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disqualificationReportDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamPlayerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goalsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goals7mDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warningDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspension1stDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspension2ndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suspension3rdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disqualificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disqualificationReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblResult = new System.Windows.Forms.Label();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamOfficialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeOfficials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestTeam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamPlayerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).BeginInit();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teamOfficialBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamPlayerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -481,49 +482,6 @@
             this.dgvGuestOfficials.Size = new System.Drawing.Size(366, 111);
             this.dgvGuestOfficials.TabIndex = 33;
             // 
-            // teamOfficialIdDataGridViewTextBoxColumn1
-            // 
-            this.teamOfficialIdDataGridViewTextBoxColumn1.DataPropertyName = "TeamOfficialId";
-            this.teamOfficialIdDataGridViewTextBoxColumn1.HeaderText = "Matični broj";
-            this.teamOfficialIdDataGridViewTextBoxColumn1.Name = "teamOfficialIdDataGridViewTextBoxColumn1";
-            this.teamOfficialIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn3
-            // 
-            this.nameDataGridViewTextBoxColumn3.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn3.HeaderText = "Ime";
-            this.nameDataGridViewTextBoxColumn3.Name = "nameDataGridViewTextBoxColumn3";
-            this.nameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn3.Width = 118;
-            // 
-            // warningDataGridViewTextBoxColumn3
-            // 
-            this.warningDataGridViewTextBoxColumn3.DataPropertyName = "Warning";
-            this.warningDataGridViewTextBoxColumn3.HeaderText = "O";
-            this.warningDataGridViewTextBoxColumn3.Name = "warningDataGridViewTextBoxColumn3";
-            this.warningDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.warningDataGridViewTextBoxColumn3.Width = 35;
-            // 
-            // suspensionDataGridViewTextBoxColumn1
-            // 
-            this.suspensionDataGridViewTextBoxColumn1.DataPropertyName = "Suspension";
-            this.suspensionDataGridViewTextBoxColumn1.HeaderText = "2\'";
-            this.suspensionDataGridViewTextBoxColumn1.Name = "suspensionDataGridViewTextBoxColumn1";
-            this.suspensionDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.suspensionDataGridViewTextBoxColumn1.Width = 35;
-            // 
-            // disqualificationDataGridViewTextBoxColumn3
-            // 
-            this.disqualificationDataGridViewTextBoxColumn3.DataPropertyName = "Disqualification";
-            this.disqualificationDataGridViewTextBoxColumn3.HeaderText = "D";
-            this.disqualificationDataGridViewTextBoxColumn3.Name = "disqualificationDataGridViewTextBoxColumn3";
-            this.disqualificationDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.disqualificationDataGridViewTextBoxColumn3.Width = 35;
-            // 
-            // teamOfficialBindingSource
-            // 
-            this.teamOfficialBindingSource.DataSource = typeof(MatchReporter.Classes.TeamOfficial);
-            // 
             // dgvHomeOfficials
             // 
             this.dgvHomeOfficials.AllowUserToAddRows = false;
@@ -545,45 +503,6 @@
             this.dgvHomeOfficials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHomeOfficials.Size = new System.Drawing.Size(366, 111);
             this.dgvHomeOfficials.TabIndex = 32;
-            // 
-            // teamOfficialIdDataGridViewTextBoxColumn
-            // 
-            this.teamOfficialIdDataGridViewTextBoxColumn.DataPropertyName = "TeamOfficialId";
-            this.teamOfficialIdDataGridViewTextBoxColumn.HeaderText = "Matični broj";
-            this.teamOfficialIdDataGridViewTextBoxColumn.Name = "teamOfficialIdDataGridViewTextBoxColumn";
-            this.teamOfficialIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Ime";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn2.Width = 118;
-            // 
-            // warningDataGridViewTextBoxColumn2
-            // 
-            this.warningDataGridViewTextBoxColumn2.DataPropertyName = "Warning";
-            this.warningDataGridViewTextBoxColumn2.HeaderText = "O";
-            this.warningDataGridViewTextBoxColumn2.Name = "warningDataGridViewTextBoxColumn2";
-            this.warningDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.warningDataGridViewTextBoxColumn2.Width = 35;
-            // 
-            // suspensionDataGridViewTextBoxColumn
-            // 
-            this.suspensionDataGridViewTextBoxColumn.DataPropertyName = "Suspension";
-            this.suspensionDataGridViewTextBoxColumn.HeaderText = "2\'";
-            this.suspensionDataGridViewTextBoxColumn.Name = "suspensionDataGridViewTextBoxColumn";
-            this.suspensionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.suspensionDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // disqualificationDataGridViewTextBoxColumn2
-            // 
-            this.disqualificationDataGridViewTextBoxColumn2.DataPropertyName = "Disqualification";
-            this.disqualificationDataGridViewTextBoxColumn2.HeaderText = "D";
-            this.disqualificationDataGridViewTextBoxColumn2.Name = "disqualificationDataGridViewTextBoxColumn2";
-            this.disqualificationDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.disqualificationDataGridViewTextBoxColumn2.Width = 35;
             // 
             // dgvGuestTeam
             // 
@@ -612,97 +531,6 @@
             this.dgvGuestTeam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGuestTeam.Size = new System.Drawing.Size(366, 375);
             this.dgvGuestTeam.TabIndex = 31;
-            // 
-            // teamPlayerIdDataGridViewTextBoxColumn1
-            // 
-            this.teamPlayerIdDataGridViewTextBoxColumn1.DataPropertyName = "TeamPlayerId";
-            this.teamPlayerIdDataGridViewTextBoxColumn1.HeaderText = "TeamPlayerId";
-            this.teamPlayerIdDataGridViewTextBoxColumn1.Name = "teamPlayerIdDataGridViewTextBoxColumn1";
-            this.teamPlayerIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.teamPlayerIdDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // numberDataGridViewTextBoxColumn1
-            // 
-            this.numberDataGridViewTextBoxColumn1.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn1.HeaderText = "Broj";
-            this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
-            this.numberDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.numberDataGridViewTextBoxColumn1.Width = 27;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Ime";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // goalsDataGridViewTextBoxColumn1
-            // 
-            this.goalsDataGridViewTextBoxColumn1.DataPropertyName = "Goals";
-            this.goalsDataGridViewTextBoxColumn1.HeaderText = "G";
-            this.goalsDataGridViewTextBoxColumn1.Name = "goalsDataGridViewTextBoxColumn1";
-            this.goalsDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.goalsDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // goals7mDataGridViewTextBoxColumn1
-            // 
-            this.goals7mDataGridViewTextBoxColumn1.DataPropertyName = "Goals7m";
-            this.goals7mDataGridViewTextBoxColumn1.HeaderText = "Goals7m";
-            this.goals7mDataGridViewTextBoxColumn1.Name = "goals7mDataGridViewTextBoxColumn1";
-            this.goals7mDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.goals7mDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // warningDataGridViewTextBoxColumn1
-            // 
-            this.warningDataGridViewTextBoxColumn1.DataPropertyName = "Warning";
-            this.warningDataGridViewTextBoxColumn1.HeaderText = "O";
-            this.warningDataGridViewTextBoxColumn1.Name = "warningDataGridViewTextBoxColumn1";
-            this.warningDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.warningDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // suspension1stDataGridViewTextBoxColumn1
-            // 
-            this.suspension1stDataGridViewTextBoxColumn1.DataPropertyName = "Suspension1st";
-            this.suspension1stDataGridViewTextBoxColumn1.HeaderText = "2\'";
-            this.suspension1stDataGridViewTextBoxColumn1.Name = "suspension1stDataGridViewTextBoxColumn1";
-            this.suspension1stDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.suspension1stDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // suspension2ndDataGridViewTextBoxColumn1
-            // 
-            this.suspension2ndDataGridViewTextBoxColumn1.DataPropertyName = "Suspension2nd";
-            this.suspension2ndDataGridViewTextBoxColumn1.HeaderText = "2\'";
-            this.suspension2ndDataGridViewTextBoxColumn1.Name = "suspension2ndDataGridViewTextBoxColumn1";
-            this.suspension2ndDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.suspension2ndDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // suspension3rdDataGridViewTextBoxColumn1
-            // 
-            this.suspension3rdDataGridViewTextBoxColumn1.DataPropertyName = "Suspension3rd";
-            this.suspension3rdDataGridViewTextBoxColumn1.HeaderText = "2\'";
-            this.suspension3rdDataGridViewTextBoxColumn1.Name = "suspension3rdDataGridViewTextBoxColumn1";
-            this.suspension3rdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.suspension3rdDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // disqualificationDataGridViewTextBoxColumn1
-            // 
-            this.disqualificationDataGridViewTextBoxColumn1.DataPropertyName = "Disqualification";
-            this.disqualificationDataGridViewTextBoxColumn1.HeaderText = "D";
-            this.disqualificationDataGridViewTextBoxColumn1.Name = "disqualificationDataGridViewTextBoxColumn1";
-            this.disqualificationDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.disqualificationDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // disqualificationReportDataGridViewTextBoxColumn1
-            // 
-            this.disqualificationReportDataGridViewTextBoxColumn1.DataPropertyName = "DisqualificationReport";
-            this.disqualificationReportDataGridViewTextBoxColumn1.HeaderText = "DP";
-            this.disqualificationReportDataGridViewTextBoxColumn1.Name = "disqualificationReportDataGridViewTextBoxColumn1";
-            this.disqualificationReportDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.disqualificationReportDataGridViewTextBoxColumn1.Width = 28;
-            // 
-            // teamPlayerBindingSource
-            // 
-            this.teamPlayerBindingSource.DataSource = typeof(MatchReporter.Classes.TeamPlayer);
             // 
             // btnHomeUndo
             // 
@@ -741,93 +569,6 @@
             this.dgvHomeTeam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHomeTeam.Size = new System.Drawing.Size(366, 375);
             this.dgvHomeTeam.TabIndex = 29;
-            // 
-            // teamPlayerIdDataGridViewTextBoxColumn
-            // 
-            this.teamPlayerIdDataGridViewTextBoxColumn.DataPropertyName = "TeamPlayerId";
-            this.teamPlayerIdDataGridViewTextBoxColumn.HeaderText = "TeamPlayerId";
-            this.teamPlayerIdDataGridViewTextBoxColumn.Name = "teamPlayerIdDataGridViewTextBoxColumn";
-            this.teamPlayerIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teamPlayerIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Broj";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numberDataGridViewTextBoxColumn.Width = 27;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Ime";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // goalsDataGridViewTextBoxColumn
-            // 
-            this.goalsDataGridViewTextBoxColumn.DataPropertyName = "Goals";
-            this.goalsDataGridViewTextBoxColumn.HeaderText = "G";
-            this.goalsDataGridViewTextBoxColumn.Name = "goalsDataGridViewTextBoxColumn";
-            this.goalsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.goalsDataGridViewTextBoxColumn.Width = 28;
-            // 
-            // goals7mDataGridViewTextBoxColumn
-            // 
-            this.goals7mDataGridViewTextBoxColumn.DataPropertyName = "Goals7m";
-            this.goals7mDataGridViewTextBoxColumn.HeaderText = "Goals7m";
-            this.goals7mDataGridViewTextBoxColumn.Name = "goals7mDataGridViewTextBoxColumn";
-            this.goals7mDataGridViewTextBoxColumn.ReadOnly = true;
-            this.goals7mDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // warningDataGridViewTextBoxColumn
-            // 
-            this.warningDataGridViewTextBoxColumn.DataPropertyName = "Warning";
-            this.warningDataGridViewTextBoxColumn.HeaderText = "O";
-            this.warningDataGridViewTextBoxColumn.Name = "warningDataGridViewTextBoxColumn";
-            this.warningDataGridViewTextBoxColumn.ReadOnly = true;
-            this.warningDataGridViewTextBoxColumn.Width = 28;
-            // 
-            // suspension1stDataGridViewTextBoxColumn
-            // 
-            this.suspension1stDataGridViewTextBoxColumn.DataPropertyName = "Suspension1st";
-            this.suspension1stDataGridViewTextBoxColumn.HeaderText = "2\'";
-            this.suspension1stDataGridViewTextBoxColumn.Name = "suspension1stDataGridViewTextBoxColumn";
-            this.suspension1stDataGridViewTextBoxColumn.ReadOnly = true;
-            this.suspension1stDataGridViewTextBoxColumn.Width = 28;
-            // 
-            // suspension2ndDataGridViewTextBoxColumn
-            // 
-            this.suspension2ndDataGridViewTextBoxColumn.DataPropertyName = "Suspension2nd";
-            this.suspension2ndDataGridViewTextBoxColumn.HeaderText = "2\'";
-            this.suspension2ndDataGridViewTextBoxColumn.Name = "suspension2ndDataGridViewTextBoxColumn";
-            this.suspension2ndDataGridViewTextBoxColumn.ReadOnly = true;
-            this.suspension2ndDataGridViewTextBoxColumn.Width = 28;
-            // 
-            // suspension3rdDataGridViewTextBoxColumn
-            // 
-            this.suspension3rdDataGridViewTextBoxColumn.DataPropertyName = "Suspension3rd";
-            this.suspension3rdDataGridViewTextBoxColumn.HeaderText = "2\'";
-            this.suspension3rdDataGridViewTextBoxColumn.Name = "suspension3rdDataGridViewTextBoxColumn";
-            this.suspension3rdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.suspension3rdDataGridViewTextBoxColumn.Width = 28;
-            // 
-            // disqualificationDataGridViewTextBoxColumn
-            // 
-            this.disqualificationDataGridViewTextBoxColumn.DataPropertyName = "Disqualification";
-            this.disqualificationDataGridViewTextBoxColumn.HeaderText = "D";
-            this.disqualificationDataGridViewTextBoxColumn.Name = "disqualificationDataGridViewTextBoxColumn";
-            this.disqualificationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.disqualificationDataGridViewTextBoxColumn.Width = 28;
-            // 
-            // disqualificationReportDataGridViewTextBoxColumn
-            // 
-            this.disqualificationReportDataGridViewTextBoxColumn.DataPropertyName = "DisqualificationReport";
-            this.disqualificationReportDataGridViewTextBoxColumn.HeaderText = "DP";
-            this.disqualificationReportDataGridViewTextBoxColumn.Name = "disqualificationReportDataGridViewTextBoxColumn";
-            this.disqualificationReportDataGridViewTextBoxColumn.ReadOnly = true;
-            this.disqualificationReportDataGridViewTextBoxColumn.Width = 28;
             // 
             // btnHomeDisqualificationReport
             // 
@@ -917,6 +658,7 @@
             this.panelTop.Controls.Add(this.lblResultA);
             this.panelTop.Controls.Add(this.lblTeamB);
             this.panelTop.Controls.Add(this.lblTeamA);
+            this.panelTop.Controls.Add(this.lblResult);
             this.panelTop.Location = new System.Drawing.Point(3, 3);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(890, 107);
@@ -1011,7 +753,7 @@
             // 
             // txtTeamATTO3
             // 
-            this.txtTeamATTO3.Location = new System.Drawing.Point(195, 76);
+            this.txtTeamATTO3.Location = new System.Drawing.Point(195, 75);
             this.txtTeamATTO3.Name = "txtTeamATTO3";
             this.txtTeamATTO3.ReadOnly = true;
             this.txtTeamATTO3.Size = new System.Drawing.Size(87, 20);
@@ -1141,9 +883,279 @@
             this.timerMatch.Interval = 10;
             this.timerMatch.Tick += new System.EventHandler(this.timerMatch_Tick);
             // 
+            // teamOfficialIdDataGridViewTextBoxColumn1
+            // 
+            this.teamOfficialIdDataGridViewTextBoxColumn1.DataPropertyName = "TeamOfficialId";
+            this.teamOfficialIdDataGridViewTextBoxColumn1.HeaderText = "Matični broj";
+            this.teamOfficialIdDataGridViewTextBoxColumn1.Name = "teamOfficialIdDataGridViewTextBoxColumn1";
+            this.teamOfficialIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn3
+            // 
+            this.nameDataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn3.HeaderText = "Ime";
+            this.nameDataGridViewTextBoxColumn3.Name = "nameDataGridViewTextBoxColumn3";
+            this.nameDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn3.Width = 118;
+            // 
+            // warningDataGridViewTextBoxColumn3
+            // 
+            this.warningDataGridViewTextBoxColumn3.DataPropertyName = "Warning";
+            this.warningDataGridViewTextBoxColumn3.HeaderText = "O";
+            this.warningDataGridViewTextBoxColumn3.Name = "warningDataGridViewTextBoxColumn3";
+            this.warningDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.warningDataGridViewTextBoxColumn3.Width = 35;
+            // 
+            // suspensionDataGridViewTextBoxColumn1
+            // 
+            this.suspensionDataGridViewTextBoxColumn1.DataPropertyName = "Suspension";
+            this.suspensionDataGridViewTextBoxColumn1.HeaderText = "2\'";
+            this.suspensionDataGridViewTextBoxColumn1.Name = "suspensionDataGridViewTextBoxColumn1";
+            this.suspensionDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.suspensionDataGridViewTextBoxColumn1.Width = 35;
+            // 
+            // disqualificationDataGridViewTextBoxColumn3
+            // 
+            this.disqualificationDataGridViewTextBoxColumn3.DataPropertyName = "Disqualification";
+            this.disqualificationDataGridViewTextBoxColumn3.HeaderText = "D";
+            this.disqualificationDataGridViewTextBoxColumn3.Name = "disqualificationDataGridViewTextBoxColumn3";
+            this.disqualificationDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.disqualificationDataGridViewTextBoxColumn3.Width = 35;
+            // 
+            // teamOfficialBindingSource
+            // 
+            this.teamOfficialBindingSource.DataSource = typeof(MatchReporter.Classes.TeamOfficial);
+            // 
+            // teamOfficialIdDataGridViewTextBoxColumn
+            // 
+            this.teamOfficialIdDataGridViewTextBoxColumn.DataPropertyName = "TeamOfficialId";
+            this.teamOfficialIdDataGridViewTextBoxColumn.HeaderText = "Matični broj";
+            this.teamOfficialIdDataGridViewTextBoxColumn.Name = "teamOfficialIdDataGridViewTextBoxColumn";
+            this.teamOfficialIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Ime";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn2.Width = 118;
+            // 
+            // warningDataGridViewTextBoxColumn2
+            // 
+            this.warningDataGridViewTextBoxColumn2.DataPropertyName = "Warning";
+            this.warningDataGridViewTextBoxColumn2.HeaderText = "O";
+            this.warningDataGridViewTextBoxColumn2.Name = "warningDataGridViewTextBoxColumn2";
+            this.warningDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.warningDataGridViewTextBoxColumn2.Width = 35;
+            // 
+            // suspensionDataGridViewTextBoxColumn
+            // 
+            this.suspensionDataGridViewTextBoxColumn.DataPropertyName = "Suspension";
+            this.suspensionDataGridViewTextBoxColumn.HeaderText = "2\'";
+            this.suspensionDataGridViewTextBoxColumn.Name = "suspensionDataGridViewTextBoxColumn";
+            this.suspensionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suspensionDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // disqualificationDataGridViewTextBoxColumn2
+            // 
+            this.disqualificationDataGridViewTextBoxColumn2.DataPropertyName = "Disqualification";
+            this.disqualificationDataGridViewTextBoxColumn2.HeaderText = "D";
+            this.disqualificationDataGridViewTextBoxColumn2.Name = "disqualificationDataGridViewTextBoxColumn2";
+            this.disqualificationDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.disqualificationDataGridViewTextBoxColumn2.Width = 35;
+            // 
+            // teamPlayerIdDataGridViewTextBoxColumn1
+            // 
+            this.teamPlayerIdDataGridViewTextBoxColumn1.DataPropertyName = "TeamPlayerId";
+            this.teamPlayerIdDataGridViewTextBoxColumn1.HeaderText = "TeamPlayerId";
+            this.teamPlayerIdDataGridViewTextBoxColumn1.Name = "teamPlayerIdDataGridViewTextBoxColumn1";
+            this.teamPlayerIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.teamPlayerIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // numberDataGridViewTextBoxColumn1
+            // 
+            this.numberDataGridViewTextBoxColumn1.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn1.HeaderText = "Broj";
+            this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
+            this.numberDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.numberDataGridViewTextBoxColumn1.Width = 27;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Ime";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // goalsDataGridViewTextBoxColumn1
+            // 
+            this.goalsDataGridViewTextBoxColumn1.DataPropertyName = "Goals";
+            this.goalsDataGridViewTextBoxColumn1.HeaderText = "G";
+            this.goalsDataGridViewTextBoxColumn1.Name = "goalsDataGridViewTextBoxColumn1";
+            this.goalsDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.goalsDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // goals7mDataGridViewTextBoxColumn1
+            // 
+            this.goals7mDataGridViewTextBoxColumn1.DataPropertyName = "Goals7m";
+            this.goals7mDataGridViewTextBoxColumn1.HeaderText = "Goals7m";
+            this.goals7mDataGridViewTextBoxColumn1.Name = "goals7mDataGridViewTextBoxColumn1";
+            this.goals7mDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.goals7mDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // warningDataGridViewTextBoxColumn1
+            // 
+            this.warningDataGridViewTextBoxColumn1.DataPropertyName = "Warning";
+            this.warningDataGridViewTextBoxColumn1.HeaderText = "O";
+            this.warningDataGridViewTextBoxColumn1.Name = "warningDataGridViewTextBoxColumn1";
+            this.warningDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.warningDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // suspension1stDataGridViewTextBoxColumn1
+            // 
+            this.suspension1stDataGridViewTextBoxColumn1.DataPropertyName = "Suspension1st";
+            this.suspension1stDataGridViewTextBoxColumn1.HeaderText = "2\'";
+            this.suspension1stDataGridViewTextBoxColumn1.Name = "suspension1stDataGridViewTextBoxColumn1";
+            this.suspension1stDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.suspension1stDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // suspension2ndDataGridViewTextBoxColumn1
+            // 
+            this.suspension2ndDataGridViewTextBoxColumn1.DataPropertyName = "Suspension2nd";
+            this.suspension2ndDataGridViewTextBoxColumn1.HeaderText = "2\'";
+            this.suspension2ndDataGridViewTextBoxColumn1.Name = "suspension2ndDataGridViewTextBoxColumn1";
+            this.suspension2ndDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.suspension2ndDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // suspension3rdDataGridViewTextBoxColumn1
+            // 
+            this.suspension3rdDataGridViewTextBoxColumn1.DataPropertyName = "Suspension3rd";
+            this.suspension3rdDataGridViewTextBoxColumn1.HeaderText = "2\'";
+            this.suspension3rdDataGridViewTextBoxColumn1.Name = "suspension3rdDataGridViewTextBoxColumn1";
+            this.suspension3rdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.suspension3rdDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // disqualificationDataGridViewTextBoxColumn1
+            // 
+            this.disqualificationDataGridViewTextBoxColumn1.DataPropertyName = "Disqualification";
+            this.disqualificationDataGridViewTextBoxColumn1.HeaderText = "D";
+            this.disqualificationDataGridViewTextBoxColumn1.Name = "disqualificationDataGridViewTextBoxColumn1";
+            this.disqualificationDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.disqualificationDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // disqualificationReportDataGridViewTextBoxColumn1
+            // 
+            this.disqualificationReportDataGridViewTextBoxColumn1.DataPropertyName = "DisqualificationReport";
+            this.disqualificationReportDataGridViewTextBoxColumn1.HeaderText = "DP";
+            this.disqualificationReportDataGridViewTextBoxColumn1.Name = "disqualificationReportDataGridViewTextBoxColumn1";
+            this.disqualificationReportDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.disqualificationReportDataGridViewTextBoxColumn1.Width = 28;
+            // 
+            // teamPlayerBindingSource
+            // 
+            this.teamPlayerBindingSource.DataSource = typeof(MatchReporter.Classes.TeamPlayer);
+            // 
+            // teamPlayerIdDataGridViewTextBoxColumn
+            // 
+            this.teamPlayerIdDataGridViewTextBoxColumn.DataPropertyName = "TeamPlayerId";
+            this.teamPlayerIdDataGridViewTextBoxColumn.HeaderText = "TeamPlayerId";
+            this.teamPlayerIdDataGridViewTextBoxColumn.Name = "teamPlayerIdDataGridViewTextBoxColumn";
+            this.teamPlayerIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teamPlayerIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Broj";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numberDataGridViewTextBoxColumn.Width = 27;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Ime";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // goalsDataGridViewTextBoxColumn
+            // 
+            this.goalsDataGridViewTextBoxColumn.DataPropertyName = "Goals";
+            this.goalsDataGridViewTextBoxColumn.HeaderText = "G";
+            this.goalsDataGridViewTextBoxColumn.Name = "goalsDataGridViewTextBoxColumn";
+            this.goalsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.goalsDataGridViewTextBoxColumn.Width = 28;
+            // 
+            // goals7mDataGridViewTextBoxColumn
+            // 
+            this.goals7mDataGridViewTextBoxColumn.DataPropertyName = "Goals7m";
+            this.goals7mDataGridViewTextBoxColumn.HeaderText = "Goals7m";
+            this.goals7mDataGridViewTextBoxColumn.Name = "goals7mDataGridViewTextBoxColumn";
+            this.goals7mDataGridViewTextBoxColumn.ReadOnly = true;
+            this.goals7mDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // warningDataGridViewTextBoxColumn
+            // 
+            this.warningDataGridViewTextBoxColumn.DataPropertyName = "Warning";
+            this.warningDataGridViewTextBoxColumn.HeaderText = "O";
+            this.warningDataGridViewTextBoxColumn.Name = "warningDataGridViewTextBoxColumn";
+            this.warningDataGridViewTextBoxColumn.ReadOnly = true;
+            this.warningDataGridViewTextBoxColumn.Width = 28;
+            // 
+            // suspension1stDataGridViewTextBoxColumn
+            // 
+            this.suspension1stDataGridViewTextBoxColumn.DataPropertyName = "Suspension1st";
+            this.suspension1stDataGridViewTextBoxColumn.HeaderText = "2\'";
+            this.suspension1stDataGridViewTextBoxColumn.Name = "suspension1stDataGridViewTextBoxColumn";
+            this.suspension1stDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suspension1stDataGridViewTextBoxColumn.Width = 28;
+            // 
+            // suspension2ndDataGridViewTextBoxColumn
+            // 
+            this.suspension2ndDataGridViewTextBoxColumn.DataPropertyName = "Suspension2nd";
+            this.suspension2ndDataGridViewTextBoxColumn.HeaderText = "2\'";
+            this.suspension2ndDataGridViewTextBoxColumn.Name = "suspension2ndDataGridViewTextBoxColumn";
+            this.suspension2ndDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suspension2ndDataGridViewTextBoxColumn.Width = 28;
+            // 
+            // suspension3rdDataGridViewTextBoxColumn
+            // 
+            this.suspension3rdDataGridViewTextBoxColumn.DataPropertyName = "Suspension3rd";
+            this.suspension3rdDataGridViewTextBoxColumn.HeaderText = "2\'";
+            this.suspension3rdDataGridViewTextBoxColumn.Name = "suspension3rdDataGridViewTextBoxColumn";
+            this.suspension3rdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suspension3rdDataGridViewTextBoxColumn.Width = 28;
+            // 
+            // disqualificationDataGridViewTextBoxColumn
+            // 
+            this.disqualificationDataGridViewTextBoxColumn.DataPropertyName = "Disqualification";
+            this.disqualificationDataGridViewTextBoxColumn.HeaderText = "D";
+            this.disqualificationDataGridViewTextBoxColumn.Name = "disqualificationDataGridViewTextBoxColumn";
+            this.disqualificationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.disqualificationDataGridViewTextBoxColumn.Width = 28;
+            // 
+            // disqualificationReportDataGridViewTextBoxColumn
+            // 
+            this.disqualificationReportDataGridViewTextBoxColumn.DataPropertyName = "DisqualificationReport";
+            this.disqualificationReportDataGridViewTextBoxColumn.HeaderText = "DP";
+            this.disqualificationReportDataGridViewTextBoxColumn.Name = "disqualificationReportDataGridViewTextBoxColumn";
+            this.disqualificationReportDataGridViewTextBoxColumn.ReadOnly = true;
+            this.disqualificationReportDataGridViewTextBoxColumn.Width = 28;
+            // 
             // playerBindingSource
             // 
             this.playerBindingSource.DataSource = typeof(MatchReporter.Player);
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblResult.Location = new System.Drawing.Point(430, 55);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(19, 25);
+            this.lblResult.TabIndex = 22;
+            this.lblResult.Text = ":";
             // 
             // FrmMatchReporter
             // 
@@ -1165,13 +1177,13 @@
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamOfficialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeOfficials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestTeam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamPlayerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeTeam)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teamOfficialBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamPlayerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1282,5 +1294,6 @@
         private System.Windows.Forms.Button btnHomeOfficialWarning;
         private System.Windows.Forms.Button btnGuestOfficialUndo;
         private System.Windows.Forms.Button btnHomeOfficialUndo;
+        private System.Windows.Forms.Label lblResult;
     }
 }
