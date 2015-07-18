@@ -53,6 +53,8 @@ namespace MatchReporter.Forms
         public BindingList<Manage> HomeManages;
         public BindingList<Manage> GuestManages;
 
+        public string RefereePairName;
+
         // Match info
         private int Minutes;
         private int Seconds;
@@ -429,6 +431,7 @@ namespace MatchReporter.Forms
                 this.Match.DelegateId = dataAddMatchDetails.DelegateId;
                 this.Match.TimeKeeper = dataAddMatchDetails.TimeKeeper;
                 this.Match.Scorer = dataAddMatchDetails.Scorer;
+                this.RefereePairName = dataAddMatchDetails.RefereePairName;
                 
                 using (var db = new MatchReporterEntities())
                 {
@@ -1256,6 +1259,14 @@ namespace MatchReporter.Forms
             //    MessageBox.Show(this, "Da biste poslali rezultat potrebno je\nprethodno zaključiti utakmicu.", "Slanje e-maila",
             //        MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
+        }
+
+        private void reportPrintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMatchReport fullMatchReport = new FrmMatchReport(this.Match, this.HomeClub, this.GuestClub,
+                this.HomeTeam, this.GuestTeam, this.HomeTeamPlayers, this.GuestTeamPlayers,
+                this.HomeTeamOfficials, this.GuestTeamOfficials, this.RefereePairName);
+            fullMatchReport.ShowDialog();
         }
     }
 }

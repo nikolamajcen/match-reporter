@@ -256,6 +256,7 @@
             this.reportPrintToolStripMenuItem.Name = "reportPrintToolStripMenuItem";
             this.reportPrintToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.reportPrintToolStripMenuItem.Text = "Ispis izvještaja utakmice";
+            this.reportPrintToolStripMenuItem.Click += new System.EventHandler(this.reportPrintToolStripMenuItem_Click);
             // 
             // reportSendToolStripMenuItem
             // 

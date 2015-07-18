@@ -26,6 +26,7 @@ namespace MatchReporter.Forms.Data.Add
         public int Spectators;
         public string TimeKeeper;
         public string Scorer;
+        public string RefereePairName;
 
         public BindingList<League> Leagues;
         public BindingList<Hall> Halls;
@@ -67,6 +68,8 @@ namespace MatchReporter.Forms.Data.Add
             this.RefereePairId = ((RefereePair)(cbxRefereePair.SelectedItem)).RefereePairId;
             this.DelegateId = ((Delegate)(cbxDelegate.SelectedItem)).DelegateId;
 
+            this.RefereePairName = cbxRefereePair.DisplayMember;
+
             this.Round = (int)txtRound.Value;
 
             // Date (Provjera)
@@ -77,7 +80,8 @@ namespace MatchReporter.Forms.Data.Add
                 this.Time = dtpDateTime.Value.TimeOfDay;
                 dateTimeStatus = true;
             }
-            
+            this.RefereePairName = cbxRefereePair.Text;
+
             // Spectators
             if((int)txtSpectators.Value <= ((Hall)cbxHall.SelectedItem).Capacity)
             {

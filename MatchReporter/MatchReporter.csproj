@@ -53,11 +53,14 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -143,6 +146,12 @@
     <Compile Include="Forms\MatchStats\FrmPlayersUndo.Designer.cs">
       <DependentUpon>FrmPlayersUndo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\FrmMatchReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\FrmMatchReport.Designer.cs">
+      <DependentUpon>FrmMatchReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\FrmReportEmailSend.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +181,11 @@
     </Compile>
     <Compile Include="Match.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchReporterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchReporterDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="MatchReporterModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -235,12 +249,16 @@
     <EmbeddedResource Include="Forms\MatchStats\FrmPlayersUndo.resx">
       <DependentUpon>FrmPlayersUndo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\FrmMatchReport.resx">
+      <DependentUpon>FrmMatchReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\FrmReportEmailSend.resx">
       <DependentUpon>FrmReportEmailSend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\FrmReportEmailSettings.resx">
       <DependentUpon>FrmReportEmailSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MatchReport.rdlc" />
     <EmbeddedResource Include="Forms\Timer\FrmTimerChange.resx">
       <DependentUpon>FrmTimerChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +278,17 @@
     <None Include="EmailSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MatchReporterDataSet.xsc">
+      <DependentUpon>MatchReporterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MatchReporterDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MatchReporterDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MatchReporterDataSet.xss">
+      <DependentUpon>MatchReporterDataSet.xsd</DependentUpon>
     </None>
     <None Include="MatchReporterModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

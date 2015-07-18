@@ -22,6 +22,9 @@ namespace MatchReporter
         {
             this.MatchId = matchId;
             this.ClubId = clubId;
+            this.Goals = 0;
+            this.Goals7m = 0;
+            this.Attempts7m = 0;
         }
 
         public short Goals { get; set; }

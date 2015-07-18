@@ -18,7 +18,7 @@ namespace MatchReporter.Forms.Reports
             InitializeComponent();
 
             txtSubject.Text = "Utakmica br. " + match.MatchId + ": " + homeClub.Name + " - " + guestClub.Name;
-            txtMailBody.Text = "Rezultat utakmice br. " + match.MatchId + ":\n" +
+            txtMailBody.Text = "Rezultat utakmice br. " + match.MatchId + ": \n" +
                 homeClub.Name + " - " + guestClub.Name + " " + homeTeam.Goals + ":" + guestTeam.Goals;
             txtRemarks.Text = "";
         }
