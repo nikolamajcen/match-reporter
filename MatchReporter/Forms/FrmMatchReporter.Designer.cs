@@ -32,7 +32,6 @@
             this.menuMainMenu = new System.Windows.Forms.MenuStrip();
             this.matchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matchOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchConcludeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,7 +160,6 @@
             // 
             this.matchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.matchNewToolStripMenuItem,
-            this.matchOpenToolStripMenuItem,
             this.matchSaveToolStripMenuItem,
             this.matchConcludeToolStripMenuItem,
             this.matchCloseToolStripMenuItem});
@@ -172,34 +170,28 @@
             // matchNewToolStripMenuItem
             // 
             this.matchNewToolStripMenuItem.Name = "matchNewToolStripMenuItem";
-            this.matchNewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.matchNewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.matchNewToolStripMenuItem.Text = "Nova...";
             this.matchNewToolStripMenuItem.Click += new System.EventHandler(this.matchNewToolStripMenuItem_Click);
-            // 
-            // matchOpenToolStripMenuItem
-            // 
-            this.matchOpenToolStripMenuItem.Name = "matchOpenToolStripMenuItem";
-            this.matchOpenToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.matchOpenToolStripMenuItem.Text = "Otvori...";
             // 
             // matchSaveToolStripMenuItem
             // 
             this.matchSaveToolStripMenuItem.Name = "matchSaveToolStripMenuItem";
-            this.matchSaveToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.matchSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.matchSaveToolStripMenuItem.Text = "Spremi...";
             this.matchSaveToolStripMenuItem.Click += new System.EventHandler(this.matchSaveToolStripMenuItem_Click);
             // 
             // matchConcludeToolStripMenuItem
             // 
             this.matchConcludeToolStripMenuItem.Name = "matchConcludeToolStripMenuItem";
-            this.matchConcludeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.matchConcludeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.matchConcludeToolStripMenuItem.Text = "Zaključi...";
             this.matchConcludeToolStripMenuItem.Click += new System.EventHandler(this.matchConcludeToolStripMenuItem_Click);
             // 
             // matchCloseToolStripMenuItem
             // 
             this.matchCloseToolStripMenuItem.Name = "matchCloseToolStripMenuItem";
-            this.matchCloseToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.matchCloseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.matchCloseToolStripMenuItem.Text = "Zatvori...";
             this.matchCloseToolStripMenuItem.Click += new System.EventHandler(this.matchCloseToolStripMenuItem_Click);
             // 
@@ -278,6 +270,7 @@
             this.otherAboutToolStripMenuItem.Name = "otherAboutToolStripMenuItem";
             this.otherAboutToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.otherAboutToolStripMenuItem.Text = "O aplikaciji";
+            this.otherAboutToolStripMenuItem.Click += new System.EventHandler(this.otherAboutToolStripMenuItem_Click);
             // 
             // panelMain
             // 
@@ -1188,7 +1181,6 @@
         private System.Windows.Forms.MenuStrip menuMainMenu;
         private System.Windows.Forms.ToolStripMenuItem matchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matchNewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem matchOpenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matchSaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matchConcludeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;

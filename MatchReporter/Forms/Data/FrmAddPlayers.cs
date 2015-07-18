@@ -55,8 +55,32 @@ namespace MatchReporter.Forms.Data.Add
             lblHomeTeamName.Text = homeTeamName;
             lblGuestTeamName.Text = guestTeamName;
 
-            this.HomePlayersPlay = homePlayers;
-            this.GuestPlayersPlay = guestPlayers;
+            this.HomePlayersPlay = new BindingList<Player>();
+            this.GuestPlayersPlay = new BindingList<Player>();
+
+            foreach(Player player in HomePlayersAll)
+            {
+                foreach(Player homePlayer in homePlayers)
+                {
+                    if(player.PlayerId == homePlayer.PlayerId)
+                    {
+                        this.HomePlayersPlay.Add(player);
+                        break;
+                    }
+                }
+            }
+
+            foreach (Player player in GuestPlayersAll)
+            {
+                foreach (Player guestPlayer in guestPlayers)
+                {
+                    if (player.PlayerId == guestPlayer.PlayerId)
+                    {
+                        this.GuestPlayersPlay.Add(player);
+                        break;
+                    }
+                }
+            }
 
             this.HomePlayersAddedCount = HomePlayersPlay.Count;
             this.GuestPlayersAddedCount = GuestPlayersPlay.Count;

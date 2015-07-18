@@ -2,6 +2,7 @@
 using MatchReporter.Forms.Data;
 using MatchReporter.Forms.Data.Add;
 using MatchReporter.Forms.MatchStats;
+using MatchReporter.Forms.Other;
 using MatchReporter.Forms.Podaci.Unos;
 using MatchReporter.Forms.Reports;
 using MatchReporter.Forms.Timer;
@@ -185,8 +186,8 @@ namespace MatchReporter.Forms
             lblTeamA.Text = "";
             lblTeamB.Text = "";
 
-            lblResultA.Text = "";
-            lblResultB.Text = "";
+            lblResultA.Text = "0";
+            lblResultB.Text = "0";
 
             txtTeamATTO1.Text = "";
             txtTeamATTO2.Text = "";
@@ -354,69 +355,90 @@ namespace MatchReporter.Forms
 
         private void matchConcludeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Match.Concluded = 1;
-            
-            // Probni dio :)
-            panelMain.Enabled = false;
-
-            this.dataMatchDetailsToolStripMenuItem.Enabled = false;
-            this.dataTeamsToolStripMenuItem.Enabled = false;
-            this.dataPlayersToolStripMenuItem.Enabled = false;
-            this.dataOfficialsToolStripMenuItem.Enabled = false;
-
-            this.matchSaveToolStripMenuItem.Enabled = false;
-            this.matchConcludeToolStripMenuItem.Enabled = false;
-
-            // Spremiti u bazu podataka
-
-            using (var db = new MatchReporterEntities())
+            if(int.Parse(lblTimeMinutes.Text) == 60)
             {
-                db.Entry(this.Match).State = this.Match.MatchId == 0 ? EntityState.Added : EntityState.Modified;
-                db.SaveChanges();
+                if (MessageBox.Show(this, "Jeste li sigurni da želite zaključiti utakmicu? \nViše neće biti moguće mijenjati podatke o utakmici.",
+                "Zaključi utakmicu", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+                {
+                    try
+                    {
+                        this.Match.Concluded = 1;
+
+                        panelMain.Enabled = false;
+
+                        this.dataMatchDetailsToolStripMenuItem.Enabled = false;
+                        this.dataTeamsToolStripMenuItem.Enabled = false;
+                        this.dataPlayersToolStripMenuItem.Enabled = false;
+                        this.dataOfficialsToolStripMenuItem.Enabled = false;
+
+                        this.matchSaveToolStripMenuItem.Enabled = false;
+                        this.matchConcludeToolStripMenuItem.Enabled = false;
+
+                        using (var db = new MatchReporterEntities())
+                        {
+                            db.Entry(this.Match).State = this.Match.MatchId == 0 ? EntityState.Added : EntityState.Modified;
+                            db.SaveChanges();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show(this, "Došlo je do greške. \nUtakmica nije zaključena.", "Greška",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "Ne možete zaključiti utakmicu jer \nutakmica nije završena.", "Greška", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
         private void matchCloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Match = null;
+            if (MessageBox.Show(this, "Jeste li sigurni da želite zatvoriti utakmicu?\nPristup utakmici će biti onemogućen.",
+                "Zatvori utakmicu", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+            {
+                this.Match = null;
 
-            this.HomeClub = null;
-            this.HomePlayers = null;
-            this.HomePlays = null;
-            this.HomeClubOfficials = null;
-            this.HomeManages = null;
+                this.HomeClub = null;
+                this.HomePlayers = null;
+                this.HomePlays = null;
+                this.HomeClubOfficials = null;
+                this.HomeManages = null;
 
-            this.GuestClub = null;
-            this.GuestPlayers = null;
-            this.GuestPlays = null;
-            this.GuestClubOfficials = null;
-            this.GuestManages = null;
+                this.GuestClub = null;
+                this.GuestPlayers = null;
+                this.GuestPlays = null;
+                this.GuestClubOfficials = null;
+                this.GuestManages = null;
 
-            lblTeamA.Text = "";
-            lblTeamB.Text = "";
-            lblResultA.Text = "0";
-            lblResultB.Text = "0";
-            lblTimeMinutes.Text = "00";
-            lblTimeSeconds.Text = "00";
+                lblTeamA.Text = "";
+                lblTeamB.Text = "";
+                lblResultA.Text = "0";
+                lblResultB.Text = "0";
+                lblTimeMinutes.Text = "00";
+                lblTimeSeconds.Text = "00";
 
-            this.dataMatchDetailsToolStripMenuItem.Enabled = false;
-            this.dataTeamsToolStripMenuItem.Enabled = false;
-            this.dataPlayersToolStripMenuItem.Enabled = false;
-            this.dataOfficialsToolStripMenuItem.Enabled = false;
+                this.dataMatchDetailsToolStripMenuItem.Enabled = false;
+                this.dataTeamsToolStripMenuItem.Enabled = false;
+                this.dataPlayersToolStripMenuItem.Enabled = false;
+                this.dataOfficialsToolStripMenuItem.Enabled = false;
 
-            this.matchSaveToolStripMenuItem.Enabled = false;
-            this.matchConcludeToolStripMenuItem.Enabled = false;
-            this.matchCloseToolStripMenuItem.Enabled = false;
+                this.matchSaveToolStripMenuItem.Enabled = false;
+                this.matchConcludeToolStripMenuItem.Enabled = false;
+                this.matchCloseToolStripMenuItem.Enabled = false;
 
-            this.reportPrintToolStripMenuItem.Enabled = false;
-            this.reportSendToolStripMenuItem.Enabled = false;
+                this.reportPrintToolStripMenuItem.Enabled = false;
+                this.reportSendToolStripMenuItem.Enabled = false;
 
-            panelMain.Hide();
+                panelMain.Hide();
+            }
         }
 
         private void dataMatchDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddMatchDetails dataAddMatchDetails = new FrmAddMatchDetails();
+            FrmAddMatchDetails dataAddMatchDetails = new FrmAddMatchDetails(this.Match);
             dataAddMatchDetails.ShowDialog();
 
             if (dataAddMatchDetails.MatchDetailsAddSuccess)
@@ -444,7 +466,7 @@ namespace MatchReporter.Forms
 
         private void dataTeamsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if(this.Match.MatchId != 0)
             {
                 FrmAddTeam dataAddTeam = new FrmAddTeam(this.HomeClub.ClubId, this.GuestClub.ClubId);
                 dataAddTeam.ShowDialog();
@@ -499,6 +521,7 @@ namespace MatchReporter.Forms
                             {
                                 db.Team.Remove(team);
                             }
+                            db.SaveChanges();
                         }
                     }
 
@@ -513,7 +536,7 @@ namespace MatchReporter.Forms
                 }
                 //dataAddTeam.Dispose();
             }
-            catch
+            else
             {
                 MessageBox.Show(this, "Da biste dodali momčadi, prvo je potrebno unijeti podatke o utakmici.", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -523,7 +546,7 @@ namespace MatchReporter.Forms
 
         private void dataPlayersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if(this.HomeClub.ClubId != 0 && this.GuestClub.ClubId != 0)
             {
                 FrmAddPlayers dataAddPlayers = new FrmAddPlayers(this.HomeClub.ClubId, this.GuestClub.ClubId, this.HomePlayers, this.GuestPlayers);
                 dataAddPlayers.ShowDialog();
@@ -590,7 +613,7 @@ namespace MatchReporter.Forms
                 }
                 //dataAddPlayers.Dispose();
             }
-            catch
+            else
             {
                 MessageBox.Show(this, "Da biste dodali igrače, prvo je potrebno dodati momčadi.", "Greška", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -599,7 +622,7 @@ namespace MatchReporter.Forms
 
         private void dataOfficialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if(this.HomeClub.ClubId != 0 && this.GuestClub.ClubId != 0)
             {
                 FrmAddOfficials dataAddOfficials = new FrmAddOfficials(this.HomeClub.ClubId, this.GuestClub.ClubId, this.HomeClubOfficials, this.GuestClubOfficials);
                 dataAddOfficials.ShowDialog();
@@ -666,7 +689,7 @@ namespace MatchReporter.Forms
                 }
                 //dataAddOfficials.Dispose();
             }
-            catch
+            else
             {
                 MessageBox.Show(this, "Da biste dodali službene osobe, prvo je potrebno dodati momčadi.", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1267,6 +1290,12 @@ namespace MatchReporter.Forms
                 this.HomeTeam, this.GuestTeam, this.HomeTeamPlayers, this.GuestTeamPlayers,
                 this.HomeTeamOfficials, this.GuestTeamOfficials, this.RefereePairName);
             fullMatchReport.ShowDialog();
+        }
+
+        private void otherAboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbout about = new FrmAbout();
+            about.ShowDialog();
         }
     }
 }

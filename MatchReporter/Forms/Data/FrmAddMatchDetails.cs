@@ -32,9 +32,13 @@ namespace MatchReporter.Forms.Data.Add
         public BindingList<Hall> Halls;
         public BindingList<RefereePair> RefereePairs;
         public BindingList<Delegate> Delegates;
-        public FrmAddMatchDetails()
+
+        public Match Match;
+        public FrmAddMatchDetails(Match match)
         {
             InitializeComponent();
+
+            this.Match = match;
 
             this.MatchDetailsAddSuccess = false;
 
@@ -49,7 +53,58 @@ namespace MatchReporter.Forms.Data.Add
             cbxDelegate.DataSource = this.Delegates;
 
             dtpDateTime.MinDate = DateTime.Now;
-            dtpDateTime.Value = DateTime.Now.AddDays(1);
+            dtpDateTime.Value = DateTime.Now.AddMinutes(15);
+
+            if(match.MatchId != 0)
+            {
+                txtRound.Value = this.Match.Round;
+                txtSpectators.Value = this.Match.Spectators;
+                txtScorer.Text = this.Match.Scorer;
+                txtTimeKeeper.Text = this.Match.TimeKeeper;
+
+                dtpDateTime.Value = new DateTime(this.Match.Date.Year, this.Match.Date.Month, this.Match.Date.Day,
+                    this.Match.Time.Hours, this.Match.Time.Minutes, 0);
+
+                foreach(object row in cbxLeague.Items)
+                {
+                    League data = (League)row;
+                    if(data.LeagueId == this.Match.LeagueId)
+                    {
+                        cbxLeague.SelectedItem = row;
+                        break;
+                    }
+                }
+
+                foreach (object row in cbxHall.Items)
+                {
+                    Hall data = (Hall)row;
+                    if (data.HallId == this.Match.HallId)
+                    {
+                        cbxLeague.SelectedItem = row;
+                        break;
+                    }
+                }
+
+                foreach (object row in cbxRefereePair.Items)
+                {
+                    RefereePair data = (RefereePair)row;
+                    if (data.RefereePairId == this.Match.RefereePairId)
+                    {
+                        cbxLeague.SelectedItem = row;
+                        break;
+                    }
+                }
+
+                foreach (object row in cbxDelegate.Items)
+                {
+                    Delegate data = (Delegate)row;
+                    if (data.DelegateId == this.Match.DelegateId)
+                    {
+                        cbxLeague.SelectedItem = row;
+                        break;
+                    }
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -106,7 +161,7 @@ namespace MatchReporter.Forms.Data.Add
             }
             else if (dateTimeStatus == false)
             {
-                MessageBox.Show(this, "Odabrali ste krivi datum i vrijeme.", "Greška",
+                MessageBox.Show(this, "Odabrali ste krivi datum i vrijeme. \nPočetak utakmice mora biti nakon trenutnog vremena.", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (scorerAndTimeKeeperStatus == false)

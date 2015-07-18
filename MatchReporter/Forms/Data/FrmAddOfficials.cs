@@ -61,8 +61,32 @@ namespace MatchReporter.Forms.Data.Add
             lblHomeTeamName.Text = homeTeamName;
             lblGuestTeamName.Text = guestTeamName;
 
-            this.HomeOfficialsManage = homeOfficials;
-            this.GuestOfficialsManage = guestOfficials;
+            this.HomeOfficialsManage = new BindingList<ClubOfficial>();
+            this.GuestOfficialsManage = new BindingList<ClubOfficial>();
+
+            foreach(ClubOfficial official in this.HomeOfficialsAll)
+            {
+                foreach(ClubOfficial homeOfficial in homeOfficials)
+                {
+                    if(official.ClubOfficialId == homeOfficial.ClubOfficialId)
+                    {
+                        this.HomeOfficialsManage.Add(official);
+                        break;
+                    }
+                }
+            }
+
+            foreach (ClubOfficial official in this.GuestOfficialsAll)
+            {
+                foreach (ClubOfficial guestOfficial in guestOfficials)
+                {
+                    if (official.ClubOfficialId == guestOfficial.ClubOfficialId)
+                    {
+                        this.GuestOfficialsManage.Add(official);
+                        break;
+                    }
+                }
+            }
 
             for (int i = 0; i < this.HomeOfficialsAll.Count; i++)
             {

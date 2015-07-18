@@ -41,6 +41,29 @@ namespace MatchReporter.Forms.Podaci.Unos
 
             cbxHomeTeam.DataSource = homeTeams;
             cbxGuestTeam.DataSource = guestTeams;
+
+            if(homeTeamId != 0 && guestTeamId != 0)
+            {
+                foreach (object row in cbxHomeTeam.Items)
+                {
+                    Club data = (Club)row;
+                    if (data.ClubId == homeTeamId)
+                    {
+                        cbxHomeTeam.SelectedItem = row;
+                        break;
+                    }
+                }
+
+                foreach (object row in cbxGuestTeam.Items)
+                {
+                    Club data = (Club)row;
+                    if (data.ClubId == guestTeamId)
+                    {
+                        cbxGuestTeam.SelectedItem = row;
+                        break;
+                    }
+                }
+            }
         }
 
         private void btnAddTeams_Click(object sender, EventArgs e)

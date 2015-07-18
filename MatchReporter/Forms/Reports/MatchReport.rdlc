@@ -3312,13 +3312,6 @@
       </ConnectionProperties>
       <rd:DataSourceID>38eb6fbd-40a4-4f85-a9f2-ff54ae737911</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="MatchReporterDataSet">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>28526885-1154-4218-a3c6-07d341bfaffe</rd:DataSourceID>
-    </DataSource>
     <DataSource Name="MatchReporterClasses">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>

@@ -146,6 +146,12 @@
     <Compile Include="Forms\MatchStats\FrmPlayersUndo.Designer.cs">
       <DependentUpon>FrmPlayersUndo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Other\FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Other\FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\FrmMatchReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,11 +187,6 @@
     </Compile>
     <Compile Include="Match.cs">
       <DependentUpon>MatchReporterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MatchReporterDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MatchReporterDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="MatchReporterModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -249,6 +250,9 @@
     <EmbeddedResource Include="Forms\MatchStats\FrmPlayersUndo.resx">
       <DependentUpon>FrmPlayersUndo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Other\FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\FrmMatchReport.resx">
       <DependentUpon>FrmMatchReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,17 +282,6 @@
     <None Include="EmailSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="MatchReporterDataSet.xsc">
-      <DependentUpon>MatchReporterDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MatchReporterDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MatchReporterDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MatchReporterDataSet.xss">
-      <DependentUpon>MatchReporterDataSet.xsd</DependentUpon>
     </None>
     <None Include="MatchReporterModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
