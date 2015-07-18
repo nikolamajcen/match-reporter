@@ -95,6 +95,7 @@
             this.lblResultA = new System.Windows.Forms.Label();
             this.lblTeamB = new System.Windows.Forms.Label();
             this.lblTeamA = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.timerMatch = new System.Windows.Forms.Timer(this.components);
             this.teamOfficialIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,7 +132,6 @@
             this.disqualificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disqualificationReportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblResult = new System.Windows.Forms.Label();
             this.menuMainMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficials)).BeginInit();
@@ -878,9 +878,19 @@
             this.lblTeamA.TabIndex = 0;
             this.lblTeamA.Text = "Team A";
             // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblResult.Location = new System.Drawing.Point(430, 55);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(19, 25);
+            this.lblResult.TabIndex = 22;
+            this.lblResult.Text = ":";
+            // 
             // timerMatch
             // 
-            this.timerMatch.Interval = 10;
+            this.timerMatch.Interval = 1000;
             this.timerMatch.Tick += new System.EventHandler(this.timerMatch_Tick);
             // 
             // teamOfficialIdDataGridViewTextBoxColumn1
@@ -1146,16 +1156,6 @@
             // playerBindingSource
             // 
             this.playerBindingSource.DataSource = typeof(MatchReporter.Player);
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblResult.Location = new System.Drawing.Point(430, 55);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(19, 25);
-            this.lblResult.TabIndex = 22;
-            this.lblResult.Text = ":";
             // 
             // FrmMatchReporter
             // 
