@@ -102,6 +102,7 @@
             this.Controls.Add(this.cbxGuestTeam);
             this.Controls.Add(this.cbxHomeTeam);
             this.Controls.Add(this.lblHomeTeam);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddTeam";

@@ -153,6 +153,7 @@
             this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.txtReceiverEmail);
             this.Controls.Add(this.lblReceiver);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmReportEmailSend";

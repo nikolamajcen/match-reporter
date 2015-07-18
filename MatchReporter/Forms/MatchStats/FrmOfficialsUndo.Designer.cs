@@ -129,6 +129,7 @@
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.lblOfficialName);
             this.Controls.Add(this.lblOfficialNameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmOfficialsUndo";

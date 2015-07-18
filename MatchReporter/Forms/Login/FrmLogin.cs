@@ -31,25 +31,32 @@ namespace MatchReporter.Forms
             else
             {
                 lblStatus.Text = "Povezivanje...";
-                using (var db = new MatchReporterEntities())
+                try
                 {
-                    User creditials = (User)db.User
-                        .Where(u => u.Username == username)
-                        .Where(u => u.Password == password)
-                        .FirstOrDefault();
+                    using (var db = new MatchReporterEntities())
+                    {
+                        User creditials = (User)db.User
+                            .Where(u => u.Username == username)
+                            .Where(u => u.Password == password)
+                            .FirstOrDefault();
 
-                    if (creditials == null)
-                    {
-                        lblStatus.Text = "Krivo uneseni korisnički podaci.";
+                        if (creditials == null)
+                        {
+                            lblStatus.Text = "Krivo uneseni korisnički podaci.";
+                        }
+                        else
+                        {
+                            lblStatus.Text = "";
+                            this.Hide();
+                            FrmMatchReporter matchReporter = new FrmMatchReporter();
+                            matchReporter.ShowDialog();
+                            this.Close();
+                        }
                     }
-                    else
-                    {
-                        lblStatus.Text = "";
-                        this.Hide();
-                        FrmMatchReporter matchReporter = new FrmMatchReporter();
-                        matchReporter.ShowDialog();
-                        this.Close();
-                    }
+                }
+                catch
+                {
+                    lblStatus.Text = "Problem s internet vezom.";
                 }
             }
 

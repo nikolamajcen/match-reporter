@@ -76,6 +76,7 @@
             this.Controls.Add(this.txtSeconds);
             this.Controls.Add(this.txtMinutes);
             this.Controls.Add(this.lblMinute);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTimerChange";

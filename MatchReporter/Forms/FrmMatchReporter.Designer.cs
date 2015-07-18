@@ -170,28 +170,28 @@
             // matchNewToolStripMenuItem
             // 
             this.matchNewToolStripMenuItem.Name = "matchNewToolStripMenuItem";
-            this.matchNewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchNewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchNewToolStripMenuItem.Text = "Nova...";
             this.matchNewToolStripMenuItem.Click += new System.EventHandler(this.matchNewToolStripMenuItem_Click);
             // 
             // matchSaveToolStripMenuItem
             // 
             this.matchSaveToolStripMenuItem.Name = "matchSaveToolStripMenuItem";
-            this.matchSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchSaveToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchSaveToolStripMenuItem.Text = "Spremi...";
             this.matchSaveToolStripMenuItem.Click += new System.EventHandler(this.matchSaveToolStripMenuItem_Click);
             // 
             // matchConcludeToolStripMenuItem
             // 
             this.matchConcludeToolStripMenuItem.Name = "matchConcludeToolStripMenuItem";
-            this.matchConcludeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchConcludeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchConcludeToolStripMenuItem.Text = "Zaključi...";
             this.matchConcludeToolStripMenuItem.Click += new System.EventHandler(this.matchConcludeToolStripMenuItem_Click);
             // 
             // matchCloseToolStripMenuItem
             // 
             this.matchCloseToolStripMenuItem.Name = "matchCloseToolStripMenuItem";
-            this.matchCloseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchCloseToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matchCloseToolStripMenuItem.Text = "Zatvori...";
             this.matchCloseToolStripMenuItem.Click += new System.EventHandler(this.matchCloseToolStripMenuItem_Click);
             // 
@@ -306,7 +306,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 24);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(884, 637);
+            this.panelMain.Size = new System.Drawing.Size(884, 627);
             this.panelMain.TabIndex = 1;
             // 
             // btnGuestOfficialUndo
@@ -919,7 +919,7 @@
             this.panelTop.Controls.Add(this.lblTeamA);
             this.panelTop.Location = new System.Drawing.Point(3, 3);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(878, 100);
+            this.panelTop.Size = new System.Drawing.Size(890, 107);
             this.panelTop.TabIndex = 0;
             // 
             // lblTimeSeconds
@@ -1149,11 +1149,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(884, 651);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuMainMenu);
             this.MainMenuStrip = this.menuMainMenu;
-            this.MinimumSize = new System.Drawing.Size(800, 700);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(900, 690);
             this.Name = "FrmMatchReporter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Match Reporter";

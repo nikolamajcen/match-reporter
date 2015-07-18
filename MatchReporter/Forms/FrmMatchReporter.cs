@@ -1,6 +1,7 @@
 ﻿using MatchReporter.Classes;
 using MatchReporter.Forms.Data;
 using MatchReporter.Forms.Data.Add;
+using MatchReporter.Forms.Loading;
 using MatchReporter.Forms.MatchStats;
 using MatchReporter.Forms.Other;
 using MatchReporter.Forms.Podaci.Unos;
@@ -14,6 +15,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MatchReporter.Forms
@@ -64,6 +66,20 @@ namespace MatchReporter.Forms
         public bool SavedTeams;
         public bool SavedPlays;
         public bool SavedManages;
+
+        public void showLoadingForm()
+        {
+            FrmLoading loading = new FrmLoading();
+            loading.ShowDialog();
+            Application.Run();
+        }
+
+        public void showSavingForm()
+        {
+            FrmLoading loading = new FrmLoading("Spremanje podataka", "Podaci se spremaju.");
+            loading.ShowDialog();
+            Application.Run();
+        }
 
         public FrmMatchReporter()
         {
@@ -238,6 +254,9 @@ namespace MatchReporter.Forms
         {
             try
             {
+                Thread savingDataThread = new Thread(new ThreadStart(showSavingForm));
+                savingDataThread.Start();
+
                 // HomeTeamPlayers > HomePlays, GuestTeamPlayers > GuestPlays
 
                 foreach(TeamPlayer teamPlayer in HomeTeamPlayers)
@@ -343,6 +362,8 @@ namespace MatchReporter.Forms
 
                     db.SaveChanges();
                 }
+                savingDataThread.Abort();
+
                 MessageBox.Show(this, "Podaci su uspješno spremljeni.", "Spremanje podataka",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -473,6 +494,9 @@ namespace MatchReporter.Forms
 
                 if (dataAddTeam.TeamsSelected)
                 {
+                    Thread loadingThread = new Thread(new ThreadStart(showLoadingForm));
+                    loadingThread.Start();
+
                     this.HomeClub = dataAddTeam.HomeTeam;
                     this.GuestClub = dataAddTeam.GuestTeam;
 
@@ -533,6 +557,7 @@ namespace MatchReporter.Forms
 
                         this.SavedTeams = true;
                     }
+                    loadingThread.Abort();
                 }
                 //dataAddTeam.Dispose();
             }
@@ -541,7 +566,6 @@ namespace MatchReporter.Forms
                 MessageBox.Show(this, "Da biste dodali momčadi, prvo je potrebno unijeti podatke o utakmici.", "Greška",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
         }
 
         private void dataPlayersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -553,6 +577,9 @@ namespace MatchReporter.Forms
 
                 if (dataAddPlayers.PlayersAddSuccess)
                 {
+                    Thread loadingThread = new Thread(new ThreadStart(showLoadingForm));
+                    loadingThread.Start();
+
                     this.HomePlays = new BindingList<Play>();
                     this.GuestPlays = new BindingList<Play>();
 
@@ -610,6 +637,8 @@ namespace MatchReporter.Forms
                     dgvGuestTeam.DataSource = this.GuestTeamPlayers;
                     dgvHomeTeam.Refresh();
                     dgvGuestTeam.Refresh();
+
+                    loadingThread.Abort();
                 }
                 //dataAddPlayers.Dispose();
             }
@@ -629,6 +658,9 @@ namespace MatchReporter.Forms
 
                 if (dataAddOfficials.OfficialsAddSuccess)
                 {
+                    Thread loadingThread = new Thread(new ThreadStart(showLoadingForm));
+                    loadingThread.Start();
+
                     this.HomeManages = new BindingList<Manage>();
                     this.GuestManages = new BindingList<Manage>();
 
@@ -686,6 +718,8 @@ namespace MatchReporter.Forms
                     dgvGuestOfficials.DataSource = this.GuestTeamOfficials;
                     dgvHomeOfficials.Refresh();
                     dgvGuestOfficials.Refresh();
+
+                    loadingThread.Abort();
                 }
                 //dataAddOfficials.Dispose();
             }
@@ -1272,16 +1306,16 @@ namespace MatchReporter.Forms
 
         private void reportSendToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if(this.Match.Concluded == 1)
-            //{
+            if (this.Match.Concluded == 1)
+            {
                 FrmReportEmailSend reportEmailSend = new FrmReportEmailSend(this.Match, this.HomeClub, this.HomeTeam, this.GuestClub, this.GuestTeam);
                 reportEmailSend.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show(this, "Da biste poslali rezultat potrebno je\nprethodno zaključiti utakmicu.", "Slanje e-maila",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
+            }
+            else
+            {
+                MessageBox.Show(this, "Da biste poslali rezultat potrebno je\nprethodno zaključiti utakmicu.", "Slanje rezultata",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void reportPrintToolStripMenuItem_Click(object sender, EventArgs e)

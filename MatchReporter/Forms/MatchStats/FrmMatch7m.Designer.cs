@@ -81,6 +81,7 @@
             this.Controls.Add(this.cbxGoal);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.lblPlayerNameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMatch7m";

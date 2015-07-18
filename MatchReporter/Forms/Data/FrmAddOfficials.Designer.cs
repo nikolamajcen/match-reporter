@@ -36,45 +36,45 @@
             this.lblHomeOfficialsCount = new System.Windows.Forms.Label();
             this.lblGuestOfficialsCount = new System.Windows.Forms.Label();
             this.dgvHomeOfficialsAll = new System.Windows.Forms.DataGridView();
-            this.dgvGuestOfficialsAll = new System.Windows.Forms.DataGridView();
-            this.dgvHomeOfficialsManage = new System.Windows.Forms.DataGridView();
-            this.dgvGuestOfficialsManage = new System.Windows.Forms.DataGridView();
-            this.btnHomeOfficialsAdd = new System.Windows.Forms.Button();
-            this.btnHomeOfficialsRemove = new System.Windows.Forms.Button();
-            this.btnGuestOfficialsAdd = new System.Windows.Forms.Button();
-            this.btnGuestOfficialsRemove = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.clubOfficialIdDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubIdDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manageDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubOfficialBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clubOfficialIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubOfficialIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clubDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manageDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clubOfficialIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clubIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clubDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubOfficialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvGuestOfficialsAll = new System.Windows.Forms.DataGridView();
+            this.clubOfficialIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manageDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvHomeOfficialsManage = new System.Windows.Forms.DataGridView();
+            this.clubOfficialIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGuestOfficialsManage = new System.Windows.Forms.DataGridView();
+            this.clubOfficialIdDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubIdDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clubDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manageDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnHomeOfficialsAdd = new System.Windows.Forms.Button();
+            this.btnHomeOfficialsRemove = new System.Windows.Forms.Button();
+            this.btnGuestOfficialsAdd = new System.Windows.Forms.Button();
+            this.btnGuestOfficialsRemove = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeOfficialsAll)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clubOfficialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficialsAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeOfficialsManage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficialsManage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clubOfficialBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHomeTeamLabel
@@ -93,7 +93,7 @@
             this.lblHomeTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblHomeTeamName.Location = new System.Drawing.Point(93, 24);
             this.lblHomeTeamName.Name = "lblHomeTeamName";
-            this.lblHomeTeamName.Size = new System.Drawing.Size(62, 16);
+            this.lblHomeTeamName.Size = new System.Drawing.Size(64, 16);
             this.lblHomeTeamName.TabIndex = 1;
             this.lblHomeTeamName.Text = "Team A";
             // 
@@ -113,7 +113,7 @@
             this.lblGuestTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblGuestTeamName.Location = new System.Drawing.Point(384, 24);
             this.lblGuestTeamName.Name = "lblGuestTeamName";
-            this.lblGuestTeamName.Size = new System.Drawing.Size(62, 16);
+            this.lblGuestTeamName.Size = new System.Drawing.Size(64, 16);
             this.lblGuestTeamName.TabIndex = 3;
             this.lblGuestTeamName.Text = "Team B";
             // 
@@ -155,6 +155,58 @@
             this.dgvHomeOfficialsAll.Size = new System.Drawing.Size(249, 133);
             this.dgvHomeOfficialsAll.TabIndex = 6;
             // 
+            // clubOfficialIdDataGridViewTextBoxColumn
+            // 
+            this.clubOfficialIdDataGridViewTextBoxColumn.DataPropertyName = "ClubOfficialId";
+            this.clubOfficialIdDataGridViewTextBoxColumn.HeaderText = "Matični broj";
+            this.clubOfficialIdDataGridViewTextBoxColumn.Name = "clubOfficialIdDataGridViewTextBoxColumn";
+            this.clubOfficialIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clubOfficialIdDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "Ime";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Prezime";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // clubIdDataGridViewTextBoxColumn
+            // 
+            this.clubIdDataGridViewTextBoxColumn.DataPropertyName = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn.HeaderText = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn.Name = "clubIdDataGridViewTextBoxColumn";
+            this.clubIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clubIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // clubDataGridViewTextBoxColumn
+            // 
+            this.clubDataGridViewTextBoxColumn.DataPropertyName = "Club";
+            this.clubDataGridViewTextBoxColumn.HeaderText = "Club";
+            this.clubDataGridViewTextBoxColumn.Name = "clubDataGridViewTextBoxColumn";
+            this.clubDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clubDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // manageDataGridViewTextBoxColumn
+            // 
+            this.manageDataGridViewTextBoxColumn.DataPropertyName = "Manage";
+            this.manageDataGridViewTextBoxColumn.HeaderText = "Manage";
+            this.manageDataGridViewTextBoxColumn.Name = "manageDataGridViewTextBoxColumn";
+            this.manageDataGridViewTextBoxColumn.ReadOnly = true;
+            this.manageDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // clubOfficialBindingSource
+            // 
+            this.clubOfficialBindingSource.DataSource = typeof(MatchReporter.ClubOfficial);
+            // 
             // dgvGuestOfficialsAll
             // 
             this.dgvGuestOfficialsAll.AllowUserToAddRows = false;
@@ -174,6 +226,54 @@
             this.dgvGuestOfficialsAll.ReadOnly = true;
             this.dgvGuestOfficialsAll.Size = new System.Drawing.Size(249, 133);
             this.dgvGuestOfficialsAll.TabIndex = 7;
+            // 
+            // clubOfficialIdDataGridViewTextBoxColumn2
+            // 
+            this.clubOfficialIdDataGridViewTextBoxColumn2.DataPropertyName = "ClubOfficialId";
+            this.clubOfficialIdDataGridViewTextBoxColumn2.HeaderText = "Matični broj";
+            this.clubOfficialIdDataGridViewTextBoxColumn2.Name = "clubOfficialIdDataGridViewTextBoxColumn2";
+            this.clubOfficialIdDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.clubOfficialIdDataGridViewTextBoxColumn2.Width = 85;
+            // 
+            // firstNameDataGridViewTextBoxColumn2
+            // 
+            this.firstNameDataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn2.HeaderText = "Ime";
+            this.firstNameDataGridViewTextBoxColumn2.Name = "firstNameDataGridViewTextBoxColumn2";
+            this.firstNameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // lastNameDataGridViewTextBoxColumn2
+            // 
+            this.lastNameDataGridViewTextBoxColumn2.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn2.HeaderText = "Prezime";
+            this.lastNameDataGridViewTextBoxColumn2.Name = "lastNameDataGridViewTextBoxColumn2";
+            this.lastNameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // clubIdDataGridViewTextBoxColumn2
+            // 
+            this.clubIdDataGridViewTextBoxColumn2.DataPropertyName = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn2.HeaderText = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn2.Name = "clubIdDataGridViewTextBoxColumn2";
+            this.clubIdDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.clubIdDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // clubDataGridViewTextBoxColumn2
+            // 
+            this.clubDataGridViewTextBoxColumn2.DataPropertyName = "Club";
+            this.clubDataGridViewTextBoxColumn2.HeaderText = "Club";
+            this.clubDataGridViewTextBoxColumn2.Name = "clubDataGridViewTextBoxColumn2";
+            this.clubDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.clubDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // manageDataGridViewTextBoxColumn2
+            // 
+            this.manageDataGridViewTextBoxColumn2.DataPropertyName = "Manage";
+            this.manageDataGridViewTextBoxColumn2.HeaderText = "Manage";
+            this.manageDataGridViewTextBoxColumn2.Name = "manageDataGridViewTextBoxColumn2";
+            this.manageDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.manageDataGridViewTextBoxColumn2.Visible = false;
             // 
             // dgvHomeOfficialsManage
             // 
@@ -195,6 +295,54 @@
             this.dgvHomeOfficialsManage.Size = new System.Drawing.Size(249, 133);
             this.dgvHomeOfficialsManage.TabIndex = 8;
             // 
+            // clubOfficialIdDataGridViewTextBoxColumn1
+            // 
+            this.clubOfficialIdDataGridViewTextBoxColumn1.DataPropertyName = "ClubOfficialId";
+            this.clubOfficialIdDataGridViewTextBoxColumn1.HeaderText = "Matični broj";
+            this.clubOfficialIdDataGridViewTextBoxColumn1.Name = "clubOfficialIdDataGridViewTextBoxColumn1";
+            this.clubOfficialIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.clubOfficialIdDataGridViewTextBoxColumn1.Width = 85;
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "Ime";
+            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            this.firstNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "Prezime";
+            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            this.lastNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // clubIdDataGridViewTextBoxColumn1
+            // 
+            this.clubIdDataGridViewTextBoxColumn1.DataPropertyName = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn1.HeaderText = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn1.Name = "clubIdDataGridViewTextBoxColumn1";
+            this.clubIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.clubIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // clubDataGridViewTextBoxColumn1
+            // 
+            this.clubDataGridViewTextBoxColumn1.DataPropertyName = "Club";
+            this.clubDataGridViewTextBoxColumn1.HeaderText = "Club";
+            this.clubDataGridViewTextBoxColumn1.Name = "clubDataGridViewTextBoxColumn1";
+            this.clubDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.clubDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // manageDataGridViewTextBoxColumn1
+            // 
+            this.manageDataGridViewTextBoxColumn1.DataPropertyName = "Manage";
+            this.manageDataGridViewTextBoxColumn1.HeaderText = "Manage";
+            this.manageDataGridViewTextBoxColumn1.Name = "manageDataGridViewTextBoxColumn1";
+            this.manageDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.manageDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // dgvGuestOfficialsManage
             // 
             this.dgvGuestOfficialsManage.AllowUserToAddRows = false;
@@ -214,6 +362,54 @@
             this.dgvGuestOfficialsManage.ReadOnly = true;
             this.dgvGuestOfficialsManage.Size = new System.Drawing.Size(249, 133);
             this.dgvGuestOfficialsManage.TabIndex = 9;
+            // 
+            // clubOfficialIdDataGridViewTextBoxColumn3
+            // 
+            this.clubOfficialIdDataGridViewTextBoxColumn3.DataPropertyName = "ClubOfficialId";
+            this.clubOfficialIdDataGridViewTextBoxColumn3.HeaderText = "Matični broj";
+            this.clubOfficialIdDataGridViewTextBoxColumn3.Name = "clubOfficialIdDataGridViewTextBoxColumn3";
+            this.clubOfficialIdDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.clubOfficialIdDataGridViewTextBoxColumn3.Width = 85;
+            // 
+            // firstNameDataGridViewTextBoxColumn3
+            // 
+            this.firstNameDataGridViewTextBoxColumn3.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn3.HeaderText = "Ime";
+            this.firstNameDataGridViewTextBoxColumn3.Name = "firstNameDataGridViewTextBoxColumn3";
+            this.firstNameDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // lastNameDataGridViewTextBoxColumn3
+            // 
+            this.lastNameDataGridViewTextBoxColumn3.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn3.HeaderText = "Prezime";
+            this.lastNameDataGridViewTextBoxColumn3.Name = "lastNameDataGridViewTextBoxColumn3";
+            this.lastNameDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // clubIdDataGridViewTextBoxColumn3
+            // 
+            this.clubIdDataGridViewTextBoxColumn3.DataPropertyName = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn3.HeaderText = "ClubId";
+            this.clubIdDataGridViewTextBoxColumn3.Name = "clubIdDataGridViewTextBoxColumn3";
+            this.clubIdDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.clubIdDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // clubDataGridViewTextBoxColumn3
+            // 
+            this.clubDataGridViewTextBoxColumn3.DataPropertyName = "Club";
+            this.clubDataGridViewTextBoxColumn3.HeaderText = "Club";
+            this.clubDataGridViewTextBoxColumn3.Name = "clubDataGridViewTextBoxColumn3";
+            this.clubDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.clubDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // manageDataGridViewTextBoxColumn3
+            // 
+            this.manageDataGridViewTextBoxColumn3.DataPropertyName = "Manage";
+            this.manageDataGridViewTextBoxColumn3.HeaderText = "Manage";
+            this.manageDataGridViewTextBoxColumn3.Name = "manageDataGridViewTextBoxColumn3";
+            this.manageDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.manageDataGridViewTextBoxColumn3.Visible = false;
             // 
             // btnHomeOfficialsAdd
             // 
@@ -275,202 +471,6 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // clubOfficialIdDataGridViewTextBoxColumn3
-            // 
-            this.clubOfficialIdDataGridViewTextBoxColumn3.DataPropertyName = "ClubOfficialId";
-            this.clubOfficialIdDataGridViewTextBoxColumn3.HeaderText = "Matični broj";
-            this.clubOfficialIdDataGridViewTextBoxColumn3.Name = "clubOfficialIdDataGridViewTextBoxColumn3";
-            this.clubOfficialIdDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.clubOfficialIdDataGridViewTextBoxColumn3.Width = 85;
-            // 
-            // firstNameDataGridViewTextBoxColumn3
-            // 
-            this.firstNameDataGridViewTextBoxColumn3.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn3.HeaderText = "Ime";
-            this.firstNameDataGridViewTextBoxColumn3.Name = "firstNameDataGridViewTextBoxColumn3";
-            this.firstNameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.firstNameDataGridViewTextBoxColumn3.Width = 60;
-            // 
-            // lastNameDataGridViewTextBoxColumn3
-            // 
-            this.lastNameDataGridViewTextBoxColumn3.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn3.HeaderText = "Prezime";
-            this.lastNameDataGridViewTextBoxColumn3.Name = "lastNameDataGridViewTextBoxColumn3";
-            this.lastNameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.lastNameDataGridViewTextBoxColumn3.Width = 60;
-            // 
-            // clubIdDataGridViewTextBoxColumn3
-            // 
-            this.clubIdDataGridViewTextBoxColumn3.DataPropertyName = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn3.HeaderText = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn3.Name = "clubIdDataGridViewTextBoxColumn3";
-            this.clubIdDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.clubIdDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // clubDataGridViewTextBoxColumn3
-            // 
-            this.clubDataGridViewTextBoxColumn3.DataPropertyName = "Club";
-            this.clubDataGridViewTextBoxColumn3.HeaderText = "Club";
-            this.clubDataGridViewTextBoxColumn3.Name = "clubDataGridViewTextBoxColumn3";
-            this.clubDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.clubDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // manageDataGridViewTextBoxColumn3
-            // 
-            this.manageDataGridViewTextBoxColumn3.DataPropertyName = "Manage";
-            this.manageDataGridViewTextBoxColumn3.HeaderText = "Manage";
-            this.manageDataGridViewTextBoxColumn3.Name = "manageDataGridViewTextBoxColumn3";
-            this.manageDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.manageDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // clubOfficialBindingSource
-            // 
-            this.clubOfficialBindingSource.DataSource = typeof(MatchReporter.ClubOfficial);
-            // 
-            // clubOfficialIdDataGridViewTextBoxColumn1
-            // 
-            this.clubOfficialIdDataGridViewTextBoxColumn1.DataPropertyName = "ClubOfficialId";
-            this.clubOfficialIdDataGridViewTextBoxColumn1.HeaderText = "Matični broj";
-            this.clubOfficialIdDataGridViewTextBoxColumn1.Name = "clubOfficialIdDataGridViewTextBoxColumn1";
-            this.clubOfficialIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.clubOfficialIdDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // firstNameDataGridViewTextBoxColumn1
-            // 
-            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "Ime";
-            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
-            this.firstNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.firstNameDataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // lastNameDataGridViewTextBoxColumn1
-            // 
-            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "Prezime";
-            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
-            this.lastNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.lastNameDataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // clubIdDataGridViewTextBoxColumn1
-            // 
-            this.clubIdDataGridViewTextBoxColumn1.DataPropertyName = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn1.HeaderText = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn1.Name = "clubIdDataGridViewTextBoxColumn1";
-            this.clubIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.clubIdDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // clubDataGridViewTextBoxColumn1
-            // 
-            this.clubDataGridViewTextBoxColumn1.DataPropertyName = "Club";
-            this.clubDataGridViewTextBoxColumn1.HeaderText = "Club";
-            this.clubDataGridViewTextBoxColumn1.Name = "clubDataGridViewTextBoxColumn1";
-            this.clubDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.clubDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // manageDataGridViewTextBoxColumn1
-            // 
-            this.manageDataGridViewTextBoxColumn1.DataPropertyName = "Manage";
-            this.manageDataGridViewTextBoxColumn1.HeaderText = "Manage";
-            this.manageDataGridViewTextBoxColumn1.Name = "manageDataGridViewTextBoxColumn1";
-            this.manageDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.manageDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // clubOfficialIdDataGridViewTextBoxColumn2
-            // 
-            this.clubOfficialIdDataGridViewTextBoxColumn2.DataPropertyName = "ClubOfficialId";
-            this.clubOfficialIdDataGridViewTextBoxColumn2.HeaderText = "Matični broj";
-            this.clubOfficialIdDataGridViewTextBoxColumn2.Name = "clubOfficialIdDataGridViewTextBoxColumn2";
-            this.clubOfficialIdDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.clubOfficialIdDataGridViewTextBoxColumn2.Width = 85;
-            // 
-            // firstNameDataGridViewTextBoxColumn2
-            // 
-            this.firstNameDataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn2.HeaderText = "Ime";
-            this.firstNameDataGridViewTextBoxColumn2.Name = "firstNameDataGridViewTextBoxColumn2";
-            this.firstNameDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.firstNameDataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // lastNameDataGridViewTextBoxColumn2
-            // 
-            this.lastNameDataGridViewTextBoxColumn2.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn2.HeaderText = "Prezime";
-            this.lastNameDataGridViewTextBoxColumn2.Name = "lastNameDataGridViewTextBoxColumn2";
-            this.lastNameDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.lastNameDataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // clubIdDataGridViewTextBoxColumn2
-            // 
-            this.clubIdDataGridViewTextBoxColumn2.DataPropertyName = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn2.HeaderText = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn2.Name = "clubIdDataGridViewTextBoxColumn2";
-            this.clubIdDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.clubIdDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // clubDataGridViewTextBoxColumn2
-            // 
-            this.clubDataGridViewTextBoxColumn2.DataPropertyName = "Club";
-            this.clubDataGridViewTextBoxColumn2.HeaderText = "Club";
-            this.clubDataGridViewTextBoxColumn2.Name = "clubDataGridViewTextBoxColumn2";
-            this.clubDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.clubDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // manageDataGridViewTextBoxColumn2
-            // 
-            this.manageDataGridViewTextBoxColumn2.DataPropertyName = "Manage";
-            this.manageDataGridViewTextBoxColumn2.HeaderText = "Manage";
-            this.manageDataGridViewTextBoxColumn2.Name = "manageDataGridViewTextBoxColumn2";
-            this.manageDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.manageDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // clubOfficialIdDataGridViewTextBoxColumn
-            // 
-            this.clubOfficialIdDataGridViewTextBoxColumn.DataPropertyName = "ClubOfficialId";
-            this.clubOfficialIdDataGridViewTextBoxColumn.HeaderText = "Matični broj";
-            this.clubOfficialIdDataGridViewTextBoxColumn.Name = "clubOfficialIdDataGridViewTextBoxColumn";
-            this.clubOfficialIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clubOfficialIdDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "Ime";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.firstNameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Prezime";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastNameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // clubIdDataGridViewTextBoxColumn
-            // 
-            this.clubIdDataGridViewTextBoxColumn.DataPropertyName = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn.HeaderText = "ClubId";
-            this.clubIdDataGridViewTextBoxColumn.Name = "clubIdDataGridViewTextBoxColumn";
-            this.clubIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clubIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // clubDataGridViewTextBoxColumn
-            // 
-            this.clubDataGridViewTextBoxColumn.DataPropertyName = "Club";
-            this.clubDataGridViewTextBoxColumn.HeaderText = "Club";
-            this.clubDataGridViewTextBoxColumn.Name = "clubDataGridViewTextBoxColumn";
-            this.clubDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clubDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // manageDataGridViewTextBoxColumn
-            // 
-            this.manageDataGridViewTextBoxColumn.DataPropertyName = "Manage";
-            this.manageDataGridViewTextBoxColumn.HeaderText = "Manage";
-            this.manageDataGridViewTextBoxColumn.Name = "manageDataGridViewTextBoxColumn";
-            this.manageDataGridViewTextBoxColumn.ReadOnly = true;
-            this.manageDataGridViewTextBoxColumn.Visible = false;
-            // 
             // FrmAddOfficials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,16 +492,17 @@
             this.Controls.Add(this.lblGuestTeamLabel);
             this.Controls.Add(this.lblHomeTeamName);
             this.Controls.Add(this.lblHomeTeamLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddOfficials";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Unos službenih osoba";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeOfficialsAll)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clubOfficialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficialsAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHomeOfficialsManage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGuestOfficialsManage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clubOfficialBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

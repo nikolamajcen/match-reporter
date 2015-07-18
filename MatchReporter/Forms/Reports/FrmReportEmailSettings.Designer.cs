@@ -178,6 +178,7 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.btnSetDefault);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmReportEmailSettings";

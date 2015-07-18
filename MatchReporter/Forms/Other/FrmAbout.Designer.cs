@@ -138,6 +138,7 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblPurpose);
             this.Controls.Add(this.lblAuthor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAbout";

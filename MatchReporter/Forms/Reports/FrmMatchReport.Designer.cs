@@ -33,16 +33,32 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.matchReport = new Microsoft.Reporting.WinForms.ReportViewer();
             this.HomeTeamPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GuestTeamPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.HomeTeamOfficialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GuestTeamOfficialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.matchReport = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.HomeTeamPlayerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GuestTeamPlayerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomeTeamOfficialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GuestTeamOfficialBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // HomeTeamPlayerBindingSource
+            // 
+            this.HomeTeamPlayerBindingSource.DataSource = typeof(MatchReporter.Classes.TeamPlayer);
+            // 
+            // GuestTeamPlayerBindingSource
+            // 
+            this.GuestTeamPlayerBindingSource.DataSource = typeof(MatchReporter.Classes.TeamPlayer);
+            // 
+            // HomeTeamOfficialBindingSource
+            // 
+            this.HomeTeamOfficialBindingSource.DataSource = typeof(MatchReporter.Classes.TeamOfficial);
+            // 
+            // GuestTeamOfficialBindingSource
+            // 
+            this.GuestTeamOfficialBindingSource.DataSource = typeof(MatchReporter.Classes.TeamOfficial);
             // 
             // matchReport
             // 
@@ -65,22 +81,6 @@
             this.matchReport.Size = new System.Drawing.Size(673, 492);
             this.matchReport.TabIndex = 0;
             // 
-            // HomeTeamPlayerBindingSource
-            // 
-            this.HomeTeamPlayerBindingSource.DataSource = typeof(MatchReporter.Classes.TeamPlayer);
-            // 
-            // GuestTeamPlayerBindingSource
-            // 
-            this.GuestTeamPlayerBindingSource.DataSource = typeof(MatchReporter.Classes.TeamPlayer);
-            // 
-            // HomeTeamOfficialBindingSource
-            // 
-            this.HomeTeamOfficialBindingSource.DataSource = typeof(MatchReporter.Classes.TeamOfficial);
-            // 
-            // GuestTeamOfficialBindingSource
-            // 
-            this.GuestTeamOfficialBindingSource.DataSource = typeof(MatchReporter.Classes.TeamOfficial);
-            // 
             // FrmMatchReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -88,7 +88,7 @@
             this.ClientSize = new System.Drawing.Size(673, 492);
             this.Controls.Add(this.matchReport);
             this.Name = "FrmMatchReport";
-            this.Text = "FrmMatchReport";
+            this.Text = "Izvještaj utakmice";
             this.Load += new System.EventHandler(this.FrmMatchReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.HomeTeamPlayerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GuestTeamPlayerBindingSource)).EndInit();
